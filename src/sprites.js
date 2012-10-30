@@ -1,7 +1,8 @@
 Crafty.sprite(32,"resources/images/dungeon.png", {
   floor: [0,1],
   wall1: [9,0],
-  stairs: [3,1]
+  down: [3,1],
+  up: [13, 1]
 });
 
 // This will create entities called hero1

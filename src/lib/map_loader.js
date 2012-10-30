@@ -7,9 +7,12 @@ function loadMap(file, callback) {
       level.push(columns);
       // Then split out each column
       $.each(columns,function(x,column) {
-        if(column) {
+        console.log("colums", column);
+        if(column == "F") {
           Crafty.e("2D, Canvas, floor, Floor").attr({x:x * 32, y: y * 32});
-        } else {
+        } else if(column == "D") {
+          Crafty.e("2D, Canvas, down, Down").attr({x:x * 32, y: y * 32});
+        }else{
           Crafty.e("2D, Canvas, wall1, Wall").attr({x:x * 32, y: y * 32});
         }
       });
