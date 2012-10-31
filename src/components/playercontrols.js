@@ -63,9 +63,9 @@ Crafty.c("AI",{
 
 Crafty.c("Solid",{
   init: function() {
-    this.requires("Collision").onHit("Wall",function(obj) {
+    this.requires("Collision").onHit("Solid",function(obj) {
     this.bind('Moved', function(from) {
-        if(this.hit('Wall')){
+        if(this.hit('Solid')){
           this.attr({x: from.x, y:from.y});
         }
     });
