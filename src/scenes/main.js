@@ -1,13 +1,13 @@
 Crafty.scene("main",function() {
 
-  Crafty.background("#000");
+  Crafty.background("#444");
 
   loadMap("src/levels/map01.tsv",function() {
     console.log("map loaded");
 
-    var player = Crafty.e("2D, Canvas, DOM, SpriteAnimation, PlayerControls, Solid, hero1")
+    var player = Crafty.e("2D, Canvas, DOM, SpriteAnimation, PlayerControls, Slide, Solid, hero1")
       .attr({x:32, y:32*2, z:1})
-      .playerControls(1.5)
+/*      .playerControls(1.5)*/
       .animate("walk_left", 2, 1, 0)
       .animate("walk_right", 2, 2, 0)
       .animate("walk_up", 2, 3, 0)
@@ -38,6 +38,7 @@ Crafty.scene("main",function() {
 
     var dad = Crafty.e("2D, Canvas, dad1, Solid, AI")
       .attr({x:32*21, y:32*11, z:1});
+    var camera = Crafty.e("Camera").camera(player);
   });
 
 });

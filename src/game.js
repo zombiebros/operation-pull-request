@@ -1,5 +1,5 @@
 // Initialize Crafty
 $(function(){
-Crafty.init().canvas.init();
+Crafty.init(700,600).canvas.init();
 Crafty.scene("loading");
 });

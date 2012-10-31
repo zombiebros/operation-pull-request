@@ -2,7 +2,7 @@
   // and smoothly slides to another tile location
   Crafty.c("Slide", {
     init: function() {
-      this._stepFrames = 5;
+      this._stepFrames = 20;
       this._tileSize = 32;
       this._moving = false;
       this._vx = 0; this._destX = 0; this._sourceX = 0;

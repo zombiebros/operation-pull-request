@@ -1,4 +1,4 @@
-Crafty.c("PlayerControls", {
+/*Crafty.c("PlayerControls", {
     init: function() {
         this.requires('Multiway');
     },
@@ -8,8 +8,8 @@ Crafty.c("PlayerControls", {
         return this;
     }
     
-});
-/*Crafty.c("PlayerControls", {
+});*/
+Crafty.c("PlayerControls", {
   _keys: {
   UP_ARROW: [0,-1],
   DOWN_ARROW: [0,1],
@@ -35,7 +35,7 @@ Crafty.c("PlayerControls", {
       }
     });
   }
-});*/
+});
 
 
 Crafty.c("AI",{
@@ -64,12 +64,25 @@ Crafty.c("AI",{
 Crafty.c("Solid",{
   init: function() {
     this.requires("Collision").onHit("Solid",function(obj) {
-    this.bind('Moved', function(from) {
+      this.cancelSlide();
+/*    this.bind('Moved', function(from) {
         if(this.hit('Solid')){
           this.attr({x: from.x, y:from.y});
         }
-    });
-      //    this.cancelSlide();
+    });*/
     });
   }
 });
+
+Crafty.c("Camera",{
+    init: function() {  },
+    camera: function(obj) {
+      this.set(obj);
+      var that = this;
+      obj.bind("Moved",function(location) { that.set(location); });
+    },
+    set: function(obj) {
+      Crafty.viewport.x = -obj.x + Crafty.viewport.width / 2;
+      Crafty.viewport.y = -obj.y + Crafty.viewport.height / 2;
+    }
+  });
