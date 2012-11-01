@@ -2,8 +2,7 @@ Crafty.scene("main",function() {
 
   Crafty.background("#444");
 
-  loadMap("src/levels/map01.tsv",function() {
-    console.log("map loaded");
+  MapLoader.getLevel(MapLoader.current_level,function() {
 
     var player = Crafty.e("2D, Canvas, DOM, SpriteAnimation, PlayerControls, Slide, Solid, hero1")
       .attr({x:32, y:32*2, z:1})
