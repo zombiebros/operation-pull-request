@@ -3,7 +3,6 @@ var MapLoader = {
   ,cached_maps: {}
   ,maps_path: "src/levels/"
 
-
   ,getMapFile: function(level_num, callback) {
     var file = this.maps_path+"map"+level_num+".tsv";
     var _self = this;
