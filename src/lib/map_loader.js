@@ -27,9 +27,10 @@ var MapLoader = {
     this.getMapData(level_num, callback);
   }
   
-  // ,nextLevel: function(){
-  //   this.current_level += 1;
-  // }
+   ,nextLevel: function(){
+     this.current_level += 1;
+     Crafty.scene("main");
+   }
 
   ,renderMapData: function(map_data, callback){
       // Split out each row
