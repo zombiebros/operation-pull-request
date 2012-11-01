@@ -37,6 +37,7 @@ Crafty.scene("main",function() {
 
     var dad = Crafty.e("2D, Canvas, dad1, Solid, AI")
       .attr({x:32*21, y:32*11, z:1});
+
     var camera = Crafty.e("Camera").camera(player);
   });
 
