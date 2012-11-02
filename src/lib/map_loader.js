@@ -32,6 +32,13 @@ var MapLoader = {
      Crafty.scene("main");
    }
 
+   ,prevLevel: function(){
+     if(this.current_level > 0){
+       this.current_level -= 1;
+       Crafty.scene("main");
+     }
+   }
+
   ,renderMapData: function(map_data, callback){
       // Split out each row
       $.each(map_data.split("\n"), this.mapRows);
@@ -47,10 +54,10 @@ var MapLoader = {
         Crafty.e("2D, Canvas, floor, Floor").attr({x:x * 32, y: y * 32});
         break;
       case "D":
-         Crafty.e("2D, Canvas, down, Down_Stairs").attr({x:x * 32, y: y * 32});
+         Crafty.e("2D, Canvas, down, DownStairs").attr({x:x * 32, y: y * 32});
         break;
       default:
-        Crafty.e("2D, Canvas, wall1, Wall, Solid").attr({x:x * 32, y: y * 32});
+        Crafty.e("2D, Canvas, wall1, Wall").attr({x:x * 32, y: y * 32});
       }
     });
   }
