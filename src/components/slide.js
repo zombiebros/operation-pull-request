@@ -47,6 +47,7 @@
       });
 
     },
+
     slideFrames: function(frames) {
        this._stepFrames = frames;
     },
