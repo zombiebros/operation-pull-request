@@ -4,7 +4,7 @@ Crafty.scene("main",function() {
 
   MapLoader.getLevel(MapLoader.current_level,function() {
 
-    var player = Crafty.e("2D, Canvas, PlayerControls, Slide, Solid, hero1")
+    var player = Crafty.e("2D, Canvas, PlayerControls, Slide, hero1, Solid")
       .attr({x:32, y:32*3, z:1});
       // .animate("walk_left", 2, 1, 0)
       // .animate("walk_right", 2, 2, 0)
