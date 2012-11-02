@@ -50,7 +50,7 @@ var MapLoader = {
          Crafty.e("2D, Canvas, down, Down_Stairs").attr({x:x * 32, y: y * 32});
         break;
       default:
-        Crafty.e("2D, Canvas, wall1, Wall, Solid").attr({x:x * 32, y: y * 32});
+        Crafty.e("2D, Canvas, wall1, Wall").attr({x:x * 32, y: y * 32});
       }
     });
   }
