@@ -16,14 +16,8 @@ Crafty.c("Bullet",{
   	this.x += this.direction.x * 4/*speed*/;
   	this.y += this.direction.y * 4/*speed*/;
 
-<<<<<<< HEAD
-=======
-  	//this.w = this.w -= 0.01;
-  	//this.h = this.h -= 0.01;
-
     if(this.x > Crafty.viewport.width || this.x < 0 || this.y > Crafty.viewport.height || this.y < 0) {
       this.destroy();
     }
->>>>>>> bce7b843fe26dfd15183dd4bd4cf5f9ee1aba2c8
   }
 });
