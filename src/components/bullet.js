@@ -10,14 +10,11 @@ Crafty.c("Bullet",{
 
   	this.direction = targetVector.subtract(originVector);
   	if(!this.direction.isZero()){
-  		console.log("normalizing direction");
   		this.direction = this.direction.normalize();
   	}
   	
-  	this.x += this.direction.x;
-  	this.y += this.direction.y;
+  	this.x += this.direction.x * 4/*speed*/;
+  	this.y += this.direction.y * 4/*speed*/;
 
-  	//this.w = this.w -= 0.01;
-  	//this.h = this.h -= 0.01;
   }
 });
