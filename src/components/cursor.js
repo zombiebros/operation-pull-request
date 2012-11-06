@@ -4,6 +4,6 @@ Crafty.c("Cursor", {
   },
 
   position: function(e){
-      this.attr({x:e.x - 395,y:e.y - 30});
+      this.attr({x:e.x,y:e.y});
   }
 });
