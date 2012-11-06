@@ -4,6 +4,6 @@ Crafty.c("Cursor", {
   },
 
   position: function(e){
-      //console.log("mousan", e.x, e.y);
+      this.attr({x:e.x - 395,y:e.y - 30});
   }
 });

@@ -60,3 +60,4 @@ Crafty.c("PlayerControls", {
     this.x += this._vx;
   }
 });
+
