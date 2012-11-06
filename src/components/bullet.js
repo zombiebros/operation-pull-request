@@ -2,11 +2,15 @@ Crafty.c("Bullet",{
 
   init: function() {
     this.bind("EnterFrame", this.EnterFrame);
-    this.target = Crafty.math.Vector2D(x, y);
+    this.originVector = Crafty.math.Vector2d(this.x, this.y);
+    this.targetVector = Crafty.math.Vector2d(this.targetx, this.targety);
+    this.direction = targetVector.subtract(originVector);
+    if(!this.direction.isZero()){
+    	this.direction = this.movment.normalize();
+	}	
   }
 
   ,EnterFrame: function(e){
-    this.x += this.xspeed;
-    this.y += this.yspeed;
+  	console.log("shoot",this);
   }
 });

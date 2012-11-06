@@ -4,6 +4,6 @@ Crafty.c("Cursor", {
   },
 
   position: function(e){
-      console.log("mousan", e.x, e.y);
+      //console.log("mousan", e.x, e.y);
   }
 });

@@ -39,6 +39,17 @@ Crafty.c("PlayerControls", {
 
   ,Shoot: function(e){
     console.log("shootan!", e.x, e.y);
+
+    Crafty.e("2D, Canvas, Color, Bullet")
+    .color("red")
+    .attr({
+      x: this.x,
+      y: this.y,
+      targetx: e.x,
+      targety: e.y,
+      w:16,
+      h:16
+    });
   }
 
   ,Move: function(e){
