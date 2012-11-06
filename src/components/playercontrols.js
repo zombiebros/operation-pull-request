@@ -20,7 +20,7 @@ Crafty.c("PlayerControls", {
     // this.bind("EnterFrame", this.Move);
     // this.bind("KeyUp", this.KeyUp);
     // twoway movement for now
-    this.requires("Twoway").twoway(10);
+    this.requires("Twoway").twoway(10,[0]);
     Crafty.addEvent(this, Crafty.stage.elem, "mousedown", this.Shoot);
   }
 
