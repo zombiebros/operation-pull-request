@@ -45,8 +45,8 @@ Crafty.c("PlayerControls", {
     .attr({
       x: this.x,
       y: this.y,
-      targetx: e.x,
-      targety: e.y,
+      targetx: e.layerX,
+      targety: e.layerY,
       w:16,
       h:16
     });
