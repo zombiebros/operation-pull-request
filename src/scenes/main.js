@@ -1,6 +1,7 @@
 Crafty.scene("main",function() {
 
   Crafty.background("#444");
+  $('#cr-stage').css('cursor', 'url("resources/images/crossairs.png"),auto');
 
   MapLoader.getLevel(MapLoader.current_level,function() {
 
@@ -32,10 +33,7 @@ Crafty.scene("main",function() {
       //         if(!direction.x && !direction.y) {
       //           this.stop();
       //         }
-      //       });
-
-    var corssairs = Crafty.e("2D, Canvas, crossairs1")
-      .attr({w:50,h:50});
+    //       });
 
     // var dad = Crafty.e("2D, Canvas, dad1, Solid, Slide, AI")
     //   .attr({x:32*21, y:32*11, z:1});
