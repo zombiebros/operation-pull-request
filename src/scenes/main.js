@@ -4,8 +4,9 @@ Crafty.scene("main",function() {
 
   MapLoader.getLevel(MapLoader.current_level,function() {
 
-    var player = Crafty.e("2D, Canvas, PlayerControls, Slide, hero1, Solid")
-      .attr({x:32, y:32*3, z:1});
+    var player = Crafty.e("2D, Canvas, PlayerControls, player1, Solid, Color")
+      .color("blue")
+      .attr({w:50,h:100,x:32*10,y:32*15.6});
       // .animate("walk_left", 2, 1, 0)
       // .animate("walk_right", 2, 2, 0)
       // .animate("walk_up", 2, 3, 0)
@@ -33,11 +34,13 @@ Crafty.scene("main",function() {
       //         }
       //       });
 
+    var corssairs = Crafty.e("2D, Canvas, crossairs1")
+      .attr({w:50,h:50});
 
     // var dad = Crafty.e("2D, Canvas, dad1, Solid, Slide, AI")
     //   .attr({x:32*21, y:32*11, z:1});
 
-    var camera = Crafty.e("Camera").camera(player);
+    // var camera = Crafty.e("Camera").camera(player);
   });
 
 });

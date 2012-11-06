@@ -9,6 +9,7 @@
     }
     
 });*/
+
 Crafty.c("PlayerControls", {
   _keys: {
   UP_ARROW: [0,-1],
