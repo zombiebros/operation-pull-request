@@ -7,6 +7,7 @@ Crafty.scene("main",function() {
 
     var player = Crafty.e("2D, Canvas, PlayerControls, player1, Solid, Color")
       .color("blue")
+      .playerControls(2.5)
       .attr({w:50,h:100,x:32*10,y:32*15.6});
       // .animate("walk_left", 2, 1, 0)
       // .animate("walk_right", 2, 2, 0)
