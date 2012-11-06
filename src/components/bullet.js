@@ -19,5 +19,9 @@ Crafty.c("Bullet",{
 
   	//this.w = this.w -= 0.01;
   	//this.h = this.h -= 0.01;
+
+    if(this.x > Crafty.viewport.width || this.x < 0 || this.y > Crafty.viewport.height || this.y < 0) {
+      this.destroy();
+    }
   }
 });
