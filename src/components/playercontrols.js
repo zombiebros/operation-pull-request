@@ -1,39 +1,52 @@
 Crafty.c("PlayerControls", {
-    init: function() {
-        this.requires('Multiway');
-    },
-    
-    playerControls: function(speed) {
-        this.multiway(speed, {W: -90, S: 90, D: 0, A: 180});
-        return this;
+  _keys: {
+  UP_ARROW: [0,-1],
+  DOWN_ARROW: [0,1],
+  RIGHT_ARROW: [1,0],
+  LEFT_ARROW: [-1,0],
+  W: [0,-1],
+  S: [0,1],
+  D: [1,0],
+  A: [-1,0]
+  },
+
+  init: function() {
+    for(var k in this._keys) {
+      var keyCode = Crafty.keys[k] || k;
+      this._keys[keyCode] = this._keys[k];
     }
     
+    // this.bind("KeyDown",this.KeyDown);
+    // this.bind("EnterFrame", this.Move);
+    // this.bind("KeyUp", this.KeyUp);
+    // twoway movement for now
+    this.requires("Twoway").twoway(10);
+    Crafty.addEvent(this, Crafty.stage.elem, "mousedown", this.Shoot);
+  }
+
+  ,KeyDown: function(e) {
+    if(this._keys[e.key]) {
+      var direction = this._keys[e.key];
+        if(this._moving) return false;
+        this._moving = true;
+        this._vx = direction[0];
+    }
+  }
+
+  ,KeyUp: function(e){
+    this._moving = false;
+  }
+
+  ,Shoot: function(e){
+    console.log("shootan!", e.x, e.y);
+  }
+
+  ,Move: function(e){
+
+    if(!this._moving) return false;
+    
+    console.log("moving", this._vx);
+    this.x += this._vx;
+  }
 });
 
-// Crafty.c("PlayerControls", {
-//   _keys: {
-//   UP_ARROW: [0,-1],
-//   DOWN_ARROW: [0,1],
-//   RIGHT_ARROW: [1,0],
-//   LEFT_ARROW: [-1,0],
-//   W: [0,-1],
-//   S: [0,1],
-//   D: [1,0],
-//   A: [-1,0]
-//   },
-
-//   init: function() {
-//     for(var k in this._keys) {
-//       var keyCode = Crafty.keys[k] || k;
-//       this._keys[keyCode] = this._keys[k];
-//     }
-
-//     this.bind("KeyDown",function(e) {
-//       if(this._keys[e.key]) {
-//         var direction = this._keys[e.key];
-//         this.trigger('Slide',direction);
-//         Crafty.trigger('Turn');
-//       }
-//     });
-//   }
-// });
