@@ -4,7 +4,12 @@ Crafty.scene("main",function() {
   
     var player = Crafty.e("2D, Canvas, PlayerControls, player1, Color")
       .color("blue")
-			.attr({w:50,h:100,x:Crafty.viewport.width/2-25,y:32*15.6});
+			.attr({w:50,h:100,x:Crafty.viewport.width/2-25,y:32*15.6})
+			.bind("Moved", function(from) {
+				if(this.x+this.w > Crafty.viewport.width || this.x+this.w < this.w){
+					this.attr({x:from.x,y:from.y});
+				}
+			});
 
     var corssairs = Crafty.e("2D, Canvas, crossairs1, Cursor")
       .attr({w:50,h:50});
