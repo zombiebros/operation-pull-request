@@ -1,12 +1,12 @@
 Crafty.c("Soldier", {
 
   init: function(){    
-    this.requires("Twoway").twoway(10);
     this.bind("EnterFrame", this.EnterFrame);
   }
 
   ,EnterFrame: function(){
-  	this.move('e', 10);
+  	//this.trigger("Moved", {x:this.x, y:this.y});
+  	//this.x += 10;
   	//this.shoot();  	
   }
 

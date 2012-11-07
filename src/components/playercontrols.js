@@ -25,7 +25,6 @@ Crafty.c("PlayerControls", {
   }
 
 
-
   ,Shoot: function(e){
     console.log("shootan!", e.x, e.y);
   }
