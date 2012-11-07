@@ -19,8 +19,12 @@ Crafty.c("Cursor", {
   }
 
   ,enterFrame: function(e){
-  	this.animate('Shooting',2,0,1)
-  	.animate('Shooting', 15, -1);
+  	if(this.shooting){
+  		this.animate('Shooting',2,0,1)
+  		.animate('Shooting', 15, -1);
+    }else{
+    	this.animate('Shooting', 0, 0, 0);
+    }
   }
 
 });
