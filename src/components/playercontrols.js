@@ -18,12 +18,6 @@ Crafty.c("PlayerControls", {
     
     // twoway movement for now
     this.requires("Twoway").twoway(10,[0]);
-    this.requires("Collision")
-    .onHit("Bullet", this.bulletCollision);
-  }
-
-  ,bulletCollision: function(){
-    //player is hit do some dead stuff
   }
 
 });
