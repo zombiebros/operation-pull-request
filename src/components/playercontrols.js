@@ -24,29 +24,12 @@ Crafty.c("PlayerControls", {
     Crafty.addEvent(this, Crafty.stage.elem, "mousedown", this.Shoot);
   }
 
-  // ,KeyDown: function(e) {
-  //   if(this._keys[e.key]) {
-  //     var direction = this._keys[e.key];
-  //       if(this._moving) return false;
-  //       this._moving = true;
-  //       this._vx = direction[0];
-  //   }
-  // }
 
-  // ,KeyUp: function(e){
-  //   this._moving = false;
-  // }
 
   ,Shoot: function(e){
     console.log("shootan!", e.x, e.y);
   }
 
-  // ,Move: function(e){
 
-  //   if(!this._moving) return false;
-    
-  //   console.log("moving", this._vx);
-  //   this.x += this._vx;
-  // }
 });
 
