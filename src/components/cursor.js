@@ -19,7 +19,7 @@ Crafty.c("Cursor", {
   }
 
   ,enterFrame: function(e){
-  	if(this.shooting){
+  	if(this.shooting == true){
   		this.animate('Shooting',2,0,1)
   		.animate('Shooting', 15, -1);
     }else{

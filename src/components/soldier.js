@@ -14,15 +14,16 @@ Crafty.c("Soldier", {
   }
 
   ,shoot: function(e){
+  	var player = Crafty(Crafty("player1")[0]);
   	Crafty.e("2D, Canvas, Color, Bullet")
   	.color("red")
   	.attr({
   		w: 16,
   		h: 16,
-  		x: this.x,
-  		y: this.y,
-  		targetx: Crafty(Crafty("player1")[0]).x,
-  		targety: Crafty(Crafty("player1")[0]).y
+  		x: this.centerX(),
+  		y: this.centerY(),
+  		targetx: player.centerX(),
+  		targety: player.centerY()
   	});
 
   }

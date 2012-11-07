@@ -2,10 +2,11 @@ Crafty.c("Bullet",{
 
   init: function() {    
 	this.bind("EnterFrame", this.EnterFrame);
+	this.requires("MoveByCenter");
   }
 
   ,EnterFrame: function(e){  	
-  	originVector = new Crafty.math.Vector2D(this.x, this.y);
+  	originVector = new Crafty.math.Vector2D(this.centerX(), this.centerY());
   	targetVector = new Crafty.math.Vector2D(this.targetx, this.targety);
 
   	this.direction = targetVector.subtract(originVector);
@@ -13,10 +14,16 @@ Crafty.c("Bullet",{
   		this.direction = this.direction.normalize();
   	}
   	
-  	this.x += this.direction.x * 4/*speed*/;
-  	this.y += this.direction.y * 4/*speed*/;
+  	var new_coords = {
+  		x: this.x + this.direction.x * 4/*speed*/,
+  		y: this.y + this.direction.y * 4/*speed*/
+  	};
 
-    if(this.x > Crafty.viewport.width || this.x < 0 || this.y > Crafty.viewport.height || this.y < 0) {
+  	this.moveByCenter(new_coords);
+
+  	console.log(this.targety, this.y);
+
+    if(this.x > Crafty.viewport.width || this.x < 0 || this.y > Crafty.viewport.height || this.y < 0  || this.y >= this.targety) {
       this.destroy();
     }
   }
