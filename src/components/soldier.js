@@ -3,7 +3,6 @@ Crafty.c("Soldier", {
   init: function(){    
     this.bind("EnterFrame", this.EnterFrame);
     this.direction = 1;
-    
     this.requires("Collision")
   }
 
