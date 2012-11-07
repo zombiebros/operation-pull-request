@@ -37,6 +37,15 @@ Crafty.scene("main",function() {
 	   y: player.y-player.h/2
 	});
 
+    var playerCover2 = Crafty.e("2D, Canvas, Color, PlayerCover")
+	.color("pink")
+	.attr({
+	   h: 100,
+	   w: 200,
+	   y: player.y-player.h/2,
+	   x: Crafty.viewport.width-200
+	});
+
 	var corssairs = Crafty.e("2D, SpriteAnimation, Canvas, crossairs1, Cursor")
 	.attr({w:50,h:50});
 

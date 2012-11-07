@@ -5,18 +5,13 @@ Crafty.c("Soldier", {
     this.direction = 1;
     
     this.requires("Collision")
-    .onhit("Cover", this.coverHit);
-  }
-
-  ,coverHit: function(cover){
-  	this.iscovered = true;
   }
 
   ,EnterFrame: function(){
   	this.trigger("Moved", {x:this.x += this.direction*5, y:this.y});
   	this.x += this.direction * 2;
-  	
-  	if(Crafty.math.randomInt(0, 25) == 25 && this.iscoverd == false){
+
+  	if(Crafty.math.randomInt(0, 25) == 25 && this.hit("EnemyCover") == false){
   		this.shoot();  	
     }
   }
