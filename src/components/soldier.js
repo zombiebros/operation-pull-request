@@ -2,12 +2,15 @@ Crafty.c("Soldier", {
 
   init: function(){    
     this.bind("EnterFrame", this.EnterFrame);
+    this.direction = 1;
   }
 
   ,EnterFrame: function(){
-  	//this.trigger("Moved", {x:this.x, y:this.y});
-  	//this.x += 10;
-  	//this.shoot();  	
+  	this.trigger("Moved", {x:this.x += this.direction*10, y:this.y});
+  	this.x += this.direction * 10;
+  	// if(Crafty.math.randomInt(0, 1)){
+  	// 	this.shoot();  	
+   //  }
   }
 
   ,shoot: function(e){
