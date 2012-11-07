@@ -11,6 +11,7 @@ Crafty.scene("main",function() {
       .attr({
       	w:50,
       	h:100,
+      	y: 150,
       });
 
     var corssairs = Crafty.e("2D, SpriteAnimation, Canvas, crossairs1, Cursor")
