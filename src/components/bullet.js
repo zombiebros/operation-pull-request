@@ -15,7 +15,6 @@ Crafty.c("Bullet",{
   }
 
   ,playerCoverHit: function(player_cover){
-  	console.log("hit player cover", player_cover);
   	this.destroy();
   }
 
