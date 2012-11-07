@@ -24,40 +24,29 @@ Crafty.c("PlayerControls", {
     Crafty.addEvent(this, Crafty.stage.elem, "mousedown", this.Shoot);
   }
 
-  ,KeyDown: function(e) {
-    if(this._keys[e.key]) {
-      var direction = this._keys[e.key];
-        if(this._moving) return false;
-        this._moving = true;
-        this._vx = direction[0];
-    }
-  }
+  // ,KeyDown: function(e) {
+  //   if(this._keys[e.key]) {
+  //     var direction = this._keys[e.key];
+  //       if(this._moving) return false;
+  //       this._moving = true;
+  //       this._vx = direction[0];
+  //   }
+  // }
 
-  ,KeyUp: function(e){
-    this._moving = false;
-  }
+  // ,KeyUp: function(e){
+  //   this._moving = false;
+  // }
 
   ,Shoot: function(e){
     console.log("shootan!", e.x, e.y);
-
-    Crafty.e("2D, Canvas, Color, Bullet")
-    .color("red")
-    .attr({
-      x: this.x,
-      y: this.y,
-      targetx: e.layerX,
-      targety: e.layerY,
-      w:16,
-      h:16
-    });
   }
 
-  ,Move: function(e){
+  // ,Move: function(e){
 
-    if(!this._moving) return false;
+  //   if(!this._moving) return false;
     
-    console.log("moving", this._vx);
-    this.x += this._vx;
-  }
+  //   console.log("moving", this._vx);
+  //   this.x += this._vx;
+  // }
 });
 

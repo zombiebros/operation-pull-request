@@ -4,7 +4,6 @@ Crafty.c("Cursor", {
   },
 
   position: function(e){
-  	  console.log("mousemove", e, e.clientX, e.clientY, e.layerX, e.layerY);
-      this.attr({x:e.layerX-25,y:e.layerY-25});
+      this.attr({x:e.layerX-this.w/2,y:e.layerY-this.h/2});
   }
 });
