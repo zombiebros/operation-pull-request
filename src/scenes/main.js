@@ -15,9 +15,7 @@ Crafty.scene("main",function() {
       });
 
     var corssairs = Crafty.e("2D, SpriteAnimation, Canvas, crossairs1, Cursor")
-      .attr({w:50,h:50})
-      .animate('Shooting',2,0,1)
-      .animate('Shooting', 15, -1);
+      .attr({w:50,h:50});
 
 
 });
