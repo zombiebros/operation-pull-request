@@ -8,9 +8,9 @@ Crafty.c("Soldier", {
   ,EnterFrame: function(){
   	this.trigger("Moved", {x:this.x += this.direction*10, y:this.y});
   	this.x += this.direction * 10;
-  	// if(Crafty.math.randomInt(0, 1)){
-  	// 	this.shoot();  	
-   //  }
+  	if(Crafty.math.randomInt(0, 25) == 25){
+  		this.shoot();  	
+    }
   }
 
   ,shoot: function(e){
