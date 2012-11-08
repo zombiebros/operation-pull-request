@@ -46,8 +46,19 @@ Crafty.scene("main",function() {
 	   x: Crafty.viewport.width-200
 	});
 
-	var corssairs = Crafty.e("2D, SpriteAnimation, Canvas, crossairs1, Cursor")
-	.attr({w:50,h:50});
-
+	var crossairs = Crafty.e("2D, SpriteAnimation, Canvas, crossairs1, Cursor, Mouse")
+	.attr({
+		w:50,
+		h:50}
+	)
+	.bind('MouseDown', function() {
+      this.animate('Shooting',0,0,3)
+      .animate('Shooting', 25, -1);
+	})
+	.bind('MouseUp', function(){
+			if(this.isPlaying('Shooting')){
+				this.reset();
+			}
+	});
 
 });
