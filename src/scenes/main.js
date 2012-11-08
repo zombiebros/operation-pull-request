@@ -56,7 +56,7 @@ Crafty.scene("main",function() {
       .animate('Shooting', 5 , -1);
       Crafty.audio.play('mg', -1);
 	})
-	.bind('MouseUp', function(){
+	.bind('MouseUp', function() {
 			if(this.isPlaying('Shooting')){
 				this.reset();
 				Crafty.audio.stop('mg');
