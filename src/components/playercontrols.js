@@ -16,11 +16,23 @@ Crafty.c("PlayerControls", {
       this._keys[keyCode] = this._keys[k];
     }
     
-    // twoway movement for now
     this.requires("Twoway,Destroyable")
-    .twoway(10,[0])
+    .twoway(10,[0])     // twoway movement for now
+    .bind("Die", this.dieHandler);
   }
 
+
+  ,dieHandler: function(){
+    console.log("PlayerCover die handler");
+    Crafty.pause();
+    while(this.h >0){
+      this.h -= 1;
+    }
+
+    this.destroy();
+    alert("GAME OVER FAGGOT");
+    Crafty.scene("main");
+  }
 
 });
 

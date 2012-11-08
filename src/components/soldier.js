@@ -19,7 +19,6 @@ Crafty.c("Soldier", {
   ,shoot: function(e){
   	var player = Crafty(Crafty("player1")[0]);
 
-    console.log("player", player);
     if(player[0] != 0){
      Crafty.e("2D, Canvas, Color, Bullet")
      .color("red")

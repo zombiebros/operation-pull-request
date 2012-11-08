@@ -1,7 +1,10 @@
 Crafty.c("Destroyable", {
   
   init: function(){
-    this.requires("Color,Tint");
+    if(!this.has("Sprite")){
+      this.requires("Color,Tint");
+    }
+  
     if(typeof this.life == "undefined"){
       this.life = 1;
     }
@@ -16,7 +19,7 @@ Crafty.c("Destroyable", {
     if(this.life <= 0 && this.dying != true){
       this.trigger("Die");
     }else{
-      this.tint(this.color(), this.life /10);
+
     }
   }
 

@@ -5,9 +5,6 @@ var global_state = {
 };
 
 $(function(){
-	Crafty.init(700,600).canvas.init();
-	Crafty.scene("loading");
-	Crafty.modules({ 'crafty-debug-bar': 'DEV' }, function () {
-		Crafty.debugBar.show();
-	});
+Crafty.init(700,600).canvas.init();
+Crafty.scene("loading");
 });
