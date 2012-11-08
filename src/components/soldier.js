@@ -1,13 +1,14 @@
 Crafty.c("Soldier", {
   life: 4
+  ,direction: 1
 
   ,init: function(){    
-    this.bind("EnterFrame", this.EnterFrame);
-    this.direction = 1;
     this.requires("Collision")
+    .bind("EnterFrame", this.enterFrameHandler);
   }
 
-  ,EnterFrame: function(){
+
+  ,enterFrameHandler: function(){
   	this.trigger("Moved", {x:this.x += this.direction*5, y:this.y});
   	this.x += this.direction * 2;
 
