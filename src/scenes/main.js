@@ -20,7 +20,7 @@ Crafty.scene("main",function() {
 		y: 150,
 	});
 
-	var cover = Crafty.e("2D, Canvas, Color, EnemyCover")
+	var cover = Crafty.e("2D, Canvas, Color, Cover, EnemyCover")
 	.color("purple")
 	.attr({
 	   h: 100,
