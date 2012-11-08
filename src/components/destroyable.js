@@ -1,4 +1,5 @@
 Crafty.c("Destroyable", {
+  
   init: function(){
     this.requires("Color,Tint");
     if(typeof this.life == "undefined"){
