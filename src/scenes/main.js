@@ -2,7 +2,7 @@ Crafty.scene("main",function() {
 
 	Crafty.background("#444");
   
-	var player = Crafty.e("2D, Canvas, PlayerControls, player1, Color, ViewportConstrain, MoveByCenter")
+	var player = Crafty.e("2D, Canvas, PlayerControls, player1, Color, ViewportConstrain, MoveByCenter, Destroyable")
 	.color("blue")
 	.attr({
 		w:50,
@@ -12,7 +12,7 @@ Crafty.scene("main",function() {
 		z: 2
 	});
 
-	var enemy = Crafty.e("2D, Canvas, Color, Soldier, ViewportConstrain, MoveByCenter")
+	var enemy = Crafty.e("2D, Canvas, Color, Soldier, ViewportConstrain, MoveByCenter, Destroyable")
 	.color("Green")
 	.attr({
 		w:50,

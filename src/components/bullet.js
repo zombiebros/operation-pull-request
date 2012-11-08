@@ -4,19 +4,17 @@ Crafty.c("Bullet",{
 	this.bind("EnterFrame", this.EnterFrame);
 	this.requires("MoveByCenter");
 
-	//collisions
 	this.requires("Collision")
-    .onHit("PlayerCover", this.playerCoverHit)
-    .onHit("player1", this.playerHit);
+    .onHit("Destroyable", this.hitDestroyableHandler);
   }
 
-  ,playerHit: function(player){
-
-  }
-
-  ,playerCoverHit: function(player_cover){
-    player_cover[0].obj.damage();
-  	this.destroy();
+  ,hitDestroyableHandler: function(destroyable){
+    var destroyable = destroyable[0].obj
+    //only damage players
+    if(destroyable.__c["player1"] || destroyable.__c["PlayerCover"]){
+      destroyable.trigger("Damage");
+      this.destroy();
+    }
   }
 
   ,EnterFrame: function(e){  	

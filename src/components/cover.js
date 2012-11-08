@@ -1,8 +1,8 @@
-Crafty.c("Cover", {
-  life: 10
+Crafty.c("Destroyable", {
+  life: 1
 
   ,init: function(){    
-    
+    this.bind("Damage", this.damage);
   }
 
   ,damage: function(){
@@ -11,5 +11,7 @@ Crafty.c("Cover", {
       this.destroy();
     }
   }
+
+  ,
 
 });

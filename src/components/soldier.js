@@ -1,6 +1,7 @@
 Crafty.c("Soldier", {
+  life: 4
 
-  init: function(){    
+  ,init: function(){    
     this.bind("EnterFrame", this.EnterFrame);
     this.direction = 1;
     this.requires("Collision")
@@ -17,16 +18,20 @@ Crafty.c("Soldier", {
 
   ,shoot: function(e){
   	var player = Crafty(Crafty("player1")[0]);
-  	Crafty.e("2D, Canvas, Color, Bullet")
-  	.color("red")
-  	.attr({
-  		w: 16,
-  		h: 16,
-  		x: this.centerX(),
-  		y: this.centerY(),
-  		targetx: player.centerX(),
-  		targety: player.centerY()
-  	});
+
+    console.log("player", player);
+    if(player[0] != 0){
+     Crafty.e("2D, Canvas, Color, Bullet")
+     .color("red")
+     .attr({
+      w: 16,
+      h: 16,
+      x: this.centerX(),
+      y: this.centerY(),
+      targetx: player.centerX(),
+      targety: player.centerY()
+    });
+   }
 
   }
 });
