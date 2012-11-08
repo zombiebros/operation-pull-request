@@ -2,13 +2,12 @@ Crafty.scene("main",function() {
 
 	Crafty.background("#444");
   
-	var player = Crafty.e("2D, Canvas, PlayerControls, player1, Color, ViewportConstrain, MoveByCenter, Destroyable")
-	.color("blue")
+	var player = Crafty.e("2D, Canvas, PlayerControls, player1, ViewportConstrain, MoveByCenter, Destroyable")
 	.attr({
-		w:50,
-		h:100,
-		x:Crafty.viewport.width/2-25,
-		y:32*15.6,
+		h:200,
+		w:100,
+		x:Crafty.viewport.width/2-50,
+		y:32*12.5,
 		z: 2
 	});
 

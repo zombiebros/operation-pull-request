@@ -2,7 +2,10 @@
 Crafty.scene("loading", function() {
 console.log("loadin");
 
-  Crafty.load(["resources/images/crossairs.png"], function() {
+  Crafty.load([
+  	"resources/images/crossairs.png",
+  	"resources/images/character.png"
+ 		], function() {
 		Crafty.scene("main"); //when everything is loaded, run the main scene
   });
 
