@@ -52,12 +52,14 @@ Crafty.scene("main",function() {
 		h:50}
 	)
 	.bind('MouseDown', function() {
-      this.animate('Shooting',0,0,3)
-      .animate('Shooting', 25, -1);
+      this.animate('Shooting',0,0,1)
+      .animate('Shooting', 5 , -1);
+      Crafty.audio.play('mg', -1);
 	})
 	.bind('MouseUp', function(){
 			if(this.isPlaying('Shooting')){
 				this.reset();
+				Crafty.audio.stop('mg');
 			}
 	});
 

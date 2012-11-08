@@ -6,4 +6,17 @@ console.log("loadin");
 		Crafty.scene("main"); //when everything is loaded, run the main scene
   });
 
+  Crafty.audio.add({
+		shoot: [
+		"resources/sounds/cg1.wav",
+		"resources/sounds/cg1.mp3",
+		"resources/sounds/cg1.ogg"
+		],
+		mg: [
+		"resources/sounds/Machine Gun.wmp3",
+		"resources/sounds/Machine Gun.mp3",
+		"resources/sounds/Machine Gun.ogg"
+		]
+	});
+
 });
