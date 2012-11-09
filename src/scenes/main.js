@@ -54,7 +54,7 @@ Crafty.scene("main",(function() {
 			.attr({
 				w:50,
 				h:100,
-				y: 150,
+				y: 150
 			});
 
 			var cover = Crafty.e("2D, Canvas, Color, EnemyCover, Destroyable")
@@ -87,7 +87,8 @@ Crafty.scene("main",(function() {
 			var crossairs = Crafty.e("2D, SpriteAnimation, Canvas, crossairs1, Cursor, Mouse")
 			.attr({
 				w:50,
-				h:50
+				h:50,
+				z: 900
 			});
 
 		}

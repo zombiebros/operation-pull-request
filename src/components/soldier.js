@@ -1,16 +1,15 @@
 Crafty.c("Soldier", {
   life: 10
   ,direction: 1
-  ,firerate: 50
   ,moving: true
 
   ,init: function(){    
-    this.requires("2D, Canvas, Color, Enemy, Collision, ViewportConstrain, MoveByCenter, Destroyable, Horizonable")
+    this.requires("2D, Canvas, Color, Enemy, Collision, ViewportConstrain, MoveByCenter, Destroyable")
     .bind("EnterFrame", this.enterFrameHandler);
   }
 
   ,enterFrameHandler: function(frame){
-  	if(frame.frame % this.firerate == 0 && this.hit("EnemyCover") == false){
+  	if(frame.frame % 70 == 0 && Crafty.math.randomInt(0, 1) && this.hit("EnemyCover") == false){
   		this.shoot();
       this.moving = false;
       this.timeout(function(){
