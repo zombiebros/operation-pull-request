@@ -17,18 +17,7 @@ Crafty.c("PlayerControls", {
     }
     
     this.requires("Twoway,Destroyable")
-    .twoway(10,[0])     // twoway movement for now
-    .bind("Die", this.dieHandler);
-  }
-
-
-  ,dieHandler: function(){
-    while(this.h >0){
-      this.h -= 1;
-    }
-
-    this.destroy();
-    Crafty.trigger("GAMEOVER");
+    .twoway(10,[0]);     // twoway movement for now
   }
 
 });

@@ -10,7 +10,7 @@ Crafty.scene("main",function() {
       Crafty.scene("main");
 	});
   
-	var player = Crafty.e("2D, Canvas, player1, ViewportConstrain, MoveByCenter, Destroyable, PlayerControls")
+	var player = Crafty.e("Player")
 	.attr({
 		h:200,
 		w:100,
@@ -37,7 +37,7 @@ Crafty.scene("main",function() {
 	   life: 10	
 	});
 
-	var playerCover = Crafty.e("2D, Canvas, Color, PlayerCover")
+	var playerCover = Crafty.e("Color, PlayerCover")
 	.color("pink")
 	.attr({
 	   h: 100,
@@ -45,7 +45,7 @@ Crafty.scene("main",function() {
 	   y: player.y-player.h/2
 	});
 
-    var playerCover2 = Crafty.e("2D, Canvas, Color, PlayerCover")
+    var playerCover2 = Crafty.e("Color, PlayerCover")
 	.color("pink")
 	.attr({
 	   h: 100,
