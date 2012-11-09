@@ -1,17 +1,44 @@
-Crafty.scene("main",(function() {
-	var scene = {
+Crafty.scene("main",(function() { 
+//Crafty.scene only takes a function parameter. I've wrapped an object for our scene in a closure.
+//This gives us more state to work with. Returns an init function at the bottom.
 
-		gameoverHandler: function(){
+	var scene = {
+		level: 1
+		,enemyspawnrate: 200
+		,maxenemies: 5
+
+		,gameoverHandler: function(){
+			console.log("GAME OVER HANDLER");
 			Crafty.pause();
 			Crafty.audio.stop();
 			Crafty.scene("main");
+		}
+
+		,enterFrameHandler: function(frame){
+			if(frame.frame % this.enemyspawnrate == 0){
+				console.log("spawning new enemy");
+				this.spawnNewEnemy();
+			}
+		}
+
+		,spawnNewEnemy: function(){
+			if(Crafty("Enemy").length < this.maxenemies){
+				var enemy = Crafty.e("Soldier")
+				.color("Green")
+				.attr({
+					w:50,
+					h:100,
+					y: Crafty.math.randomInt(0, 200),
+				});
+			}
 		}
 
 		,init: function(){
 			if(Crafty.isPaused()){Crafty.pause();}
 
 			Crafty.background("#444");
-			Crafty.bind("GAMEOVER", this.gameoverHandler);
+			Crafty.bind("GAMEOVER", $.proxy(this.gameoverHandler, this));
+			Crafty.bind("EnterFrame", $.proxy(this.enterFrameHandler, this));
 
 			var player = Crafty.e("Player")
 			.attr({
@@ -66,5 +93,5 @@ Crafty.scene("main",(function() {
 		}
 	};
 
-	return scene.init;
+	return $.proxy(scene.init, scene); //Pass our scene.init function to crafty.scene
 })());
