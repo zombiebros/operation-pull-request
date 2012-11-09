@@ -1,13 +1,14 @@
 Crafty.c("Soldier", {
   life: 4
+  ,direction: 1
 
   ,init: function(){    
-    this.bind("EnterFrame", this.EnterFrame);
-    this.direction = 1;
     this.requires("Collision")
+    .bind("EnterFrame", this.enterFrameHandler);
   }
 
-  ,EnterFrame: function(){
+
+  ,enterFrameHandler: function(){
   	this.trigger("Moved", {x:this.x += this.direction*5, y:this.y});
   	this.x += this.direction * 2;
 
@@ -19,7 +20,6 @@ Crafty.c("Soldier", {
   ,shoot: function(e){
   	var player = Crafty(Crafty("player1")[0]);
 
-    console.log("player", player);
     if(player[0] != 0){
      Crafty.e("2D, Canvas, Color, Bullet")
      .color("red")

@@ -1,8 +1,8 @@
 Crafty.scene("main",function() {
-
+	if(Crafty.isPaused()){Crafty.pause();}
 	Crafty.background("#444");
   
-	var player = Crafty.e("2D, Canvas, PlayerControls, player1, ViewportConstrain, MoveByCenter, Destroyable")
+	var player = Crafty.e("2D, Canvas, player1, ViewportConstrain, MoveByCenter, Destroyable, PlayerControls")
 	.attr({
 		h:200,
 		w:100,
@@ -48,18 +48,7 @@ Crafty.scene("main",function() {
 	var crossairs = Crafty.e("2D, SpriteAnimation, Canvas, crossairs1, Cursor, Mouse")
 	.attr({
 		w:50,
-		h:50}
-	)
-	.bind('MouseDown', function() {
-      this.animate('Shooting',0,0,1)
-      .animate('Shooting', 5 , -1);
-      Crafty.audio.play('mg', -1);
-	})
-	.bind('MouseUp', function() {
-			if(this.isPlaying('Shooting')){
-				this.reset();
-				Crafty.audio.stop('mg');
-			}
+		h:50
 	});
 
 });
