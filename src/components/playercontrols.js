@@ -17,8 +17,7 @@ Crafty.c("PlayerControls", {
     }
     
     this.requires("Twoway,Destroyable")
-    .twoway(10,[0])     // twoway movement for now
-    .bind("Die", this.dieHandler);
+    .twoway(10,[0]);     // twoway movement for now
   }
 
 
@@ -28,6 +27,8 @@ Crafty.c("PlayerControls", {
     while(this.h >0){
       this.h -= 1;
     }
+
+    console.log("height?",this.h);
 
     this.destroy();
     alert("GAME OVER FAGGOT");

@@ -7,7 +7,6 @@ Crafty.c("Soldier", {
     .bind("EnterFrame", this.enterFrameHandler);
   }
 
-
   ,enterFrameHandler: function(){
   	this.trigger("Moved", {x:this.x += this.direction*5, y:this.y});
   	this.x += this.direction * 2;

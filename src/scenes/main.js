@@ -1,5 +1,6 @@
 Crafty.scene("main",function() {
 	if(Crafty.isPaused()){Crafty.pause();}
+
 	Crafty.background("#444");
   
 	var player = Crafty.e("2D, Canvas, player1, ViewportConstrain, MoveByCenter, Destroyable, PlayerControls")
@@ -11,7 +12,7 @@ Crafty.scene("main",function() {
 		z: 2
 	});
 
-	var enemy = Crafty.e("2D, Canvas, Color, Soldier, ViewportConstrain, MoveByCenter, Destroyable")
+	var enemy = Crafty.e("2D, Canvas, Color, Enemy, Soldier, ViewportConstrain, MoveByCenter, Destroyable")
 	.color("Green")
 	.attr({
 		w:50,
@@ -19,13 +20,14 @@ Crafty.scene("main",function() {
 		y: 150,
 	});
 
-	var cover = Crafty.e("2D, Canvas, Color, Cover, EnemyCover")
+	var cover = Crafty.e("2D, Canvas, Color, EnemyCover, Destroyable")
 	.color("purple")
 	.attr({
 	   h: 100,
 	   w: 200,
 	   y: 150,
-	   x: 300	
+	   x: 300,
+	   life: 10	
 	});
 
 	var playerCover = Crafty.e("2D, Canvas, Color, PlayerCover")
