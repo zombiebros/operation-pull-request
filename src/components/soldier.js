@@ -3,13 +3,13 @@ Crafty.c("Soldier", {
   ,direction: 1
 
   ,init: function(){    
-    this.requires("Collision")
+    this.requires("2D, Canvas, Color, Enemy, Collision, ViewportConstrain, MoveByCenter, Destroyable")
     .bind("EnterFrame", this.enterFrameHandler);
   }
 
   ,enterFrameHandler: function(){
-  	// this.trigger("Moved", {x:this.x += this.direction*5, y:this.y});
-  	// this.x += this.direction * 2;
+  	this.trigger("Moved", {x:this.x += this.direction*5, y:this.y});
+  	this.x += this.direction * 2;
 
   	if(Crafty.math.randomInt(0, 25) == 25 && this.hit("EnemyCover") == false){
   		this.shoot();  	
