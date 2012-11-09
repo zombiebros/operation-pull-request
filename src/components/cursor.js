@@ -1,5 +1,5 @@
 Crafty.c("Cursor", {
-  firerate: 1000
+  firerate: 50
 
   ,init: function(){
     Crafty.addEvent(this, Crafty.stage.elem, "mousemove", this.position);
