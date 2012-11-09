@@ -1,5 +1,5 @@
 Crafty.c("Cursor", {
-  firerate: 50
+  firerate: 5
 
   ,init: function(){
     Crafty.addEvent(this, Crafty.stage.elem, "mousemove", this.position);
@@ -7,11 +7,11 @@ Crafty.c("Cursor", {
     Crafty.addEvent(this, Crafty.stage.elem, "mouseup", this.stopshoot);
     
     this.requires("Collision")
-    .bind("EnterFrame", this.enterFrame)
+    .bind("EnterFrame", this.enterFrameHandler)
     .bind('MouseDown', this.mouseDownHandler)
     .bind('MouseUp', this.mouseUpHandler);
 
-    this.fireInterval = window.setInterval($.proxy(this.attackTimeout,this), this.firerate);
+    //this.fireInterval = window.setInterval($.proxy(this.attackTimeout,this), this.firerate);
   }
 
   ,position: function(e){
@@ -19,12 +19,17 @@ Crafty.c("Cursor", {
   }
 
   ,attackTimeout: function(){
-    console.log("attackTimeout", this.shooting, this.hit("Destroyable"));
     if(this.shooting == true && this.hit("Destroyable")){
       var destroyable = this.hit("Destroyable")[0].obj;
       if(destroyable.__c["Enemy"] || destroyable.__c["EnemyCover"]){
         destroyable.trigger("Damage");
       }
+    }
+  }
+
+  ,enterFrameHandler: function(frame){
+    if(frame.frame % this.firerate == 0){
+      this.attackTimeout();
     }
   }
 

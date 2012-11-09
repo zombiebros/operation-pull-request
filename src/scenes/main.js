@@ -2,6 +2,13 @@ Crafty.scene("main",function() {
 	if(Crafty.isPaused()){Crafty.pause();}
 
 	Crafty.background("#444");
+
+	Crafty.bind("GAMEOVER", function(){
+      //alert("GAME OVER FAGGOT");
+      Crafty.pause();
+      Crafty.audio.stop();
+      Crafty.scene("main");
+	});
   
 	var player = Crafty.e("2D, Canvas, player1, ViewportConstrain, MoveByCenter, Destroyable, PlayerControls")
 	.attr({

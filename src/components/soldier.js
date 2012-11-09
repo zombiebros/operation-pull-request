@@ -1,5 +1,5 @@
 Crafty.c("Soldier", {
-  life: 4
+  life: 10
   ,direction: 1
 
   ,init: function(){    
@@ -8,8 +8,8 @@ Crafty.c("Soldier", {
   }
 
   ,enterFrameHandler: function(){
-  	this.trigger("Moved", {x:this.x += this.direction*5, y:this.y});
-  	this.x += this.direction * 2;
+  	// this.trigger("Moved", {x:this.x += this.direction*5, y:this.y});
+  	// this.x += this.direction * 2;
 
   	if(Crafty.math.randomInt(0, 25) == 25 && this.hit("EnemyCover") == false){
   		this.shoot();  	

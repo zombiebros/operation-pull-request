@@ -23,17 +23,12 @@ Crafty.c("PlayerControls", {
 
 
   ,dieHandler: function(){
-    console.log("PlayerCover die handler");
-    Crafty.pause();
     while(this.h >0){
       this.h -= 1;
     }
 
-    console.log("height?",this.h);
-
     this.destroy();
-    alert("GAME OVER FAGGOT");
-    Crafty.scene("main");
+    Crafty.trigger("GAMEOVER");
   }
 
 });
