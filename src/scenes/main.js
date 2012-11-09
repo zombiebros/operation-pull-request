@@ -1,5 +1,5 @@
 Crafty.scene("main",function() {
-
+	if(Crafty.isPaused()){Crafty.pause();}
 	Crafty.background("#444");
   
 	var player = Crafty.e("2D, Canvas, player1, ViewportConstrain, MoveByCenter, Destroyable, PlayerControls")
