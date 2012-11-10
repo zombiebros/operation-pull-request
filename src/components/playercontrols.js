@@ -17,22 +17,7 @@ Crafty.c("PlayerControls", {
     }
     
     this.requires("Twoway,Destroyable")
-    .twoway(10,[0])     // twoway movement for now
-    .bind("Die", this.dieHandler);
-  }
-
-
-  ,dieHandler: function(){
-    console.log("PlayerCover die handler");
-    Crafty.pause();
-    while(this.h >0){
-      this.h -= 1;
-    }
-
-    console.log("height?",this.h);
-
-    this.destroy();
-    Crafty.scene("main");
+    .twoway(10,[0]);     // twoway movement for now
   }
 
 });

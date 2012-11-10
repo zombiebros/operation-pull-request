@@ -5,6 +5,7 @@ Crafty.c("Bullet",{
 	this.requires("MoveByCenter");
 
 	this.requires("Collision")
+    .origin("center")
     .onHit("Destroyable", this.hitDestroyableHandler);
   }
 
