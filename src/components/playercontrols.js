@@ -32,7 +32,6 @@ Crafty.c("PlayerControls", {
     console.log("height?",this.h);
 
     this.destroy();
-    alert("GAME OVER FAGGOT");
     Crafty.scene("main");
   }
 
