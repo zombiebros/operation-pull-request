@@ -1,8 +1,8 @@
 Crafty.sprite(32,"url", {
 });
 
-Crafty.sprite(1,"resources/images/character.png", {
-	player1: [0,0,100,200]
+Crafty.sprite(200,"resources/images/character.png", {
+	player1: [4,0]
 });
 
 Crafty.sprite(32,"url", {
