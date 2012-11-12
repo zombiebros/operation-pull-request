@@ -13,8 +13,8 @@ Crafty.c("Bullet",{
     var destroyable = destroyable[0].obj
     //only damage players
     if(destroyable.__c["player1"] || destroyable.__c["PlayerCover"]){
-      destroyable.trigger("Damage");
       this.destroy();
+      destroyable.trigger("Damage");
     }
   }
 

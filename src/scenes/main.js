@@ -39,14 +39,17 @@ Crafty.scene("main",(function() {
 			Crafty.bind("GAMEOVER", $.proxy(this.gameoverHandler, this));
 			Crafty.bind("EnterFrame", $.proxy(this.enterFrameHandler, this));
 
-			var player = Crafty.e("Player")
+			var player = Crafty.e("Player, SpriteAnimation")
 			.attr({
+				w:200,
 				h:200,
-				w:100,
 				x:Crafty.viewport.width/2-50,
 				y:32*12.5,
 				z: 2
-			});
+				})
+			.animate('RunningRight',5,0,8)
+			.animate('RunningLeft',3,0,0)
+			.animate('RunningLeft', 30, -1);
 
 			var enemy = Crafty.e("Soldier");
 
