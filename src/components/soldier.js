@@ -1,16 +1,23 @@
 Crafty.c("Soldier", {
-  life: 10
+  life: 5
   ,direction: 1
-  ,firerate: 50
+  ,startingx: Crafty.math.randomElementOfArray([0+50, 700-50])
   ,moving: true
 
-  ,init: function(){    
+  ,init: function(){
     this.requires("2D, Canvas, Color, Enemy, Collision, ViewportConstrain, MoveByCenter, Destroyable, Horizonable")
     .bind("EnterFrame", this.enterFrameHandler);
+
+
+    this.attr({y: 150
+      ,h: 100
+      ,w: 50});
+
+    this.x = this.startingx;
   }
 
   ,enterFrameHandler: function(frame){
-  	if(frame.frame % this.firerate == 0 && this.hit("EnemyCover") == false){
+  	if(Crafty.math.randomInt(0, 1000) == 1000 && this.hit("EnemyCover") == false){
   		this.shoot();
       this.moving = false;
       this.timeout(function(){
@@ -43,3 +50,4 @@ Crafty.c("Soldier", {
 
   }
 });
+

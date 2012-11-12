@@ -9,22 +9,27 @@ Crafty.c("Cursor", {
     this.requires("Collision")
     .bind("EnterFrame", this.enterFrameHandler)
     .bind('MouseDown', this.mouseDownHandler)
-    .bind('MouseUp', this.mouseUpHandler);
+    .bind('MouseUp', this.mouseUpHandler)
+    .onHit("Destroyable", this.attackTimeout)
+    ;
 
-    //this.fireInterval = window.setInterval($.proxy(this.attackTimeout,this), this.firerate);
   }
 
   ,position: function(e){
     this.attr({x:e.layerX-this.w/2,y:e.layerY-this.h/2});
   }
 
-  ,attackTimeout: function(){
-    if(this.shooting == true && this.hit("Destroyable")){
-      var destroyable = this.hit("Destroyable")[0].obj;
+  ,attackTimeout: function(destroyable){
+    try{
+    if(this.shooting == true && Crafty.frame() % this.firerate){
+      var destroyable = destroyable[0].obj;
       if(destroyable.__c["Enemy"] || destroyable.__c["EnemyCover"]){
         destroyable.trigger("Damage");
       }
     }
+  }catch(ex){
+    //console.log(ex);
+  }
   }
 
   ,enterFrameHandler: function(frame){
