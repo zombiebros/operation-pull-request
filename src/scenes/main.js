@@ -47,7 +47,10 @@ Crafty.scene("main",(function() {
 				x:Crafty.viewport.width/2-50,
 				y:32*12.5,
 				z: 2
-			});
+				})
+			.animate('RunningRight',5,0,8)
+			.animate('RunningLeft',3,0,0)
+			.animate('RunningLeft', 30, -1);
 
 			var enemy = Crafty.e("Soldier")
 			.color("Green")

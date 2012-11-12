@@ -17,7 +17,7 @@ Crafty.c("PlayerControls", {
     }
     
     this.requires("Twoway,Destroyable")
-    .twoway(10,[0]);     // twoway movement for now
+    .twoway(7,[0]);     // twoway movement for now
   }
 
 });
