@@ -16,7 +16,6 @@ Crafty.scene("main",(function() {
 
 		,enterFrameHandler: function(frame){
 			if(frame.frame % this.enemyspawnrate == 0){
-				console.log("spawning new enemy");
 				this.spawnNewEnemy();
 			}
 		}
@@ -49,13 +48,7 @@ Crafty.scene("main",(function() {
 				z: 2
 			});
 
-			var enemy = Crafty.e("Soldier")
-			.color("Green")
-			.attr({
-				w:50,
-				h:100,
-				y: 150
-			});
+			var enemy = Crafty.e("Soldier");
 
 			var cover = Crafty.e("2D, Canvas, Color, EnemyCover, Destroyable")
 			.color("purple")
