@@ -24,6 +24,7 @@ Crafty.scene("main",(function() {
 			if(Crafty("Enemy").length < this.maxenemies){
 				var enemy = Crafty.e("Soldier")
 				.color("Green")
+				.collision([0,0],[50,0],[50,100])
 				.attr({
 					w:50,
 					h:100,
@@ -50,7 +51,7 @@ Crafty.scene("main",(function() {
 			.animate('RunningLeft',3,0,0)
 			.animate('RunningLeft', 25, -1);
 
-			var enemy = Crafty.e("Soldier");
+			var enemy = Crafty.e("Soldier").collision([0,0],[50,0],[50,100]);
 
 			var cover = Crafty.e("2D, Canvas, Color, EnemyCover, Destroyable")
 			.color("purple")
