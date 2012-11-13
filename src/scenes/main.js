@@ -24,6 +24,7 @@ Crafty.scene("main",(function() {
 			if(Crafty("Enemy").length < this.maxenemies){
 				var enemy = Crafty.e("Soldier")
 				.color("Green")
+				.collision([0,0],[50,0],[50,100])
 				.attr({
 					w:50,
 					h:100,
@@ -39,19 +40,18 @@ Crafty.scene("main",(function() {
 			Crafty.bind("GAMEOVER", $.proxy(this.gameoverHandler, this));
 			//Crafty.bind("EnterFrame", $.proxy(this.enterFrameHandler, this));
 
-			var player = Crafty.e("Player, SpriteAnimation")
+			var player = Crafty.e("Player, SpriteAnimation, Collision")
 			.attr({
-				w:200,
-				h:200,
 				x:Crafty.viewport.width/2-50,
 				y:32*12.5,
 				z: 2
 				})
+			.collision([50,20], [150,20], [116,200])
 			.animate('RunningRight',5,0,8)
 			.animate('RunningLeft',3,0,0)
-			.animate('RunningLeft', 30, -1);
+			.animate('RunningLeft', 25, -1);
 
-			var enemy = Crafty.e("Soldier");
+			var enemy = Crafty.e("Soldier").collision([0,0],[50,0],[50,100]);
 
 			var cover = Crafty.e("2D, Canvas, Color, EnemyCover, Destroyable")
 			.color("purple")
