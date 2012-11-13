@@ -37,7 +37,7 @@ Crafty.scene("main",(function() {
 
 			Crafty.background("#444");
 			Crafty.bind("GAMEOVER", $.proxy(this.gameoverHandler, this));
-			Crafty.bind("EnterFrame", $.proxy(this.enterFrameHandler, this));
+			//Crafty.bind("EnterFrame", $.proxy(this.enterFrameHandler, this));
 
 			var player = Crafty.e("Player, SpriteAnimation")
 			.attr({
@@ -66,17 +66,17 @@ Crafty.scene("main",(function() {
 			var playerCover = Crafty.e("Color, PlayerCover")
 			.color("pink")
 			.attr({
-				h: 100,
+				h: player.h,
 				w: 200,
-				y: player.y-player.h/2
+				y: player.y-player.h/4
 			});
 
 			var playerCover2 = Crafty.e("Color, PlayerCover")
 			.color("pink")
 			.attr({
-				h: 100,
+				h: player.h,
 				w: 200,
-				y: player.y-player.h/2,
+				y: player.y-player.h/4,
 				x: Crafty.viewport.width-200
 			});
 
