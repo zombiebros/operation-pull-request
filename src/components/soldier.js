@@ -1,7 +1,6 @@
 Crafty.c("Soldier", {
   life: 5
-  ,direction: 1
-  ,startingx: Crafty.math.randomElementOfArray([0+50, Crafty.viewport.width-50])
+  ,direction: 1 
   ,killcount : 1
   ,moving: true
 
@@ -10,13 +9,13 @@ Crafty.c("Soldier", {
     .bind("EnterFrame", this.enterFrameHandler);
 
     this.attr({
-      y: 150
+      y: Crafty.math.randomInt(Crafty.viewport.horizonx, Crafty.viewport.height-200)
       ,h: 100
       ,w: 50})
     .collision([0,0],[50,0],[50,100])
 
 console.log("setting soldier x", this.x, this.startingx);
-    this.x = this.startingx;
+    this.x = Crafty.math.randomInt(0+50, Crafty.viewport.width-50);
 
     this.addComponent("Horizonable");
   }
