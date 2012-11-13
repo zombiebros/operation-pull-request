@@ -1,6 +1,8 @@
 Crafty.scene("main",(function() { 
-//Crafty.scene only takes a function parameter. I've wrapped an object for our scene in a closure.
-//This gives us more state to work with. Returns an init function at the bottom.
+	//Crafty.scene only takes a function parameter. I've wrapped an object for our scene in a closure.
+	//This gives us more state to work with. Returns an init function at the bottom.
+
+	Crafty.viewport.horizonx = Crafty.viewport.height / 4;	
 
 	var scene = {
 		level: 1
@@ -47,7 +49,7 @@ Crafty.scene("main",(function() {
 			.animate('RunningLeft',3,0,0)
 			.animate('RunningLeft', 25, -1);
 
-			var cover = Crafty.e("2D, Canvas, Color, EnemyCover, Destroyable")
+			var cover = Crafty.e("2D, Canvas, Color, Cover, EnemyCover, Destroyable")
 			.color("purple")
 			.attr({
 				h: 100,
@@ -55,9 +57,9 @@ Crafty.scene("main",(function() {
 				y: 150,
 				x: 300,
 				life: 10	
-			});
+			}).addComponent("Horizonable");
 
-			var playerCover = Crafty.e("Color, PlayerCover")
+			var playerCover = Crafty.e("Color, Cover, PlayerCover")
 			.color("pink")
 			.attr({
 				h: player.h,
@@ -65,7 +67,7 @@ Crafty.scene("main",(function() {
 				y: player.y-player.h/4
 			});
 
-			var playerCover2 = Crafty.e("Color, PlayerCover")
+			var playerCover2 = Crafty.e("Color, Cover, PlayerCover")
 			.color("pink")
 			.attr({
 				h: player.h,

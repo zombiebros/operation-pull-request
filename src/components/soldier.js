@@ -1,22 +1,24 @@
 Crafty.c("Soldier", {
   life: 5
   ,direction: 1
-  ,startingx: Crafty.math.randomElementOfArray([0+50, 700-50])
+  ,startingx: Crafty.math.randomElementOfArray([0+50, Crafty.viewport.width-50])
   ,killcount : 1
   ,moving: true
 
   ,init: function(){
-    this.requires("2D, Canvas, Color, Enemy, Collision, ViewportConstrain, MoveByCenter, Destroyable, Horizonable")
+    this.requires("2D, Canvas, Color, Enemy, Collision, ViewportConstrain, MoveByCenter, Destroyable")
     .bind("EnterFrame", this.enterFrameHandler);
 
-
-    this.attr({y: 150
+    this.attr({
+      y: 150
       ,h: 100
       ,w: 50})
     .collision([0,0],[50,0],[50,100])
 
 console.log("setting soldier x", this.x, this.startingx);
     this.x = this.startingx;
+
+    this.addComponent("Horizonable");
   }
 
   ,enterFrameHandler: function(frame){
