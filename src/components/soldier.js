@@ -9,14 +9,12 @@ Crafty.c("Soldier", {
     .bind("EnterFrame", this.enterFrameHandler);
 
     this.attr({
-      y: Crafty.math.randomInt(Crafty.viewport.horizonx, Crafty.viewport.height-200)
+      y: Crafty.math.randomInt(Crafty.viewport.horizonx, Crafty.viewport.height-400)
       ,h: 100
       ,w: 50})
     .collision([0,0],[50,0],[50,100])
 
-console.log("setting soldier x", this.x, this.startingx);
-    this.x = Crafty.math.randomInt(0+50, Crafty.viewport.width-50);
-
+    this.x = Crafty.math.randomElementOfArray([0+50, Crafty.viewport.width-100]);
     this.addComponent("Horizonable");
   }
 
