@@ -1,5 +1,5 @@
 Crafty.c("Cursor", {
-  firerate: 5
+  firerate: 10
 
   ,init: function(){
     Crafty.addEvent(this, Crafty.stage.elem, "mousemove", this.position);
@@ -16,13 +16,17 @@ Crafty.c("Cursor", {
   }
 
   ,position: function(e){
-    this.attr({x:e.layerX-this.w/2,y:e.layerY-this.h/2});
+    this.attr({
+      x:e.layerX-this.w/2,
+      y:e.layerY-this.h/2
+    });
   }
 
   ,attackTimeout: function(destroyable){
     try{
-    if(this.shooting == true && Crafty.frame() % this.firerate){
+    if(this.shooting == true && Crafty.frame() % this.firerate == 0){
       var destroyable = destroyable[0].obj;
+
       if(destroyable.__c["Enemy"] || destroyable.__c["EnemyCover"]){
         destroyable.trigger("Damage");
       }

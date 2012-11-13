@@ -5,6 +5,7 @@ Crafty.scene("main",(function() {
 	var scene = {
 		level: 1
 		,enemyspawnrate: 200
+		,chancetospawntank: 10
 		,maxenemies: 5
 
 		,gameoverHandler: function(){
@@ -15,22 +16,17 @@ Crafty.scene("main",(function() {
 		}
 
 		,enterFrameHandler: function(frame){
-			if(frame.frame % this.enemyspawnrate == 0){
+			if((frame.frame % this.enemyspawnrate == 0 && Crafty("Enemy").length < this.maxenemies) || Crafty("Enemy").length <= 0){
 				this.spawnNewEnemy();
 			}
 		}
 
 		,spawnNewEnemy: function(){
-			if(Crafty("Enemy").length < this.maxenemies){
-				var enemy = Crafty.e("Soldier")
-				.color("Green")
-				.collision([0,0],[50,0],[50,100])
-				.attr({
-					w:50,
-					h:100,
-					y: Crafty.math.randomInt(0, 200),
-				});
-			}
+			if(Crafty.math.randomInt(0, this.chancetospawntank) == this.chancetospawntank){
+				Crafty.e("Tank").color("Green");
+		    }else{
+		    	Crafty.e("Soldier").color("Green");
+		    }
 		}
 
 		,init: function(){
@@ -38,7 +34,7 @@ Crafty.scene("main",(function() {
 
 			Crafty.background("#444");
 			Crafty.bind("GAMEOVER", $.proxy(this.gameoverHandler, this));
-			//Crafty.bind("EnterFrame", $.proxy(this.enterFrameHandler, this));
+			Crafty.bind("EnterFrame", $.proxy(this.enterFrameHandler, this));
 
 			var player = Crafty.e("Player, SpriteAnimation, Collision")
 			.attr({
@@ -50,8 +46,6 @@ Crafty.scene("main",(function() {
 			.animate('RunningRight',5,0,8)
 			.animate('RunningLeft',3,0,0)
 			.animate('RunningLeft', 25, -1);
-
-			var enemy = Crafty.e("Soldier").collision([0,0],[50,0],[50,100]);
 
 			var cover = Crafty.e("2D, Canvas, Color, EnemyCover, Destroyable")
 			.color("purple")

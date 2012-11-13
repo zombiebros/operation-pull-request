@@ -1,8 +1,8 @@
-Crafty.c("Soldier", {
-  life: 5
+Crafty.c("Tank", {
+  life: 20
   ,direction: 1
   ,startingx: Crafty.math.randomElementOfArray([0+50, 700-50])
-  ,killcount : 1
+  ,killcount : 2
   ,moving: true
 
   ,init: function(){
@@ -11,11 +11,10 @@ Crafty.c("Soldier", {
 
 
     this.attr({y: 150
-      ,h: 100
-      ,w: 50})
-    .collision([0,0],[50,0],[50,100])
+      ,h: 50
+      ,w: 100})
+    .collision([0,0],[100,0],[100,50]);
 
-console.log("setting soldier x", this.x, this.startingx);
     this.x = this.startingx;
   }
 
