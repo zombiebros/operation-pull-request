@@ -2,11 +2,12 @@ Crafty.c("Soldier", {
   life: 5
   ,direction: 1 
   ,killcount : 1
+  ,enteredviewport: false
   ,moving: true
   ,speed: 2
 
   ,init: function(){
-    this.spawned == false;
+    this.enteredviewport == false;
     this.requires("2D, Canvas, Color, Enemy, Collision, ViewportConstrain, MoveByCenter, Destroyable")
     .bind("EnterFrame", this.enterFrameHandler);
 
@@ -18,11 +19,11 @@ Crafty.c("Soldier", {
     .collision([0,0],[50,0],[50,100])
 
 
-    //create the entity off screen and let it run in using this.spawned as a flag to start limiting its bounds.
-    this.spawned = false;
+    //create the entity off screen and let it run in using this.enteredviewport as a flag to start limiting its bounds.
+    this.enteredviewport = false;
     this.addComponent("Horizonable"); //add Horizonable first because it adjusts the entites height and width which is need for the x
     this.x = Crafty.math.randomElementOfArray([0-this.w, Crafty.viewport.width+this.w]);
-    
+    this.direction = (this.x < Crafty.viewport.width / 2) ? 1 : -1;
   }
 
   ,enterFrameHandler: function(frame){
