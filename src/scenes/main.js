@@ -9,6 +9,8 @@ Crafty.scene("main",(function() {
 		,enemyspawnrate: 200
 		,chancetospawntank: 10
 		,maxenemies: 5
+		,killcount: 0
+		,killsneeded: 100
 
 		,gameoverHandler: function(){
 			console.log("GAME OVER HANDLER");

@@ -20,7 +20,7 @@ Crafty.c("Soldier", {
   }
 
   ,enterFrameHandler: function(frame){
-  	if(Crafty.math.randomInt(0, 1000) == 1000 && this.hit("EnemyCover") == false){
+  	if(Crafty.math.randomInt(0, 200) == 200 && this.hit("EnemyCover") == false){
   		this.shoot();
       this.moving = false;
       this.timeout(function(){
