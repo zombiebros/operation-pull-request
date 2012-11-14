@@ -10,12 +10,15 @@ Crafty.c("Tank", {
     .bind("EnterFrame", this.enterFrameHandler);
 
 
-    this.attr({y: 150
+    this.attr({
+      y: Crafty.math.randomInt(Crafty.viewport.horizonx, Crafty.viewport.height-400)
       ,h: 50
-      ,w: 100})
+      ,w: 100
+    })
     .collision([0,0],[100,0],[100,50]);
 
-    this.x = this.startingx;
+    this.x = Crafty.math.randomElementOfArray([0+50, Crafty.viewport.width-100]);
+    this.addComponent("Horizonable");
   }
 
   ,enterFrameHandler: function(frame){
