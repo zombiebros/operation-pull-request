@@ -1,7 +1,7 @@
 Crafty.c("Player", {
 	
 	init: function(){
-    	this.requires("2D, Canvas, player1, ViewportConstrain, MoveByCenter, Destroyable, PlayerControls");
+    	this.requires("2D, Canvas, player1, ViewportConstrain, MoveByCenter, Destroyable, PlayerControls, SpriteAnimation");
     	this.bind("Die", this.dieHandler2);
     }
 
