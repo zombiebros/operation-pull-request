@@ -2,7 +2,7 @@ Crafty.c("PlayerControls", {
 
 init: function() {
 
-    this.requires("Twoway","Keyboard")
+    this.requires("Twoway")
     .twoway(10,[0])     // twoway movement for now
     .bind("NewDirection", function (direction) {
       this.animate('RunningRight',5,0,8);
