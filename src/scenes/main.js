@@ -7,7 +7,7 @@ Crafty.scene("main",(function() {
 	var scene = {
 		level: 1
 		,enemyspawnrate: 200
-		,chancetospawntank: 10
+		,chancetospawntank: 2
 		,maxenemies: 5
 		,killcount: 0
 		,killsneeded: 100
@@ -27,6 +27,7 @@ Crafty.scene("main",(function() {
 
 		,spawnNewEnemy: function(){
 			if(Crafty.math.randomInt(0, this.chancetospawntank) == this.chancetospawntank){
+				console.log("spawning tank");
 				Crafty.e("Tank").color("Green");
 		    }else{
 		    	Crafty.e("Soldier").color("Green");
