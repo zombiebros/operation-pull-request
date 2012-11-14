@@ -7,12 +7,11 @@ Crafty.c("Player", {
 
     ,dieHandler2: function(){
     	console.log("player die");
-    	while(this.h >0){
-    		this.h -= 1;
-    	}
 
-    	Crafty.trigger("GAMEOVER");
-    	this.destroy();
+        if(Crafty.gameover != true){
+          Crafty.gameover = true;
+    	  Crafty.trigger("GAMEOVER");
+        }
     }
 
 });
