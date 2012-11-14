@@ -12,3 +12,6 @@ Crafty.sprite(32,"url", {
 Crafty.sprite(50, "resources/images/crossairs.png", {
 	crossairs1: [0,0]
 });
+Crafty.sprite(60, "resources/images/powerups.png", {
+	heal:[0,0]
+})

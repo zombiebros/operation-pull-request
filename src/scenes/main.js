@@ -46,7 +46,7 @@ Crafty.scene("main",(function() {
         y: Crafty.viewport.height - 200,
         z: 2
       })
-      .collision([50,20], [150,20], [116,200]);
+      .collision([50,0], [150,0], [116,200]);
 
 			var cover = Crafty.e("2D, Canvas, Color, Cover, EnemyCover, Destroyable")
 			.color("purple")

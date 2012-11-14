@@ -1,3 +1,4 @@
+var powerUps = ["Heal"];
 Crafty.c("Destroyable", {
   
   init: function(){
@@ -42,6 +43,13 @@ Crafty.c("Destroyable", {
       this.h -= 1;
     }
     this.destroy();
+    if(Crafty.math.randomInt(0, 100) > 10){
+      var powerUp = powerUps[Crafty.math.randomInt(0, powerUps.length-1)];
+      Crafty.e(powerUp).attr({
+        x:this.x,
+        y:this.y
+      });
+    }
   }
 
 });
