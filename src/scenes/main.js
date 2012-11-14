@@ -40,16 +40,13 @@ Crafty.scene("main",(function() {
 			Crafty.bind("GAMEOVER", $.proxy(this.gameoverHandler, this));
 			Crafty.bind("EnterFrame", $.proxy(this.enterFrameHandler, this));
 
-			var player = Crafty.e("Player, SpriteAnimation, Collision").attr({
-                x:Crafty.viewport.width/2-50,
-                y: Crafty.viewport.height - 200,
-                z: 2
-                })
-            .collision([50,20], [150,20], [116,200])
-            .animate('RunningRight',5,0,8)
-            .animate('RunningLeft',3,0,0)
-            .animate('RunningLeft', 25, -1);
-
+			var player = Crafty.e("Player, Collision")
+			.attr({
+				x:Crafty.viewport.width/2-50,
+        y: Crafty.viewport.height - 200,
+        z: 2
+      })
+      .collision([50,20], [150,20], [116,200]);
 
 			var cover = Crafty.e("2D, Canvas, Color, Cover, EnemyCover, Destroyable")
 			.color("purple")
@@ -58,7 +55,7 @@ Crafty.scene("main",(function() {
 				w: 200,
 				y: 150,
 				x: 300,
-				life: 10	
+				life: 10
 			}).addComponent("Horizonable");
 
 			var playerCover = Crafty.e("Color, Cover, PlayerCover")
