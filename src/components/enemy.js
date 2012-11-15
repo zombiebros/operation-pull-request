@@ -12,6 +12,8 @@ Crafty.c("Enemy", {
       this.direction = (this.x < Crafty.viewport.width / 2) ? 1 : -1;
     }
 
+
+
     ,enterFrameHandler: function(frame){
         if(Crafty.math.randomInt(0, 200) == 200 && this.hit("EnemyCover") == false){
             this.shoot();

@@ -9,8 +9,8 @@ Crafty.c("Tank", {
 
     this.attr({
       y: Crafty.math.randomInt(Crafty.viewport.horizonx, Crafty.viewport.height-400)
-      ,h: 50
-      ,w: 100
+      ,h: 100
+      ,w: 150
     })
     .collision([0,0],[100,0],[100,50]);
 

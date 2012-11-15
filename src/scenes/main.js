@@ -34,12 +34,23 @@ Crafty.scene("main",(function() {
 		    }
 		}
 
+		,spawnBoss: function(){
+			Crafty.e("Soldier Boss")
+			.attr({
+				h:300,
+				w: 150
+			})
+			.color("Black");
+		}
+
 		,init: function(){
+			Crafty.gameover = false;
 			if(Crafty.isPaused()){Crafty.pause();}
 
 			Crafty.background("#444");
 			Crafty.bind("GAMEOVER", $.proxy(this.gameoverHandler, this));
 			Crafty.bind("EnterFrame", $.proxy(this.enterFrameHandler, this));
+			Crafty.bind("SPAWNBOSS", $.proxy(this.spawnBoss, this));
 
 			var player = Crafty.e("Player, Collision")
 			.attr({
