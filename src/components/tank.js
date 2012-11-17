@@ -12,7 +12,7 @@ Crafty.c("Tank", {
       ,h: 100
       ,w: 150
     })
-    .collision([0,0],[100,0],[100,50]);
+    .collision([0,0],[150,0],[150,100]);
 
     this.requires("Enemy");
   }
