@@ -2,15 +2,14 @@ Crafty.scene("main",(function() {
 	//Crafty.scene only takes a function parameter. I've wrapped an object for our scene in a closure.
 	//This gives us more state to work with. Returns an init function at the bottom.
 
-	Crafty.viewport.horizonx = Crafty.viewport.height / 4;	
+	Crafty.viewport.horizonx = Crafty.viewport.height / 4;
+
 
 	var scene = {
 		level: 1
 		,enemyspawnrate: 200
 		,chancetospawntank: 2
-		,maxenemies: 5
-		,killcount: 0
-		,killsneeded: 100
+		,maxenemies: 5		
 
 		,gameoverHandler: function(){
 			console.log("GAME OVER HANDLER");
@@ -52,13 +51,15 @@ Crafty.scene("main",(function() {
 			Crafty.bind("EnterFrame", $.proxy(this.enterFrameHandler, this));
 			Crafty.bind("SPAWNBOSS", $.proxy(this.spawnBoss, this));
 
+			var enemyBar = Crafty.e("Progressbar").attr({x: 0, y: 0});
+
 			var player = Crafty.e("Player, Collision")
 			.attr({
 				x:Crafty.viewport.width/2-50,
-        y: Crafty.viewport.height - 200,
-        z: 2
-      })
-      .collision([50,0], [150,0], [116,200]);
+				y: Crafty.viewport.height - 200,
+				z: 2
+			})
+			.collision([50,0], [150,0], [116,200]);
 
 			var cover = Crafty.e("2D, Canvas, Color, Cover, EnemyCover, Destroyable")
 			.color("purple")

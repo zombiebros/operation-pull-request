@@ -42,7 +42,13 @@ Crafty.c("Destroyable", {
     while(this.h > 0){
       this.h -= 1;
     }
+
     this.destroy();
+
+    if(typeof this.killcount != 'undefined'){ //if this entity has kill count lower the global strenght counter
+      Crafty.trigger("DECKILLS", this.killcount);
+    }
+
     if(Crafty.math.randomInt(0, 100) > 10){
       var powerUp = powerUps[Crafty.math.randomInt(0, powerUps.length-1)];
       Crafty.e(powerUp).attr({
