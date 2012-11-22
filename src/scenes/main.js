@@ -47,11 +47,18 @@ Crafty.scene("main",(function() {
 			if(Crafty.isPaused()){Crafty.pause();}
 
 			Crafty.background("#444");
+			//Crafty.bind("EnterFrame", $.proxy(this.enterFrameHandler, this));
+
 			Crafty.bind("GAMEOVER", $.proxy(this.gameoverHandler, this));
-			Crafty.bind("EnterFrame", $.proxy(this.enterFrameHandler, this));
 			Crafty.bind("SPAWNBOSS", $.proxy(this.spawnBoss, this));
 
-			var enemyBar = Crafty.e("Progressbar").attr({x: 0, y: 0});
+			
+			var enemyBar = Crafty.e("UI,Progressbar").attr({
+				x: 0, 
+				y: 0,
+				w: 200,
+				h: 50
+			});
 
 			var player = Crafty.e("Player, Collision")
 			.attr({
