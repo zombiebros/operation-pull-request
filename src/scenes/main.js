@@ -19,7 +19,9 @@ Crafty.scene("main",(function() {
 		}
 
 		,enterFrameHandler: function(frame){
-			if((frame.frame % this.enemyspawnrate == 0 && Crafty("Enemy").length < this.maxenemies) || Crafty("Enemy").length <= 0){
+			if((frame.frame % this.enemyspawnrate == 0 &&
+			 Crafty("Enemy").length < this.maxenemies) || Crafty("Enemy").length <= 0 &&
+			Crafty.bosstime != true){
 				this.spawnNewEnemy();
 			}
 		}
@@ -34,6 +36,7 @@ Crafty.scene("main",(function() {
 		}
 
 		,spawnBoss: function(){
+			Crafty.bosstime = true;
 			Crafty.e("Soldier Boss")
 			.attr({
 				h:300,
@@ -47,17 +50,23 @@ Crafty.scene("main",(function() {
 			if(Crafty.isPaused()){Crafty.pause();}
 
 			Crafty.background("#444");
-			//Crafty.bind("EnterFrame", $.proxy(this.enterFrameHandler, this));
+
+			Crafty.bind("EnterFrame", $.proxy(this.enterFrameHandler, this));
 
 			Crafty.bind("GAMEOVER", $.proxy(this.gameoverHandler, this));
 			Crafty.bind("SPAWNBOSS", $.proxy(this.spawnBoss, this));
 
-			
+
 			var enemyBar = Crafty.e("UI,Progressbar").attr({
-				x: 0, 
-				y: 0,
+				x: 0,
+				y: Crafty.viewport.height - 50, 
 				w: 200,
-				h: 50
+				h: 50,
+				current_progress: 100
+			})
+			.trigger("Redraw")
+			.bind("Empty", function(){
+				Crafty.trigger("SPAWNBOSS");
 			});
 
 			var player = Crafty.e("Player, Collision")

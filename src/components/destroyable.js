@@ -46,7 +46,8 @@ Crafty.c("Destroyable", {
     this.destroy();
 
     if(typeof this.killcount != 'undefined'){ //if this entity has kill count lower the global strenght counter
-      Crafty.trigger("DECKILLS", this.killcount);
+      //Crafty.trigger("DECKILLS", this.killcount);
+      Crafty(Crafty('Progressbar')[0]).trigger("updateCount", this.killcount * -1);
     }
 
     if(Crafty.math.randomInt(0, 100) > 10){
