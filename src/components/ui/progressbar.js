@@ -2,30 +2,44 @@ Crafty.c("Progressbar", {
 	current_progress: 0
 	,total_progress: 100
 	,border: 1
-	,height: 50
+	,h: 50
 	,w: 200
 	,label: "Progress:"
 
 	,init: function(){
-		this.requires("2D, Canvas");
+		this.requires("2D, Canvas, Color");
 		this.x = 0;
 		this.y = 0;
+		this.color("Black");
+		this.z = 850;
 
-		this.inner = Crafty.e("2D, Canvas")
+		this.inner = Crafty.e("2D, Canvas, Color, Inner")
 		.attr({
 			x: this.x+1
 			,y: this.y-1
-			h: this.h - 2
-		});
+			,w: this.calculateInnerWidth()
+			,h: this.h - 4
+			,z: 900
+		}).color("Red");
 
+		this.attach(this.inner);
 		this.bind("Redraw", this.redrawInner);
+		this.bind('updateCount', this.updateCount);
+
+		this.trigger("Redraw");
+	}
+
+	,calculateInnerWidth: function(){
+		console.log("inner width", (this.current_progress/this.total_progress*this.w) - this.border*2);
+		return (this.current_progress/this.total_progress*this.w) - this.border*2;
 	}
 
 	,redrawInner: function(){
-		this.inner.w = ((this.current_progress/total_progress*this.w) - border*2
+		this.inner.w = this.calculateInnerWidth();
 	}
 
 	,updateCount: function(value){
+		console.log("updating Progress count", value);
 		this.current_progress += value;		
 
 		switch (this.current_progress){
