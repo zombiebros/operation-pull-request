@@ -11,7 +11,6 @@ Crafty.c("Destroyable", {
     }
 
     this.bind("Damage", this.damageHandler)
-    .bind("DieAnimation", this.dieAnimation)
     .bind("DamageAnimation", this.damageAnimationHandler)
     .bind("EnterFrame", this.dieAnimation)
     ;
@@ -21,10 +20,10 @@ Crafty.c("Destroyable", {
     if(this.dying == true || this.dead == true){return true;}
 
     this.life -= 1;
-        
+
     if(this.life <= 0 && this.dying != true){      
-      //this.trigger("DieAnimation");
       this.dying = true;
+      this.trigger("DieAnimation")
     }else{
       this.trigger("DamageAnimation");      
     }
@@ -48,8 +47,8 @@ Crafty.c("Destroyable", {
     }
 
     if(this.dying == true && this.dead == false){
-      this.h -= 1;
-      this.y += 1;
+      this.h -= 5;
+      this.y += 5;
     }
   }
 

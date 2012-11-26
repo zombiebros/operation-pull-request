@@ -7,7 +7,6 @@ Crafty.c("Player", {
     }
 
     ,dieHandler2: function(){
-    	console.log("player die");
         this.lives -= 1;
 
         if(this.lives <= 0){

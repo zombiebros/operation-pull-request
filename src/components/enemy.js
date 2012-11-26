@@ -4,7 +4,7 @@ Crafty.c("Enemy", {
 
   ,init: function(){
     this.bind("EnterFrame", this.enterFrameHandler);
-    this.bind("Die", this.decrementKillCount);
+    this.bind("Dead", this.decrementKillCount);
     this.requires("Powerupdropper");
 
       //create the entity off screen and let it run in using this.enteredviewport as a flag to start limiting its bounds.
@@ -15,6 +15,7 @@ Crafty.c("Enemy", {
     }
 
     ,decrementKillCount: function(){
+      this.destroy();
       //decrement kill count
     if(typeof this.killcount != 'undefined'){ //if this entity has kill count lower the global strength counter
       Crafty(Crafty('Progressbar')[0]).trigger("updateCount", this.killcount * -1);

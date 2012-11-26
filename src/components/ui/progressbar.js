@@ -13,12 +13,6 @@ Crafty.c("Progressbar", {
 		this.color("Black");
 		this.z = 850;
 
-		// this.label = Crafty.e("2D, DOM")
-		// .attr({
-		// 	this.x -= 
-		// })
-		// .text(this.label)
-
 		this.inner = Crafty.e("2D, Canvas, Color, Inner")
 		.attr({
 			x: this.x+1
