@@ -36,11 +36,15 @@ Crafty.scene("main",(function() {
 		}
 
 		,spawnBoss: function(){
+			console.log("Spawning boss");
+			if(Crafty.bosstime == true){ return; }
 			Crafty.bosstime = true;
-			Crafty.e("Soldier Boss")
+
+			Crafty.e("Soldier, Boss")
 			.attr({
 				h:300,
-				w: 150
+				w: 150,
+				life: 400
 			})
 			.color("Black");
 		}
@@ -62,10 +66,11 @@ Crafty.scene("main",(function() {
 				y: Crafty.viewport.height - 50, 
 				w: 200,
 				h: 50,
-				current_progress: 100
+				current_progress: 1
 			})
 			.trigger("Redraw")
 			.bind("Empty", function(){
+				console.log("SPAWNBOSS event");
 				Crafty.trigger("SPAWNBOSS");
 			});
 
