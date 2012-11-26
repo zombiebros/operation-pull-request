@@ -1,9 +1,11 @@
 Crafty.c("Enemy", {
-    moving: true
-    ,enteredviewport: false
-	
-	,init: function(){
-      this.bind("EnterFrame", this.enterFrameHandler);
+  moving: true
+  ,enteredviewport: false
+
+  ,init: function(){
+    this.bind("EnterFrame", this.enterFrameHandler);
+    this.bind("Die", this.decrementKillCount);
+    this.requires("Powerupdropper");
 
       //create the entity off screen and let it run in using this.enteredviewport as a flag to start limiting its bounds.
       this.enteredviewport = false;
@@ -12,21 +14,28 @@ Crafty.c("Enemy", {
       this.direction = (this.x < Crafty.viewport.width / 2) ? 1 : -1;
     }
 
+    ,decrementKillCount: function(){
+      //decrement kill count
+    if(typeof this.killcount != 'undefined'){ //if this entity has kill count lower the global strength counter
+      Crafty(Crafty('Progressbar')[0]).trigger("updateCount", this.killcount * -1);
+    }
+  }
 
+  ,enterFrameHandler: function(frame){
+    if(this.dying == true || this.dead == true){return true;}
 
-    ,enterFrameHandler: function(frame){
-        if(Crafty.math.randomInt(0, 200) == 200 && this.hit("EnemyCover") == false){
-            this.shoot();
-            this.moving = false;
-            this.timeout(function(){
-                this.moving = true;
-            }, 500);
-        }
+    if(Crafty.math.randomInt(0, 200) == 200 && this.hit("EnemyCover") == false){
+      this.shoot();
+      this.moving = false;
+      this.timeout(function(){
+        this.moving = true;
+      }, 500);
+    }
 
-        if(this.moving == true){
-          this.trigger("Moved", {x:this.x += this.direction*this.speed, y:this.y});
-          this.x += this.direction * this.speed;
-      }
+    if(this.moving == true){
+      this.trigger("Moved", {x:this.x += this.direction*this.speed, y:this.y});
+      this.x += this.direction * this.speed;
+    }
 
   }
 
@@ -46,7 +55,7 @@ Crafty.c("Enemy", {
     });
    }
 
-  }
+ }
 
 
 });

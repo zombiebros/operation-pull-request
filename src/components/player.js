@@ -1,16 +1,20 @@
 Crafty.c("Player", {
+    lives: 3
 	
-	init: function(){
+	,init: function(){
     	this.requires("2D, Canvas, player1, ViewportConstrain, MoveByCenter, Destroyable, PlayerControls, SpriteAnimation");
-    	this.bind("Die", this.dieHandler2);
+    	this.bind("Dead", this.dieHandler2);
     }
 
     ,dieHandler2: function(){
     	console.log("player die");
+        this.lives -= 1;
 
-        if(Crafty.gameover != true){
-          Crafty.gameover = true;
-    	  Crafty.trigger("GAMEOVER");
+        if(this.lives <= 0){
+            if(Crafty.gameover != true){
+              Crafty.gameover = true;
+              Crafty.trigger("GAMEOVER");
+          }
         }
     }
 
