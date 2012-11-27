@@ -30,7 +30,6 @@ Crafty.c("Progressbar", {
 	}
 
 	,calculateInnerWidth: function(){
-		console.log("inner width", (this.current_progress/this.total_progress*this.w) - this.border*2);
 		return (this.current_progress/this.total_progress*this.w) - this.border*2;
 	}
 
@@ -39,17 +38,19 @@ Crafty.c("Progressbar", {
 	}
 
 	,updateCount: function(value){
-		console.log("updating Progress count", value);
 		this.current_progress += value;		
+		this.trigger("Redraw");
 
-		switch (this.current_progress){
-			case 0:
+
+		if(this.current_progress <= 0){
+			console.log("OMG EMPTY");
 			this.trigger("Empty");
-			case 1:
-			this.trigger("Full");
-			default:
-			this.trigger("Redraw");
 		}
+
+		if(this.current_progress >= this.total_progress){
+			this.trigger("Full");
+		}
+
 	}
 
 });

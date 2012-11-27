@@ -1,7 +1,7 @@
-var powerUps = ["Heal"];
 Crafty.c("Destroyable", {
+  dead: false
   
-  init: function(){
+  ,init: function(){
     if(!this.has("Sprite")){
       this.requires("Color,Tint");
     }
@@ -11,16 +11,19 @@ Crafty.c("Destroyable", {
     }
 
     this.bind("Damage", this.damageHandler)
-    .bind("Die", this.dieHandler)
     .bind("DamageAnimation", this.damageAnimationHandler)
+    .bind("EnterFrame", this.dieAnimation)
     ;
   }
 
   ,damageHandler: function(){
+    if(this.dying == true || this.dead == true){return true;}
+
     this.life -= 1;
 
-    if(this.life <= 0 && this.dying != true){
-      this.trigger("Die");
+    if(this.life <= 0 && this.dying != true){      
+      this.dying = true;
+      this.trigger("DieAnimation")
     }else{
       this.trigger("DamageAnimation");      
     }
@@ -37,25 +40,15 @@ Crafty.c("Destroyable", {
   }
 
 
-  ,dieHandler: function(){
-    this.dying = true;
-    while(this.h > 0){
-      this.h -= 1;
+  ,dieAnimation: function(){
+    if(this.h <= 0){ 
+      this.dead = true;
+      this.trigger("Dead");
     }
 
-    this.destroy();
-
-    if(typeof this.killcount != 'undefined'){ //if this entity has kill count lower the global strenght counter
-      //Crafty.trigger("DECKILLS", this.killcount);
-      Crafty(Crafty('Progressbar')[0]).trigger("updateCount", this.killcount * -1);
-    }
-
-    if(Crafty.math.randomInt(0, 100) > 10){
-      var powerUp = powerUps[Crafty.math.randomInt(0, powerUps.length-1)];
-      Crafty.e(powerUp).attr({
-        x:this.x,
-        y:this.y
-      });
+    if(this.dying == true && this.dead == false){
+      this.h -= 5;
+      this.y += 5;
     }
   }
 

@@ -9,7 +9,7 @@ Crafty.scene("main",(function() {
 		level: 1
 		,enemyspawnrate: 200
 		,chancetospawntank: 2
-		,maxenemies: 5		
+		,maxenemies: 5
 
 		,gameoverHandler: function(){
 			console.log("GAME OVER HANDLER");
@@ -20,7 +20,7 @@ Crafty.scene("main",(function() {
 
 		,enterFrameHandler: function(frame){
 			if((frame.frame % this.enemyspawnrate == 0 &&
-			 Crafty("Enemy").length < this.maxenemies) || Crafty("Enemy").length <= 0 &&
+			 (Crafty("Enemy").length < this.maxenemies) || Crafty("Enemy").length <= 0) &&
 			Crafty.bosstime != true){
 				this.spawnNewEnemy();
 			}
@@ -28,7 +28,6 @@ Crafty.scene("main",(function() {
 
 		,spawnNewEnemy: function(){
 			if(Crafty.math.randomInt(0, this.chancetospawntank) == this.chancetospawntank){
-				console.log("spawning tank");
 				Crafty.e("Tank").color("Green");
 		    }else{
 		    	Crafty.e("Soldier").color("Green");
@@ -36,13 +35,45 @@ Crafty.scene("main",(function() {
 		}
 
 		,spawnBoss: function(){
+			if(Crafty.bosstime == true){ return; }
 			Crafty.bosstime = true;
-			Crafty.e("Soldier Boss")
+
+			var boss = Crafty.e("Soldier, Boss")
 			.attr({
+				y: 200,
 				h:300,
-				w: 150
+				w: 150,
+				life: 400
 			})
 			.color("Black");
+			boss.bulletType = boss.bulletType + ",BigBullet";
+		}
+
+		,buildUI: function(){
+
+			var enemyBarLabel = Crafty.e("2D, DOM, Text").attr({
+				x: 20,
+				y: Crafty.viewport.height - 45				
+			}).text("Enemy Health")
+
+			var enemyBar = Crafty.e("UI,Progressbar").attr({
+				x: 100,
+				y: Crafty.viewport.height - 50, 
+				w: 200,
+				h: 50,
+				current_progress: 100
+			})
+
+			.trigger("Redraw")
+			.bind("Empty", function(){				
+				Crafty.trigger("SPAWNBOSS");
+			});
+
+			var doodsLabel = Crafty.e("2D, DOM, Text").attr({
+				x: enemyBar.w+120,
+				y: Crafty.viewport.height - 40,
+			}).text("Lives")
+
 		}
 
 		,init: function(){
@@ -56,18 +87,7 @@ Crafty.scene("main",(function() {
 			Crafty.bind("GAMEOVER", $.proxy(this.gameoverHandler, this));
 			Crafty.bind("SPAWNBOSS", $.proxy(this.spawnBoss, this));
 
-
-			var enemyBar = Crafty.e("UI,Progressbar").attr({
-				x: 0,
-				y: Crafty.viewport.height - 50, 
-				w: 200,
-				h: 50,
-				current_progress: 100
-			})
-			.trigger("Redraw")
-			.bind("Empty", function(){
-				Crafty.trigger("SPAWNBOSS");
-			});
+			this.buildUI();
 
 			var player = Crafty.e("Player, Collision")
 			.attr({
