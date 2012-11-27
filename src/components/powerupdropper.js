@@ -3,6 +3,7 @@ Crafty.c("Powerupdropper", {
 	,dropChance: 5
 
 	,init: function(){
+		this.requires("MoveByCenter");
 		this.bind("DieAnimation", this.dropPowerup);
 	}
 
@@ -12,7 +13,7 @@ Crafty.c("Powerupdropper", {
     	var powerUp = this.types[Crafty.math.randomInt(0, this.types.length-1)];
 
     	Crafty.e(powerUp).attr({
-    		x:this.x,
+    		x:this.centerX(),
     		y:this.y
     	});
     }
