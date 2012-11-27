@@ -29,9 +29,9 @@ Crafty.scene("main",(function() {
 		,spawnNewEnemy: function(){
 			if(Crafty.math.randomInt(0, this.chancetospawntank) == this.chancetospawntank){
 				Crafty.e("Tank").color("Green");
-		    }else{
-		    	Crafty.e("Soldier").color("Green");
-		    }
+			}else{
+				Crafty.e("Soldier").color("Green");
+			}
 		}
 
 		,spawnBoss: function(){
@@ -63,7 +63,6 @@ Crafty.scene("main",(function() {
 				h: 50,
 				current_progress: 100
 			})
-
 			.trigger("Redraw")
 			.bind("Empty", function(){				
 				Crafty.trigger("SPAWNBOSS");
@@ -97,7 +96,7 @@ Crafty.scene("main",(function() {
 			})
 			.collision([50,0], [150,0], [116,200]);
 
-			var cover = Crafty.e("2D, Canvas, Color, Cover, EnemyCover, Destroyable")
+			var cover = Crafty.e("2D, Canvas, Color, Cover, EnemyCover, Spawner, Destroyable")
 			.color("purple")
 			.attr({
 				h: 100,
