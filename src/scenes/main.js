@@ -104,7 +104,13 @@ Crafty.scene("main",(function() {
 				y: 150,
 				x: 300,
 				life: 10
-			}).addComponent("Horizonable");
+			}).addComponent("Horizonable").bind("Dead", function(){
+				console.log("destroying cover entity", this);
+				this.destroy();
+				console.log(Crafty("Spawner").length);
+			});
+
+
 
 			var playerCover = Crafty.e("Color, Cover, PlayerCover")
 			.color("pink")
