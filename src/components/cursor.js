@@ -27,7 +27,9 @@ Crafty.c("Cursor", {
     if(this.shooting == true && Crafty.frame() % this.firerate == 0){
       var destroyable = destroyable[0].obj;
 
-      if(destroyable.__c["Enemy"] || destroyable.__c["EnemyCover"]){
+      if(destroyable.__c["Enemy"] || 
+        destroyable.__c["EnemyCover"] || 
+        destroyable.__c["BigBullet"]){
         destroyable.trigger("Damage");
       }
     }
