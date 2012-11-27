@@ -38,15 +38,15 @@ Crafty.scene("main",(function() {
 			if(Crafty.bosstime == true){ return; }
 			Crafty.bosstime = true;
 
-			Crafty.e("Soldier, Boss")
+			var boss = Crafty.e("Soldier, Boss")
 			.attr({
+				y: 200,
 				h:300,
 				w: 150,
 				life: 400
 			})
 			.color("Black");
-
-			Crafty
+			boss.bulletType = boss.bulletType + ",BigBullet";
 		}
 
 		,buildUI: function(){
@@ -86,8 +86,6 @@ Crafty.scene("main",(function() {
 
 			Crafty.bind("GAMEOVER", $.proxy(this.gameoverHandler, this));
 			Crafty.bind("SPAWNBOSS", $.proxy(this.spawnBoss, this));
-
-
 
 			this.buildUI();
 

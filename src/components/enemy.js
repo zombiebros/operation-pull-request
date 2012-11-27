@@ -1,6 +1,7 @@
 Crafty.c("Enemy", {
   moving: true
   ,enteredviewport: false
+  ,bulletType: "Bullet"
 
   ,init: function(){
     this.bind("EnterFrame", this.enterFrameHandler);
@@ -42,22 +43,12 @@ Crafty.c("Enemy", {
 
   }
 
-  ,shoot: function(e){
-    var player = Crafty(Crafty("player1")[0]);
-
-    if(player[0] != 0){
-     Crafty.e("2D, Canvas, Color, Bullet")
-     .color("red")
-     .attr({
-      w: 16,
-      h: 16,
+  ,shoot: function(e){    
+     Crafty.e(this.bulletType)
+     .attr({       
       x: this.centerX(),
-      y: this.centerY(),
-      targetx: player.centerX(),
-      targety: player.centerY()
+      y: this.centerY()
     });
-   }
-
  }
 
 

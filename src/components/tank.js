@@ -15,6 +15,7 @@ Crafty.c("Tank", {
     .collision([0,0],[150,0],[150,100]);
 
     this.requires("Enemy");
+    this.bulletType = this.bulletType + ", BigBullet";
   }
   
 });

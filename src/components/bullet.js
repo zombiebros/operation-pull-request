@@ -1,12 +1,21 @@
 Crafty.c("Bullet",{
 
-  init: function() {    
-  this.bind("EnterFrame", this.EnterFrame);
-  this.requires("MoveByCenter");
+  init: function() {
+    this.requires("MoveByCenter, 2D, Canvas");
 
-  this.requires("Collision")
-    .origin("center")
-    .onHit("Destroyable", this.hitDestroyableHandler);
+    var player = Crafty(Crafty("player1")[0]);
+
+    this.attr({
+      w: 16,
+      h: 16,
+      targetx: player.centerX(),
+      targety: player.centerY() 
+    });
+
+    this.requires("Collision, Color")
+    .color("red")
+    .onHit("Destroyable", this.hitDestroyableHandler)
+    .bind("EnterFrame", this.EnterFrame);
   }
 
   ,hitDestroyableHandler: function(destroyable){
@@ -34,10 +43,21 @@ Crafty.c("Bullet",{
 
     this.moveByCenter(new_coords);
 
-    //console.log(this.targety, this.y);
-
     if(this.x > Crafty.viewport.width || this.x < 0 || this.y > Crafty.viewport.height || this.y < 0  || this.y >= this.targety-20) {
       this.destroy();
     }
+  }
+  });
+
+
+Crafty.c("BigBullet", {
+  init: function(){
+    this.color("Blue");
+    this.attr({
+      w: 20,
+      h: 20,
+      life: 2
+    });
+    this.requires("Destroyable")
   }
 });
