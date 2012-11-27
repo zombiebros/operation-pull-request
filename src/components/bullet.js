@@ -27,7 +27,8 @@ Crafty.c("Bullet",{
     }
   }
 
-  ,EnterFrame: function(e){   
+  ,EnterFrame: function(e){  
+    if(this.dying == true || this.dead == true){return false;}   
     originVector = new Crafty.math.Vector2D(this.centerX(), this.centerY());
     targetVector = new Crafty.math.Vector2D(this.targetx, this.targety);
 
@@ -58,6 +59,7 @@ Crafty.c("BigBullet", {
       h: 20,
       life: 2
     });
-    this.requires("Destroyable")
+    this.requires("Destroyable");
+    this.bind("Dead", function(){this.destroy();});
   }
 });
