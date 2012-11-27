@@ -3,7 +3,7 @@ Crafty.c("Powerupdropper", {
 	,dropChance: 5
 
 	,init: function(){
-		this.bind("Dead", this.dropPowerup);
+		this.bind("DieAnimation", this.dropPowerup);
 	}
 
 	,dropPowerup: function(){
@@ -16,5 +16,6 @@ Crafty.c("Powerupdropper", {
     		y:this.y
     	});
     }
+  }
 
 });
