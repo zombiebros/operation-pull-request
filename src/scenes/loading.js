@@ -3,9 +3,10 @@ Crafty.scene("loading", function() {
 console.log("loadin");
 
   Crafty.load([
-  	"resources/images/crossairs.png",
-  	"resources/images/character.png"
- 		], function() {
+		"resources/images/crossairs.png",
+		"resources/images/character.png",
+		"resources/images/wall.png"
+		], function() {
 		Crafty.scene("main"); //when everything is loaded, run the main scene
   });
 

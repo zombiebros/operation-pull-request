@@ -112,21 +112,19 @@ Crafty.scene("main",(function() {
 
 
 
-			var playerCover = Crafty.e("Color, Cover, PlayerCover")
-			.color("pink")
+			var playerCover = Crafty.e("wallnodamage1, Cover, PlayerCover")
 			.attr({
-				h: player.h,
-				w: 200,
+				h: 170,
+				w: 340,
 				y: player.y-player.h/4
 			});
 
-			var playerCover2 = Crafty.e("Color, Cover, PlayerCover")
-			.color("pink")
+			var playerCover2 = Crafty.e("wallnodamage1, Cover, PlayerCover")
 			.attr({
-				h: player.h,
-				w: 200,
+				h: 170,
+				w: 340,
 				y: player.y-player.h/4,
-				x: Crafty.viewport.width-200
+				x: Crafty.viewport.width-340
 			});
 
 			var crossairs = Crafty.e("2D, SpriteAnimation, Canvas, crossairs1, Cursor, Mouse")
