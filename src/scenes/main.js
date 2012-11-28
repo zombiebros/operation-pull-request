@@ -106,14 +106,14 @@ Crafty.scene("main",(function() {
 				life: 10
 			}).addComponent("Horizonable");
 
-			var playerCover = Crafty.e("wallnodamage1, Cover, PlayerCover")
+			var playerCover = Crafty.e("Cover, PlayerCover")
 			.attr({
 				h: 170,
 				w: 340,
 				y: player.y-player.h/4
 			});
 
-			var playerCover2 = Crafty.e("wallnodamage1, Cover, PlayerCover")
+			var playerCover2 = Crafty.e("Cover, PlayerCover")
 			.attr({
 				h: 170,
 				w: 340,
