@@ -3,17 +3,18 @@ Crafty.c("Cursor", {
 
   ,init: function(){
     Crafty.addEvent(this, Crafty.stage.elem, "mousemove", this.position);
-    Crafty.addEvent(this, Crafty.stage.elem, "mouseown", this.shoot);
-    Crafty.addEvent(this, Crafty.stage.elem, "mouseup", this.stopshoot);
+    Crafty.addEvent(this, Crafty.stage.elem, "mousedown", this.mouseDownHandler);
+    Crafty.addEvent(this, Crafty.stage.elem, "mouseup", this.mouseUpHandler);
     
     this.requires("Collision")
     .bind("EnterFrame", this.enterFrameHandler)
-    .bind('MouseDown', this.mouseDownHandler)
-    .bind('MouseUp', this.mouseUpHandler)
+    //.bind('MouseDown', this.mouseDownHandler)
+    //.bind('MouseUp', this.mouseUpHandler)
     .onHit("Destroyable", this.attackTimeout)
     ;
 
   }
+
 
   ,position: function(e){
     this.attr({
@@ -44,12 +45,29 @@ Crafty.c("Cursor", {
     }
   }
 
-  ,mouseDownHandler: function() {
-    this.shooting = true;
-    this.animate('Shooting',0,0,1)
-    .animate('Shooting', 5 , -1);
+  ,mouseDownHandler: function(mouseEvent) {
+    if(mouseEvent.mouseButton === Crafty.mouseButtons.LEFT){
+      this.shooting = true;
+      this.animate('Shooting',0,0,1)
+      .animate('Shooting', 5 , -1);
 
-    Crafty.audio.play('mg', -1);
+      Crafty.audio.play('mg', -1);
+    }
+
+    if(mouseEvent.mouseButton === Crafty.mouseButtons.RIGHT){
+      this.launchGrenade();
+    }
+  }
+
+  ,launchGrenade: function(){
+    var player = Crafty(Crafty("player1")[0]);
+    if(player.grenades > 0){
+      Crafty.e("Bullet")
+      .moveByCenter({
+        x: player.centerX(),
+        y: player.centerY(),
+      });
+    }
   }
 
   ,mouseUpHandler: function() {

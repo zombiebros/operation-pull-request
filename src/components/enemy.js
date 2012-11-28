@@ -9,7 +9,8 @@ Crafty.c("Enemy", {
     this.requires("Powerupdropper");
 
   //spawn at a spawner
-  if(Crafty("Spawner").length > 0){
+  if(Crafty("Spawner").length > 0 && (Crafty.frame() % 2) == 0){
+    console.log("spawner spawn");
         //get random spawner
         random_spawner = Crafty(Crafty.math.randomElementOfArray(Crafty("Spawner")));
         this.enteredviewport = true;
@@ -17,9 +18,10 @@ Crafty.c("Enemy", {
         this.x = random_spawner.x;
         this.h = random_spawner.h;
         this.y = random_spawner.y;
-        this.z = random_spawner.z += 10;
-        this.direction = (this.x < Crafty.viewport.width / 2) ? 1 : -1;
+        this.z = random_spawner.z - 50;
+        this.direction = Crafty.math.randomElementOfArray([-1, 1]);
       }else{
+        console.log("outside spawn");
       //create the entity off screen and let it run in using this.enteredviewport as a flag to start limiting its bounds.
       this.enteredviewport = false;
       this.requires("Horizonable"); //add Horizonable first because it adjusts the entites height and width which is need for the x
