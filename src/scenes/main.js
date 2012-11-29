@@ -133,7 +133,7 @@ Crafty.scene("main",(function() {
 				}
 			});
 
-			var playerCover2 = Crafty.e("playerwall, Cover, PlayerCover, SpriteAmation")
+			var playerCover2 = Crafty.e("playerwall, Cover, PlayerCover, SpriteAnimation")
 			.attr({
 				h: 170,
 				w: 340,
