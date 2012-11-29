@@ -97,13 +97,12 @@ Crafty.scene("main",(function() {
 			})
 			.collision([50,0], [150,0], [116,200]);
 
-			var cover = Crafty.e("2D, Canvas, Color, Cover, EnemyCover, Spawner, Destroyable")
-			.color("purple")
+			var cover = Crafty.e("building1, 2D, Canvas, Cover, EnemyCover, Spawner, Destroyable")
 			.attr({
-				h: 100,
-				w: 200,
-				y: 150,
-				x: 300,
+				h: 187,
+				w: 286,
+				y: 80,
+				x: 200,
 				life: 10
 			}).addComponent("Horizonable").bind("Dead", function(){
 				console.log("destroying cover entity", this);

@@ -40,3 +40,7 @@ Crafty.sprite(200,"resources/images/rlsoldier-sprites.png",{
 //this.animate('DeathWhileRunningRight',21,0,19);
 //this.animate('DeathWhileRunningLeft',16,0,18);
 });
+
+Crafty.sprite(286,186,"resources/images/building.png",{
+	building1: [0,0]
+});

@@ -7,9 +7,10 @@ console.log("loadin");
 		"resources/images/character.png",
 		"resources/images/wall.png",
 		"resources/images/MGsoldier-sprites.png",
-		"resources/images/RLsoldier-sprites.png"
+		"resources/images/RLsoldier-sprites.png",
+		"resources/images/building.png"
 		], function() {
-		Crafty.scene("main"); //when everything is loaded, run the main scene
+		Crafty.scene("title"); //when everything is loaded, run the main scene
   });
 
   Crafty.audio.add({
