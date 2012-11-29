@@ -14,6 +14,7 @@ Crafty.c("Cursor", {
   }
 
   ,position: function(e){
+    if(this.dead == true){return;}
     this.attr({
       x:e.layerX-this.w/2,
       y:e.layerY-this.h/2
@@ -64,13 +65,7 @@ Crafty.c("Cursor", {
 
       console.log(player.centerY(), player.centerX(), this.centerX(), this.centerY());
 
-      Crafty.e("Bullet, Grenade")
-      .moveByCenter({
-        x: player.centerX(),
-        y: player.centerY(),
-        targetx: this.centerX(),
-        targety: this.centerY()
-      });
+      Crafty.e("Grenade, Bullet").setOrigin(player.centerX(), player.centerY());
       player.grenades -= 1;
     }
   }
