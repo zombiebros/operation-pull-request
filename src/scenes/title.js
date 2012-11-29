@@ -4,18 +4,12 @@ Crafty.scene("title",(function() {
 
 		init: function(){
 			
-			Crafty.background("#000");
-
-			var title = Crafty.e("2D, Canvas, Text")
-			.text("OPERATION: PULL REQUEST")
-			.textFont({size: "100", family: "Arial"})
-			.attr({x: 0, y: 0, w: Crafty.viewport.width, h: 100})
-			.textColor("#987675");
+			Crafty.background('url("resources/images/title.png")');
 
 			var start = Crafty.e("2D, Canvas, Text, Button")
 			.text("Start")
-			.textFont({size: "20px", family: "Arial"})
-			.attr({x: 20, y: 300, h: 20, w: 100})
+			.textFont({size: "100px", family: "Arial"})
+			.attr({x: 340, y: 560, h: 20, w: 100})
 			.requires("Collision, Destroyable")
 			.textColor("#FFFFFF")
 			.bind("EnterFrame", function(){

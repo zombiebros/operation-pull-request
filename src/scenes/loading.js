@@ -8,7 +8,8 @@ console.log("loadin");
 		"resources/images/wall.png",
 		"resources/images/MGsoldier-sprites.png",
 		"resources/images/RLsoldier-sprites.png",
-		"resources/images/building.png"
+		"resources/images/building.png",
+		"resources/images/title.png"
 		], function() {
 		Crafty.scene("title"); //when everything is loaded, run the main scene
   });
