@@ -6,39 +6,28 @@ Crafty.scene("title",(function() {
 			
 			Crafty.background("#000");
 
-			var title = Crafty.e("2D, DOM, Text")
+			var title = Crafty.e("2D, Canvas, Text")
 			.text("OPERATION: PULL REQUEST")
-			.css({
-				color: 'red',
-				'font-family': "arial, sans-serif",
-				"font-size": "100px"
-			})
-			.attr({x: 0, y: 0, w: Crafty.viewport.width});
+			.textFont({size: "100", family: "Arial"})
+			.attr({x: 0, y: 0, w: Crafty.viewport.width, h: 100})
+			.textColor("#987675");
 
-			var start = Crafty.e("2D, DOM, Text, Collision")
+			var start = Crafty.e("2D, Canvas, Text, Button")
 			.text("Start")
-			.css({
-				color: "red",
-				"font-size": "50px",
-				"font-family": "arial, sans-serif"
-			})
-			.attr({x: 0, y: 400, w: 200, h: 200})
+			.textFont({size: "20px", family: "Arial"})
+			.attr({x: 20, y: 300, h: 20, w: 100})
+			.requires("Collision, Destroyable")
+			.textColor("#FFFFFF")
 			.bind("EnterFrame", function(){
 				if(this.hit("Cursor")){
-					this.css({color: "white"});
+					this.textColor("#FFFFFF");
 				}else{
-					this.css({color: "red"});
+				 this.textColor("#ff1600");
 				}
-			});
-
-			var story = Crafty.e("2D, DOM, Text")
-			.text("Story")
-			.css({
-				color: "red",
-				"font-size": "50px",
-				"font-family": "arial, sans-serif"
 			})
-			.attr({x: 0, y: 450, w: 200});
+			.bind("Damage", function(){
+				Crafty.scene("main");
+			});
 			
 			var crossairs = Crafty.e("2D, SpriteAnimation, Canvas, crossairs1, Cursor, Mouse")
 			.attr({

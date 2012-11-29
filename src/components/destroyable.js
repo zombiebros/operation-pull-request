@@ -2,10 +2,6 @@ Crafty.c("Destroyable", {
   dead: false
   
   ,init: function(){
-    if(!this.has("Sprite")){
-      this.requires("Color,Tint");
-    }
-
     if(typeof this.life == "undefined"){
       this.life = 1;
     }
