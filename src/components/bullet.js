@@ -7,46 +7,62 @@ Crafty.c("Bullet",{
     var player = Crafty(Crafty("player1")[0]);
 
     var targetx = player.centerX(),
-    targety = player.centerY()
+    targety = player.centerY();
 
-    if(this.has("Grenade")){
-      console.log("this is a grenade");
-      var cursor = Crafty(Crafty("Cursor")[0]);
-      targetx = cursor.centerX();
-      targety = cursor.centerY();
-    }
+        var cursor = Crafty(Crafty("Cursor")[0]);
+    targetx = cursor.centerX();
+    targety = cursor.centerY();
 
     this.attr({
       w: 16,
       h: 16,
-      targetx: targetx,
-      targety: targety
     });
 
     this.requires("Collision, Color")
     .color("red")
     .onHit("Destroyable", this.hitDestroyableHandler)
-    .bind("EnterFrame", this.EnterFrame);
+  }
 
+  ,checkForBind: function(){
+    console.log("checking if bullet is ready", this.targetx, this.targety, this.x, this.y);
+    if(typeof this.targetx != 'undefined' &&
+       typeof this.targety != 'undefined' &&
+       (typeof this.x != 'undefined' && this.x != 0) &&
+       (typeof this.y != 'undefined' && this.x != 0)){
+      this.calcDirection();
+    }
+  }
+
+  ,setTarget: function(x, y){
+    this.targetx = x;
+    this.targety = y;
+    this.checkForBind();
+    return this;
   }
 
   ,setOrigin: function(x,y){
-    console.log("setting origin");
     this.x = x;
-    this.y = y;    
-    originVector = new Crafty.math.Vector2D(x, y);
+    this.y = y;
+    this.checkForBind();
+    return this;
+  }
+
+  ,calcDirection: function(){
+    originVector = new Crafty.math.Vector2D(this.x, this.y);    
     targetVector = new Crafty.math.Vector2D(this.targetx, this.targety);
 
     this.direction = targetVector.subtract(originVector); 
 
     if(!this.direction.isZero()){
       this.direction = this.direction.normalize();
-    }   
+    }
 
-    console.log("bullet init");
-    console.log("origin", this.x, this.y);
-    console.log("target", this.targetx, this.targety);
-    console.log("trajectory",this.direction);
+    console.log("calc direction", this.direction, this.x, this.y, this.targetx, this.targety);
+
+    if(typeof this.moveBound == 'undefined'){
+      this.moveBound = true;
+      this.bind("EnterFrame", this.EnterFrame);      
+    }
   }
 
   ,hitDestroyableHandler: function(destroyable){
@@ -61,34 +77,10 @@ Crafty.c("Bullet",{
 
   ,EnterFrame: function(e){ 
     if(this.dying == true || this.dead == true){return false;}
-
-    // originVector = new Crafty.math.Vector2D(this.x, this.y);
-    // targetVector = new Crafty.math.Vector2D(this.targetx, this.targety);
-
-    // this.direction = targetVector.subtract(originVector);    
-
-    // if(!this.direction.isZero()){
-    //   this.direction = this.direction.normalize();
-    // }
-
-    // console.log("moving bullet", this.direction);
-    if((this.x <= this.targetx+2 && this.x >= this.targetx-2 ) && 
-      (this.y >= this.targety+2 && this.y >= this.targety-2)){
-      return;
-    }
     
-    this.origin("center");
     this.x += (this.direction.x * this.speed);
     this.y += (this.direction.y * this.speed);
 
-      // var new_coords = {
-      //   x: this.x + this.direction.x * this.speed,
-      //   y: this.y + this.direction.y * this.speed
-      // };
-
-      // this.moveByCenter(new_coords);
-
-    // }
 
     if(this.x > Crafty.viewport.width || 
       this.x < 0 || 

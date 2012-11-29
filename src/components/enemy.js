@@ -53,15 +53,18 @@ Crafty.c("Enemy", {
   }
 
   if(this.moving == true){
-    this.trigger("Moved", {x:this.x += this.direction*this.speed, y:this.y});
+    this.trigger("Moved", {x:this.x += this.direction*this.speed, y:this.y, direction: this.direction});
     this.x += this.direction * this.speed;
   }
 
 }
 
 ,shoot: function(e){    
- Crafty.e(this.bulletType)
- .setOrigin(this.centerX(), this.centerY())
+  var player = Crafty(Crafty("player1")[0]);
+  console.log(Crafty.e(this.bulletType));
+  Crafty.e(this.bulletType)
+  .setOrigin(this.centerX(), this.centerY())
+  .setTarget(player.centerX(), player.centerY())
 }
 
 
