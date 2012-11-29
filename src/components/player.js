@@ -1,6 +1,6 @@
 Crafty.c("Player", {
     lives: 3
-    ,grenades: 3
+    ,grenades: 999
     ,maxgrenades: 999
 	
 	,init: function(){

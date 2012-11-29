@@ -23,7 +23,7 @@ Crafty.c("Cursor", {
 
   ,attackTimeout: function(destroyable){
     try{
-    if(this.shooting == true && Crafty.frame() % this.firerate == 0){
+    if(this.shooting == true && Crafty.frame() % this.firerate == 0 && !this.has("Grenade")){
       var destroyable = destroyable[0].obj;
 
       if(destroyable.__c["Enemy"] || 
@@ -58,14 +58,14 @@ Crafty.c("Cursor", {
   }
 
   ,launchGrenade: function(){
-    console.log("launchGrenade()", this.centerX(), this.centerY());
     var player = Crafty(Crafty("player1")[0]);
-    console.log(player.grenades);
+    var cursor = Crafty(Crafty("Cursor")[0]);
+    console.log("launchGrenade()", this.centerX(), this.centerY(), player.grenades);
+
     if(player.grenades > 0){
-
-      console.log(player.centerY(), player.centerX(), this.centerX(), this.centerY());
-
-      Crafty.e("Grenade, Bullet").setOrigin(player.centerX(), player.centerY());
+      Crafty.e("Grenade")
+      .setTarget(cursor.centerX(), cursor.centerY())
+      .setOrigin(player.centerX(), player.centerY());
       player.grenades -= 1;
     }
   }
