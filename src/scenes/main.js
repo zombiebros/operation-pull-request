@@ -105,7 +105,7 @@ Crafty.scene("main",(function() {
 
 			this.buildUI();
 
-			var cover = Crafty.e("building1, 2D, Canvas, Cover, EnemyCover, Spawner, Destroyable")
+			var cover = Crafty.e("building1, 2D, Canvas, Cover, EnemyCover, Spawner, Destroyable, SpriteAnimation")
 			.attr({
 				h: 187,
 				w: 286,
@@ -116,6 +116,28 @@ Crafty.scene("main",(function() {
 				console.log("destroying cover entity", this);
 				this.destroy();
 				console.log(Crafty("Spawner").length);
+			})
+			.bind("Damage",function(){
+				if(this.life == 9){
+					this.animate('Building1Damage',0,1,0);
+					this.animate('Building1Damage',15,0);
+				}
+				else if(this.life <=8 && this.life >6){
+					this.animate('Building2Damage',0,2,0);
+					this.animate('Building2Damage',15,0);
+				}
+				else if(this.life <=6 && this.life >4){
+					this.animate('Building3Damage',0,3,0);
+					this.animate('Building3Damage',15,0);
+				}
+				else if(this.life <=4 && this.life >1){
+					this.animate('Building3Damage',0,4,0);
+					this.animate('Building3Damage',15,0);
+				}
+				else if(this.life == 1){
+					this.animate('Building3Damage',0,5,0);
+					this.animate('Building3Damage',15,0);
+				}
 			});
 
 			var playerCover = Crafty.e("playerwall, Cover, PlayerCover, SpriteAnimation")
