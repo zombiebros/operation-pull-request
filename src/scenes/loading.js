@@ -7,7 +7,7 @@ console.log("loadin");
 		"resources/images/character.png",
 		"resources/images/wall.png"
 		], function() {
-		Crafty.scene("main"); //when everything is loaded, run the main scene
+		Crafty.scene("title"); //when everything is loaded, run the main scene
   });
 
   Crafty.audio.add({
@@ -20,6 +20,9 @@ console.log("loadin");
 		"resources/sounds/Machine Gun.wmp3",
 		"resources/sounds/Machine Gun.mp3",
 		"resources/sounds/Machine Gun.ogg"
+		],
+		title: [
+		"resources/sounds/titlesong.mp3"
 		]
 	});
 
