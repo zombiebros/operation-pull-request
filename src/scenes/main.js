@@ -110,13 +110,12 @@ Crafty.scene("main",(function() {
 				console.log(Crafty("Spawner").length);
 			});
 
-
-
 			var playerCover = Crafty.e("wallnodamage1, Cover, PlayerCover")
 			.attr({
 				h: 170,
 				w: 340,
-				y: player.y-player.h/4
+				y: player.y-player.h/4,
+				x: -10
 			});
 
 			var playerCover2 = Crafty.e("wallnodamage1, Cover, PlayerCover")
@@ -124,7 +123,7 @@ Crafty.scene("main",(function() {
 				h: 170,
 				w: 340,
 				y: player.y-player.h/4,
-				x: Crafty.viewport.width-340
+				x: Crafty.viewport.width-335
 			});
 
 			var crossairs = Crafty.e("2D, SpriteAnimation, Canvas, crossairs1, Cursor, Mouse")
