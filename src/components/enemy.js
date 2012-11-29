@@ -61,10 +61,7 @@ Crafty.c("Enemy", {
 
 ,shoot: function(e){    
  Crafty.e(this.bulletType)
- .attr({       
-  x: this.centerX(),
-  y: this.centerY()
-});
+ .setOrigin(this.centerX(), this.centerY())
 }
 
 

@@ -1,6 +1,7 @@
 Crafty.c("Bullet",{
+  speed: 4
 
-  init: function() {
+  ,init: function() {
     this.requires("MoveByCenter, 2D, Canvas");
 
     var player = Crafty(Crafty("player1")[0]);
@@ -26,6 +27,26 @@ Crafty.c("Bullet",{
     .color("red")
     .onHit("Destroyable", this.hitDestroyableHandler)
     .bind("EnterFrame", this.EnterFrame);
+
+  }
+
+  ,setOrigin: function(x,y){
+    console.log("setting origin");
+    this.x = x;
+    this.y = y;    
+    originVector = new Crafty.math.Vector2D(x, y);
+    targetVector = new Crafty.math.Vector2D(this.targetx, this.targety);
+
+    this.direction = targetVector.subtract(originVector); 
+
+    if(!this.direction.isZero()){
+      this.direction = this.direction.normalize();
+    }   
+
+    console.log("bullet init");
+    console.log("origin", this.x, this.y);
+    console.log("target", this.targetx, this.targety);
+    console.log("trajectory",this.direction);
   }
 
   ,hitDestroyableHandler: function(destroyable){
@@ -38,35 +59,41 @@ Crafty.c("Bullet",{
     }
   }
 
-  ,EnterFrame: function(e){  
+  ,EnterFrame: function(e){ 
     if(this.dying == true || this.dead == true){return false;}
 
-    originVector = new Crafty.math.Vector2D(this.centerX(), this.centerY());
-    targetVector = new Crafty.math.Vector2D(this.targetx, this.targety);
+    // originVector = new Crafty.math.Vector2D(this.x, this.y);
+    // targetVector = new Crafty.math.Vector2D(this.targetx, this.targety);
 
-    this.direction = targetVector.subtract(originVector);    
+    // this.direction = targetVector.subtract(originVector);    
 
-    if(!this.direction.isZero()){
-      this.direction = this.direction.normalize();
+    // if(!this.direction.isZero()){
+    //   this.direction = this.direction.normalize();
+    // }
+
+    // console.log("moving bullet", this.direction);
+    if((this.x <= this.targetx+2 && this.x >= this.targetx-2 ) && 
+      (this.y >= this.targety+2 && this.y >= this.targety-2)){
+      return;
     }
-
-    console.log("this direction", this.direction, this.centerX(), this.centerY(), this.targetx, this.targety);
     
-    var new_coords = {
-      x: this.x + Math.ceil(this.direction.x)/*speed*/,
-      y: this.y + Math.ceil(this.direction.y)/*speed*/
-    };
+    this.origin("center");
+    this.x += (this.direction.x * this.speed);
+    this.y += (this.direction.y * this.speed);
 
-    console.log("moving", new_coords, this.targetx, this.targety);
+      // var new_coords = {
+      //   x: this.x + this.direction.x * this.speed,
+      //   y: this.y + this.direction.y * this.speed
+      // };
 
-    this.moveByCenter(new_coords);
+      // this.moveByCenter(new_coords);
+
+    // }
 
     if(this.x > Crafty.viewport.width || 
       this.x < 0 || 
       this.y > Crafty.viewport.height || 
       this.y < 0  ||
-      (this.x == this.targetx && this.y == this.targety-5 )||
-      (this.x == this.targetx && this.y == this.targety+5) ||
       (!this.has("Grenade") && this.y >= this.targety-20)) {
       this.destroy();
     }
