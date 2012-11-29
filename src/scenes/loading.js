@@ -9,7 +9,7 @@ console.log("loadin");
 		"resources/images/MGsoldier-sprites.png",
 		"resources/images/RLsoldier-sprites.png"
 		], function() {
-		Crafty.scene("title"); //when everything is loaded, run the main scene
+		Crafty.scene("main"); //when everything is loaded, run the main scene
   });
 
   Crafty.audio.add({
