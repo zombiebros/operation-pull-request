@@ -111,20 +111,48 @@ Crafty.scene("main",(function() {
 				console.log(Crafty("Spawner").length);
 			});
 
-			var playerCover = Crafty.e("wallnodamage1, Cover, PlayerCover")
+			var playerCover = Crafty.e("playerwall, Cover, PlayerCover, SpriteAnimation")
 			.attr({
 				h: 170,
 				w: 340,
-				y: player.y-player.h/4,
-				x: -10
+				y: player.y-player.h/8,
+				x: 0
+			})
+			.bind("Damage",function(){
+				if(this.life <=8 && this.life >6){
+					this.animate('Wall1Damage',0,1,0);
+					this.animate('Wall1Damage',15,0);
+				}
+				else if(this.life <=6 && this.life >3){
+					this.animate('Wall2Damage',0,2,0);
+					this.animate('Wall2Damage',15,0);
+				}
+				else if(this.life <=3 && this.life >0){
+					this.animate('Wall3Damage',0,3,0);
+					this.animate('Wall3Damage',15,0);
+				}
 			});
 
-			var playerCover2 = Crafty.e("Cover, PlayerCover")
+			var playerCover2 = Crafty.e("playerwall, Cover, PlayerCover, SpriteAmation")
 			.attr({
 				h: 170,
 				w: 340,
-				y: player.y-player.h/4,
-				x: Crafty.viewport.width-335
+				y: player.y-player.h/8,
+				x: Crafty.viewport.width-343
+			})
+			.bind("Damage",function(){
+				if(this.life <=8 && this.life >6){
+					this.animate('Wall1Damage',0,1,0);
+					this.animate('Wall1Damage',15,0);
+				}
+				else if(this.life <=6 && this.life >3){
+					this.animate('Wall2Damage',0,2,0);
+					this.animate('Wall2Damage',15,0);
+				}
+				else if(this.life <=3 && this.life >0){
+					this.animate('Wall3Damage',0,3,0);
+					this.animate('Wall3Damage',15,0);
+				}
 			});
 
 			var crossairs = Crafty.e("2D, SpriteAnimation, Canvas, crossairs1, Cursor, Mouse")

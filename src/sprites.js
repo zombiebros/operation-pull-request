@@ -18,10 +18,7 @@ Crafty.sprite(60, "resources/images/powerups.png", {
 });
 
 Crafty.sprite(340, 170, "resources/images/wall.png",{
-	wallnodamage1:[0,0],
-	wall1damage1:[0,1],
-	wall2damage1:[0,2],
-	wall3damage1:[0,3]
+	playerwall:[0,0]
 });
 
 Crafty.sprite(200,"resources/images/MGsoldier-sprites.png",{
