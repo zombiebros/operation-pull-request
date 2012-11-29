@@ -118,7 +118,7 @@ Crafty.scene("main",(function() {
 				x: -10
 			});
 
-			var playerCover2 = Crafty.e("wallnodamage1, Cover, PlayerCover")
+			var playerCover2 = Crafty.e("Cover, PlayerCover")
 			.attr({
 				h: 170,
 				w: 340,

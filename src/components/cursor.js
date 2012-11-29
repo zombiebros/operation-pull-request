@@ -6,15 +6,12 @@ Crafty.c("Cursor", {
     Crafty.addEvent(this, Crafty.stage.elem, "mousedown", this.mouseDownHandler);
     Crafty.addEvent(this, Crafty.stage.elem, "mouseup", this.mouseUpHandler);
     
-    this.requires("Collision")
+    this.requires("Collision, MoveByCenter")
     .bind("EnterFrame", this.enterFrameHandler)
-    //.bind('MouseDown', this.mouseDownHandler)
-    //.bind('MouseUp', this.mouseUpHandler)
     .onHit("Destroyable", this.attackTimeout)
     ;
 
   }
-
 
   ,position: function(e){
     this.attr({
@@ -53,20 +50,27 @@ Crafty.c("Cursor", {
 
       Crafty.audio.play('mg', -1);
     }
-
     if(mouseEvent.mouseButton === Crafty.mouseButtons.RIGHT){
       this.launchGrenade();
     }
   }
 
   ,launchGrenade: function(){
+    console.log("launchGrenade()", this.centerX(), this.centerY());
     var player = Crafty(Crafty("player1")[0]);
+    console.log(player.grenades);
     if(player.grenades > 0){
-      Crafty.e("Bullet")
+
+      console.log(player.centerY(), player.centerX(), this.centerX(), this.centerY());
+
+      Crafty.e("Bullet, Grenade")
       .moveByCenter({
         x: player.centerX(),
         y: player.centerY(),
+        targetx: this.centerX(),
+        targety: this.centerY()
       });
+      player.grenades -= 1;
     }
   }
 

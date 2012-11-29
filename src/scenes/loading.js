@@ -5,7 +5,9 @@ console.log("loadin");
   Crafty.load([
 		"resources/images/crossairs.png",
 		"resources/images/character.png",
-		"resources/images/wall.png"
+		"resources/images/wall.png",
+		"resources/images/MGsoldier-sprites.png",
+		"resources/images/RLsoldier-sprites.png"
 		], function() {
 		Crafty.scene("title"); //when everything is loaded, run the main scene
   });
