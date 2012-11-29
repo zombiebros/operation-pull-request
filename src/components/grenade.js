@@ -3,6 +3,7 @@ Crafty.c("Grenade", {
 
 	,init: function(){
 		this.requires("Bullet");
+		this.attr({z: 9000});
 		this.bind("EnterFrame", this.whenToExplode)
 		.onHit("Destroyable", this.explosionDestroy);
 	}

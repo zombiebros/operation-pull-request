@@ -37,6 +37,7 @@ Crafty.scene("main",(function() {
 		,spawnBoss: function(){
 			if(Crafty.bosstime == true){ return; }
 			Crafty.bosstime = true;
+			Crafty.audio.play("title");
 
 			var boss = Crafty.e("Soldier, Boss")
 			.attr({
@@ -51,16 +52,23 @@ Crafty.scene("main",(function() {
 
 		,buildUI: function(){
 
-			var enemyBarLabel = Crafty.e("2D, DOM, Text").attr({
+			var healthBarLabel = Crafty.e("2D, DOM, Text").attr({
 				x: 20,
 				y: Crafty.viewport.height - 45				
 			}).text("Enemy Health")
 
-			var enemyBar = Crafty.e("UI,Progressbar").attr({
+			var healthBar = Crafty.e("UI,Progressbar, PlayerHealthBar").attr({
 				x: 100,
 				y: Crafty.viewport.height - 50, 
 				w: 200,
 				h: 50,
+			}).bindToDestroyable(Crafty(Crafty("Player")[0]));
+
+			var enemyBar = Crafty.e("UI,Progressbar, EnemyHealthBar").attr({
+				x: 0,
+				y: 0,
+				w: Crafty.viewport.width,
+				h: 24,
 				current_progress: 100
 			})
 			.trigger("Redraw")
@@ -87,8 +95,6 @@ Crafty.scene("main",(function() {
 			Crafty.bind("GAMEOVER", $.proxy(this.gameoverHandler, this));
 			Crafty.bind("SPAWNBOSS", $.proxy(this.spawnBoss, this));
 
-			this.buildUI();
-
 			var player = Crafty.e("Player, Collision")
 			.attr({
 				x:Crafty.viewport.width/2-50,
@@ -96,6 +102,8 @@ Crafty.scene("main",(function() {
 				z: 2
 			})
 			.collision([50,0], [150,0], [116,200]);
+
+			this.buildUI();
 
 			var cover = Crafty.e("building1, 2D, Canvas, Cover, EnemyCover, Spawner, Destroyable")
 			.attr({
