@@ -2,7 +2,7 @@ Crafty.c("Bullet",{
   speed: 4
 
   ,init: function() {
-    this.requires("MoveByCenter, 2D, Canvas");
+    this.requires("bullet1, SpriteAnimation, MoveByCenter, 2D, Canvas");
 
     var player = Crafty(Crafty("player1")[0]);
 
@@ -24,7 +24,7 @@ Crafty.c("Bullet",{
     });
 
     this.requires("Collision, Color")
-    .color("red")
+    .color("transparent")
     .onHit("Destroyable", this.hitDestroyableHandler)
   }
 
@@ -98,13 +98,13 @@ Crafty.c("Bullet",{
 
 Crafty.c("BigBullet", {
   init: function(){
-    this.color("Blue");
+    this.color("transparent");
     this.attr({
       w: 20,
       h: 20,
       life: 2
     });
-    this.requires("Destroyable");
+    this.requires("Destroyable, bullet2");
     this.bind("Dead", function(){this.destroy();});
   }
 });

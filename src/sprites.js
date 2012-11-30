@@ -75,11 +75,11 @@ Crafty.sprite(40,60,"resources/images/grenade.png",{
 });
 
 Crafty.sprite(10,"resources/images/bullet.png",{
-	bullet: [0,0]
+	bullet1: [0,0]
 //this.animate('Bullet',0,0,7);
 });
 
 Crafty.sprite(20,"resources/images/heavybullet.png",{
-	bullet: [0,0]
+	bullet2: [0,0]
 //this.animate('Bullet',0,0,7);
 });
