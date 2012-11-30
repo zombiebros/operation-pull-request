@@ -56,6 +56,7 @@ Crafty.c("Enemy", {
 }
 
 ,shoot: function(e){    
+  this.trigger("Shoot");
   var player = Crafty(Crafty("player1")[0]);
   Crafty.e(this.bulletType)
   .setOrigin(this.centerX(), this.centerY())

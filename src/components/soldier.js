@@ -16,6 +16,11 @@ Crafty.c("Soldier", {
     .collision([0,0],[50,0],[50,100])
 
     this.requires("Enemy");
+    this.bind("Shoot", this.shootHandler);
+  }
+
+  ,shootHandler: function(){
+    Crafty.audio.play('shoot',1);
   }
 
 });

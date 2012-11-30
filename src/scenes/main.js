@@ -22,7 +22,7 @@ Crafty.scene("main",(function() {
 			if((frame.frame % this.enemyspawnrate == 0 &&
 			 (Crafty("Enemy").length < this.maxenemies) || Crafty("Enemy").length <= 0) &&
 			Crafty.bosstime != true){
-				//this.spawnNewEnemy();
+				this.spawnNewEnemy();
 			}
 		}
 
@@ -46,10 +46,11 @@ Crafty.scene("main",(function() {
 				y: 200,
 				h:300,
 				w: 150,
-				life: 400
+				life: 400,
 			})
 			.color("Black");
 			boss.bulletType = boss.bulletType + ",BigBullet";
+			boss.bind("Dead", Crafty.scene("win"));
 		}
 
 		,buildUI: function(){
@@ -121,9 +122,7 @@ Crafty.scene("main",(function() {
 				x: 200,
 				life: 10
 			}).addComponent("Horizonable").bind("Dead", function(){
-				console.log("destroying cover entity", this);
 				this.destroy();
-				console.log(Crafty("Spawner").length);
 			})
 			.bind("Damage",function(){
 				if(this.life == 9){
