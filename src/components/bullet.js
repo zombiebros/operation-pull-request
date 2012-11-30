@@ -77,8 +77,6 @@ Crafty.c("Bullet",{
     
     this.x += (this.direction.x * this.speed);
     this.y += (this.direction.y * this.speed);
-    this.animate('Bullet',0,0,7);
-    this.animate('Bullet',25,0);
 
 
     if(this.x > Crafty.viewport.width || 
