@@ -35,6 +35,7 @@ Crafty.c("Grenade", {
 			this.color("transparent");
 			this.animate('Explosion',0,0,12);
 			this.animate('Explosion',25,0);
+			Crafty.audio.play('grenade',1);
 		}else if(this.exploding == true && this.w == this.explosionsize && this.h == this.explosionsize){
 			this.exploding = false;
 			this.destroy();

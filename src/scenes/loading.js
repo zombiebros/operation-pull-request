@@ -27,12 +27,29 @@ console.log("loadin");
 		"resources/sounds/cg1.ogg"
 		],
 		mg: [
-		"resources/sounds/Machine Gun.wmp3",
+		"resources/sounds/Machine Gun.wav",
 		"resources/sounds/Machine Gun.mp3",
 		"resources/sounds/Machine Gun.ogg"
 		],
+		pain: [
+		"resources/sounds/pain.wav",
+		"resources/sounds/pain.mp3",
+		"resources/sounds/pain.ogg"
+		],
+		grenade: [
+		"resources/sounds/grenade.wav",
+		"resources/sounds/grenade.mp3",
+		"resources/sounds/grenade.ogg"
+		],
+		crumbling: [
+		"resources/sounds/crumbling.wav",
+		"resources/sounds/crumbling.mp3",
+		"resources/sounds/crumbling.ogg"
+		],
 		title: [
-		"resources/sounds/titlesong.mp3"
+		"resources/sounds/titlesong.mp3",
+		"resources/sounds/titlesong.wav",
+		"resources/sounds/titlesong.ogg"
 		]
 	});
 

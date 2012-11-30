@@ -107,6 +107,9 @@ Crafty.scene("main",(function() {
 				y: Crafty.viewport.height - 200,
 				z: 2
 			})
+			.bind("Damage",function(){
+				Crafty.audio.play('pain',1);
+			})
 			.collision([50,0], [150,0], [116,200]);
 
 			this.buildUI();
