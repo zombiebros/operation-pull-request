@@ -6,8 +6,13 @@ Crafty.c("Bullet",{
 
     var player = Crafty(Crafty("player1")[0]);
 
+    try{
     var targetx = player.centerX(),
     targety = player.centerY();
+  }catch(ex){
+    console.log("wtf player", player);
+    throw ex;
+  }
 
         var cursor = Crafty(Crafty("Cursor")[0]);
     targetx = cursor.centerX();
@@ -66,8 +71,9 @@ Crafty.c("Bullet",{
   ,hitDestroyableHandler: function(destroyable){
     var destroyable = destroyable[0].obj
     //only damage players
-    if(!this.has("Grenade") && (destroyable.__c["player1"] || destroyable.__c["PlayerCover"])){
+    if(!this.has("Grenade") && (destroyable.__c["Player"] || destroyable.__c["PlayerCover"])){
       this.destroy();
+      console.log("triggering damage", destroyable, this.has("Grenade"));
       destroyable.trigger("Damage");
     }
   }

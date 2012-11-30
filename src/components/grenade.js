@@ -27,8 +27,8 @@ Crafty.c("Grenade", {
 
 	,whenToExplode: function(){
 		if(this.exploding == true && this.w < this.explosionsize && this.h < this.explosionsize){
-			this.w += 1;
-			this.h += 1;
+			this.w += this.explosionsize;
+			this.h += this.explosionsize;
 			this.x = this.x - (this.explosionsize/2);
 			this.y = this.y - (this.explosionsize/2);
 			this.requires("explosion, SpriteAnimation");

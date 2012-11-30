@@ -22,7 +22,7 @@ Crafty.scene("main",(function() {
 			if((frame.frame % this.enemyspawnrate == 0 &&
 			 (Crafty("Enemy").length < this.maxenemies) || Crafty("Enemy").length <= 0) &&
 			Crafty.bosstime != true){
-				this.spawnNewEnemy();
+				//this.spawnNewEnemy();
 			}
 		}
 
@@ -108,9 +108,6 @@ Crafty.scene("main",(function() {
 				x:Crafty.viewport.width/2-50,
 				y: Crafty.viewport.height - 200,
 				z: 2
-			})
-			.onHit("Bullet",function(){
-				Crafty.audio.play('pain',1);
 			})
 			.collision([50,0], [150,0], [116,200]);
 

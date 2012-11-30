@@ -5,7 +5,10 @@ Crafty.c("Player", {
     ,maxgrenades: 999
 	
 	,init: function(){
-    	this.requires("2D, Canvas, player1, ViewportConstrain, MoveByCenter, Destroyable, PlayerControls, SpriteAnimation");
+       this.requires("2D, Canvas, player1, ViewportConstrain, MoveByCenter, Destroyable, PlayerControls, SpriteAnimation");
+       this.bind("Damage",function(){
+        Crafty.audio.play('pain',1);
+    });
     	this.bind("Dead", this.dieHandler2);
         this.bind("RestoreHP", this.RestoreHPHandler);
     }

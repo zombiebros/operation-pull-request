@@ -2,7 +2,7 @@ Crafty.c("PlayerControls", {
 
   init: function() {
 
-    this.requires("Twoway, ViewportConstrain")
+    this.requires("Twoway, ViewportConstrain, MoveByCenter")
     .attr({enteredviewport: true})
     .twoway(10,[0])     // twoway movement for now
     .bind("NewDirection", this.changeDirection);
