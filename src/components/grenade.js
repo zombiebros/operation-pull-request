@@ -12,7 +12,9 @@ Crafty.c("Grenade", {
 		try{
 			if (this.exploding == true) {
 				_.each(destroyable, function(target){
-					target.obj.trigger("Damage", 5);
+					if(!target.obj.has("Player") && !target.obj.has("PlayerCover")){
+						target.obj.trigger("Damage", 5)
+					}
 				});
 			};
 		}catch(ex){
@@ -34,7 +36,6 @@ Crafty.c("Grenade", {
     if(this.y <= this.targety ||
     	((this.x <= this.targetx+2 && this.x >= this.targetx-2 ) && 
     	(this.y >= this.targety+2 && this.y >= this.targety-2))){
-    	console.log("exploding");
       this.dying = true;
     	this.exploding = true;
     }
