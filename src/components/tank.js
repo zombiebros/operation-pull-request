@@ -5,7 +5,7 @@ Crafty.c("Tank", {
   ,speed: 1
 
   ,init: function(){
-    this.requires("2D, Canvas, Color, Collision, ViewportConstrain, MoveByCenter, Destroyable");
+    this.requires("2D, Canvas, tankleft, Color, Collision, ViewportConstrain, MoveByCenter, Destroyable");
 
     this.attr({
       y: Crafty.math.randomInt(Crafty.viewport.horizonx, Crafty.viewport.height-400)
