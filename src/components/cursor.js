@@ -60,7 +60,6 @@ Crafty.c("Cursor", {
   ,launchGrenade: function(){
     var player = Crafty(Crafty("player1")[0]);
     var cursor = Crafty(Crafty("Cursor")[0]);
-    console.log("launchGrenade()", this.centerX(), this.centerY(), player.grenades);
 
     if(player.grenades > 0){
       Crafty.e("Grenade")

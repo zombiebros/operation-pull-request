@@ -22,7 +22,7 @@ Crafty.scene("main",(function() {
 			if((frame.frame % this.enemyspawnrate == 0 &&
 			 (Crafty("Enemy").length < this.maxenemies) || Crafty("Enemy").length <= 0) &&
 			Crafty.bosstime != true){
-				this.spawnNewEnemy();
+//				this.spawnNewEnemy();
 			}
 		}
 
@@ -56,13 +56,18 @@ Crafty.scene("main",(function() {
 				x: 20,
 				y: Crafty.viewport.height - 45				
 			}).text("Player Health")
+			.css({
+				"font-size": "20px"
+			})
+			.textFont({size: "20px"})
 
 			var healthBar = Crafty.e("UI,Progressbar, PlayerHealthBar").attr({
 				x: 100,
 				y: Crafty.viewport.height - 50, 
 				w: 200,
 				h: 50,
-			}).bindToDestroyable(Crafty(Crafty("Player")[0]));
+			})
+			.bindToDestroyable(Crafty(Crafty("Player")[0]));
 
 			var enemyBar = Crafty.e("UI,Progressbar, EnemyHealthBar").attr({
 				x: 0,
@@ -80,6 +85,7 @@ Crafty.scene("main",(function() {
 				x: enemyBar.w+120,
 				y: Crafty.viewport.height - 40,
 			}).text("Lives")
+			.textFont({size: "20px"});
 
 		}
 
@@ -147,7 +153,7 @@ Crafty.scene("main",(function() {
 				y: player.y-player.h/8,
 				x: 0
 			})
-			.bind("Damage",function(){
+			.bind("Damage", function(){
 				if(this.life <=8 && this.life >6){
 					this.animate('Wall1Damage',0,1,0);
 					this.animate('Wall1Damage',15,0);
@@ -167,7 +173,7 @@ Crafty.scene("main",(function() {
 				h: 170,
 				w: 340,
 				y: player.y-player.h/8,
-				x: Crafty.viewport.width-343
+				x: Crafty.viewport.width-338
 			})
 			.bind("Damage",function(){
 				if(this.life <=8 && this.life >6){

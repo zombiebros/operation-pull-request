@@ -1,5 +1,5 @@
 Crafty.c("Player", {
-    lives: 3
+    life: 30
     ,grenades: 999
     ,maxgrenades: 999
 	
