@@ -13,6 +13,7 @@ Crafty.c("Soldier", {
       ,w: 100
     })
     .collision([0,0],[50,0],[50,100])
+    .color("transparent")
 
     this.requires("Enemy");
     this.bind("Shoot", this.shootHandler);
@@ -24,7 +25,6 @@ Crafty.c("Soldier", {
   }
 
   ,movingAnimation: function(){
-    this.color("transparent");
     this.animate('RunningRight',4,0,7);
   }
 

@@ -12,7 +12,8 @@ Crafty.c("Tank", {
       ,h: 100
       ,w: 150
     })
-    .collision([0,0],[150,0],[150,100]);
+    .collision([0,0],[150,0],[150,100])
+    .color("transparent")
 
     this.requires("Enemy");
     this.bulletType = this.bulletType + ", BigBullet";
