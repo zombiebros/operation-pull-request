@@ -16,6 +16,7 @@ Crafty.c("Powerupdropper", {
     		x:this.centerX(),
     		y:this.y
     	});
+
     }
   }
 

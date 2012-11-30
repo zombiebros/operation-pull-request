@@ -20,7 +20,7 @@ Crafty.c("Soldier", {
   }
 
   ,shootHandler: function(){
-    Crafty.audio.play('shoot',1);
+    //Crafty.audio.play('shoot',1);
   }
 
 });

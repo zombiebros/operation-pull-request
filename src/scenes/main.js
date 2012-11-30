@@ -62,7 +62,7 @@ Crafty.scene("main",(function() {
 			.css({
 				"font-size": "20px"
 			})
-			.textFont({size: "20px"})
+			.textFont({size: "20px", family: "Arial"})
 
 			var healthBar = Crafty.e("UI,Progressbar, PlayerHealthBar").attr({
 				x: 100,
@@ -85,10 +85,15 @@ Crafty.scene("main",(function() {
 			});
 
 			var doodsLabel = Crafty.e("2D, DOM, Text").attr({
-				x: enemyBar.w+120,
-				y: Crafty.viewport.height - 40,
-			}).text("Lives")
-			.textFont({size: "20px"});
+				x: healthBar.w+120,
+				y: Crafty.viewport.height - 45,
+			}).text(function(){
+				var player = Crafty(Crafty("Player")[0])
+				return 'Grenades ' + player.grenades;
+			})
+			.textFont({size: "20px", family: "Arial"});
+
+
 
 		}
 
