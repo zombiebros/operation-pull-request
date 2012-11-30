@@ -107,7 +107,7 @@ Crafty.scene("main",(function() {
 				y: Crafty.viewport.height - 200,
 				z: 2
 			})
-			.bind("Damage",function(){
+			.onHit("Bullet",function(){
 				Crafty.audio.play('pain',1);
 			})
 			.collision([50,0], [150,0], [116,200]);
@@ -147,6 +147,9 @@ Crafty.scene("main",(function() {
 					this.animate('Building3Damage',0,5,0);
 					this.animate('Building3Damage',15,0);
 				}
+				else if(this.dying === true){
+					Crafty.audio.play('crumbling',1);
+				}
 			});
 
 			var playerCover = Crafty.e("playerwall, Cover, PlayerCover, SpriteAnimation")
@@ -169,6 +172,9 @@ Crafty.scene("main",(function() {
 					this.animate('Wall3Damage',0,3,0);
 					this.animate('Wall3Damage',15,0);
 				}
+				else if(this.dying === true){
+					Crafty.audio.play('crumbling',1);
+				}
 			});
 
 			var playerCover2 = Crafty.e("playerwall, Cover, PlayerCover, SpriteAnimation")
@@ -190,6 +196,9 @@ Crafty.scene("main",(function() {
 				else if(this.life <=3 && this.life >0){
 					this.animate('Wall3Damage',0,3,0);
 					this.animate('Wall3Damage',15,0);
+				}
+				else if(this.dying === true){
+					Crafty.audio.play('crumbling',1);
 				}
 			});
 
