@@ -10,7 +10,6 @@ Crafty.c("Enemy", {
 
   //spawn at a spawner
   if(Crafty("Spawner").length > 0 && (Crafty.frame() % 2) == 0){
-    console.log("spawner spawn");
         //get random spawner
         random_spawner = Crafty(Crafty.math.randomElementOfArray(Crafty("Spawner")));
         this.enteredviewport = true;
@@ -19,7 +18,6 @@ Crafty.c("Enemy", {
         this.z = random_spawner.z - 50;
         this.direction = Crafty.math.randomElementOfArray([-1, 1]);
       }else{
-        console.log("outside spawn");
       //create the entity off screen and let it run in using this.enteredviewport as a flag to start limiting its bounds.
       this.enteredviewport = false;
       this.requires("Horizonable"); //add Horizonable first because it adjusts the entites height and width which is need for the x
@@ -59,7 +57,6 @@ Crafty.c("Enemy", {
 
 ,shoot: function(e){    
   var player = Crafty(Crafty("player1")[0]);
-  console.log(Crafty.e(this.bulletType));
   Crafty.e(this.bulletType)
   .setOrigin(this.centerX(), this.centerY())
   .setTarget(player.centerX(), player.centerY())

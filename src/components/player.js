@@ -1,11 +1,21 @@
 Crafty.c("Player", {
-    life: 30
+    life: 50
+    ,maxlife: 100
     ,grenades: 999
     ,maxgrenades: 999
 	
 	,init: function(){
     	this.requires("2D, Canvas, player1, ViewportConstrain, MoveByCenter, Destroyable, PlayerControls, SpriteAnimation");
     	this.bind("Dead", this.dieHandler2);
+        this.bind("RestoreHP", this.RestoreHPHandler);
+    }
+
+    ,RestoreHPHandler: function(healvalue){
+        console.log("player get hp", healvalue);
+        if(this.life < this.maxlife){
+
+            this.life += healvalue;
+        }
     }
 
     ,dieHandler2: function(){

@@ -12,10 +12,14 @@ Crafty.c("Destroyable", {
     ;
   }
 
-  ,damageHandler: function(){
+  ,damageHandler: function(damageamount){
     if(this.dying == true || this.dead == true){return true;}
 
-    this.life -= 1;
+    if(typeof damageamount == 'undefined'){
+      this.life -= 1;
+    }else{
+      this.life -= damageamount;
+    }
 
     if(this.life <= 0 && this.dying != true){      
       this.dying = true;

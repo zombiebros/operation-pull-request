@@ -22,7 +22,7 @@ Crafty.scene("main",(function() {
 			if((frame.frame % this.enemyspawnrate == 0 &&
 			 (Crafty("Enemy").length < this.maxenemies) || Crafty("Enemy").length <= 0) &&
 			Crafty.bosstime != true){
-//				this.spawnNewEnemy();
+				this.spawnNewEnemy();
 			}
 		}
 

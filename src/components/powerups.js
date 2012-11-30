@@ -2,6 +2,7 @@ Crafty.c("PowerUp",{
     init:function(){
         this.requires("2D,Canvas,Collision")
         .onHit("Player",function(ent){
+            console.log("powerup hit player", this.effect, this.value);
             ent[0].obj.trigger(this.effect,this.value);
             this.destroy();
         })
@@ -12,8 +13,8 @@ Crafty.c("PowerUp",{
 });
 
 Crafty.c("Heal",{
-    effect:"RestoreHP",
-    value:1,
+    effect:"Damage",
+    value:-5,
     init:function(){
         this.requires("PowerUp,heal");
     }
