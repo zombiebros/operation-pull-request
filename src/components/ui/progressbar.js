@@ -1,8 +1,8 @@
 Crafty.c("Progressbar", {
 	current_progress: 0
 	,total_progress: 100
-	,border: 1
-	,h: 50
+	,padding: 0
+	,h: 25
 	,w: 200
 	,label: "Progress:"
 
@@ -15,10 +15,10 @@ Crafty.c("Progressbar", {
 
 		this.inner = Crafty.e("2D, Canvas, Color, Inner")
 		.attr({
-			x: this.x+1
-			,y: this.y-1
+			x: this.x+ (this.padding/2)
+			,y: this.y+ (this.padding/2)
 			,w: this.calculateInnerWidth()
-			,h: this.h - 4
+			,h: this.h - this.padding
 			,z: 900
 		}).color("Red");
 
@@ -29,8 +29,18 @@ Crafty.c("Progressbar", {
 		this.trigger("Redraw");
 	}
 
+	,bindToDestroyable: function(destroyable){
+		var _self = this;
+		this.current_progress = destroyable.life;
+		destroyable.bind("Damage", function(){
+      _self.current_progress = this.life;
+      _self.redrawInner();
+		});
+		return this;
+	}
+
 	,calculateInnerWidth: function(){
-		return (this.current_progress/this.total_progress*this.w) - this.border*2;
+		return (this.current_progress/this.total_progress*this.w) - (this.padding/2);
 	}
 
 	,redrawInner: function(){
@@ -43,7 +53,6 @@ Crafty.c("Progressbar", {
 
 
 		if(this.current_progress <= 0){
-			console.log("OMG EMPTY");
 			this.trigger("Empty");
 		}
 

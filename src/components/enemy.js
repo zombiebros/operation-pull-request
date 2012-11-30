@@ -16,8 +16,6 @@ Crafty.c("Enemy", {
         this.enteredviewport = true;
         this.requires("Horizonable");
         this.x = random_spawner.x;
-        this.h = random_spawner.h;
-        this.y = random_spawner.y;
         this.z = random_spawner.z - 50;
         this.direction = Crafty.math.randomElementOfArray([-1, 1]);
       }else{
@@ -35,7 +33,7 @@ Crafty.c("Enemy", {
     this.destroy();
       //decrement kill count
     if(typeof this.killcount != 'undefined'){ //if this entity has kill count lower the global strength counter
-      Crafty(Crafty('Progressbar')[0]).trigger("updateCount", (this.killcount * 10) * -1);
+      Crafty(Crafty('EnemyHealthBar')[0]).trigger("updateCount", (this.killcount * 10) * -1);
     }
   }
 

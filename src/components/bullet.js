@@ -24,7 +24,6 @@ Crafty.c("Bullet",{
   }
 
   ,checkForBind: function(){
-    console.log("checking if bullet is ready", this.targetx, this.targety, this.x, this.y);
     if(typeof this.targetx != 'undefined' &&
        typeof this.targety != 'undefined' &&
        (typeof this.x != 'undefined' && this.x != 0) &&
@@ -57,7 +56,6 @@ Crafty.c("Bullet",{
       this.direction = this.direction.normalize();
     }
 
-    console.log("calc direction", this.direction, this.x, this.y, this.targetx, this.targety);
 
     if(typeof this.moveBound == 'undefined'){
       this.moveBound = true;
@@ -69,7 +67,6 @@ Crafty.c("Bullet",{
     var destroyable = destroyable[0].obj
     //only damage players
     if(!this.has("Grenade") && (destroyable.__c["player1"] || destroyable.__c["PlayerCover"])){
-      console.log("kill it");
       this.destroy();
       destroyable.trigger("Damage");
     }
