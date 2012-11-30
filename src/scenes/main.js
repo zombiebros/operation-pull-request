@@ -55,7 +55,7 @@ Crafty.scene("main",(function() {
 			var healthBarLabel = Crafty.e("2D, DOM, Text").attr({
 				x: 20,
 				y: Crafty.viewport.height - 45				
-			}).text("Enemy Health")
+			}).text("Player Health")
 
 			var healthBar = Crafty.e("UI,Progressbar, PlayerHealthBar").attr({
 				x: 100,
@@ -68,7 +68,7 @@ Crafty.scene("main",(function() {
 				x: 0,
 				y: 0,
 				w: Crafty.viewport.width,
-				h: 24,
+				h: 20,
 				current_progress: 100
 			})
 			.trigger("Redraw")
