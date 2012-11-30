@@ -44,3 +44,17 @@ Crafty.sprite(200,"resources/images/rlsoldier-sprites.png",{
 Crafty.sprite(286,186,"resources/images/building.png",{
 	building1: [0,0]
 });
+
+Crafty.sprite(332,70,"resources/images/tankroll.png",{
+	tankleft: [0,0],
+	tankright: [0,2]
+});
+
+Crafty.sprite(105,80,"resources/images/tankfire.png",{
+	tankidel: [0,0]
+});
+
+Crafty.sprite(120,"resources/images/explosion.png",{
+	explosion: [0,0]
+//this.animate('Explosion',[[0,0],[0,2],[0,3],[0,4],[0,5],[0,6],[0,7],[0,8],[0,9],[0,10],[0,11]]);
+});
