@@ -13,7 +13,7 @@ Crafty.c("PowerUp",{
 
 Crafty.c("Heal",{
     effect:"RestoreHP",
-    value:1,
+    value:5,
     init:function(){
         this.requires("PowerUp,heal");
     }

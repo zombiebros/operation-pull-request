@@ -16,6 +16,11 @@ Crafty.c("Tank", {
 
     this.requires("Enemy");
     this.bulletType = this.bulletType + ", BigBullet";
+    this.bind("Moved", function(previous){
+      if(this.enteredviewport == true && (this.x + this.w) > Crafty.viewport.width || this.x < 0){
+        this.destroy(); //destroy tanks once they've moved off screen
+      }
+    })
   }
   
 });
