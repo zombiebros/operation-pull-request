@@ -51,5 +51,5 @@ crafty.sprite(332,70,"resources/images/tankroll.png",{
 });
 
 crafty.sprite(105,80,"resources/images/tankfire.png",{
-	tankidel: [0,0],
+	tankidel: [0,0]
 });
