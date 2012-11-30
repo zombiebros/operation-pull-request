@@ -17,7 +17,7 @@ Crafty.sprite(60, "resources/images/powerups.png", {
 	heal:[0,0]
 });
 
-Crafty.sprite(340, 170, "resources/images/wall.png",{
+Crafty.sprite(340,170, "resources/images/wall.png",{
 	playerwall:[0,0]
 });
 
@@ -56,4 +56,30 @@ Crafty.sprite(105,80,"resources/images/tankfire.png",{
 
 Crafty.sprite(120,"resources/images/explosion.png",{
 	explosion: [0,0]
+//this.animate('Explosion',0,0,12);
+});
+
+Crafty.sprite(64,"resources/images/explosion2.png",{
+	explosion2: [0,0]
+//this.animate('Explosion2',0,0,17);
+});
+
+Crafty.sprite(120,259,"resources/images/bigexplosion.png",{
+	bigexplosion: [0,0]
+//this.animate('BigExplosion',0,0,22);
+});
+
+Crafty.sprite(40,60,"resources/images/grenade.png",{
+	grenade: [0,0]
+//this.animate('Grenade',0,0,6);
+});
+
+Crafty.sprite(10,"resources/images/bullet.png",{
+	bullet: [0,0]
+//this.animate('Bullet',0,0,7);
+});
+
+Crafty.sprite(20,"resources/images/bigbullet.png",{
+	bullet: [0,0]
+//this.animate('Bullet',0,0,7);
 });
