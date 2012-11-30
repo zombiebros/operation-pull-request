@@ -5,6 +5,7 @@ Crafty.c("Grenade", {
 		this.requires("Bullet");
 		this.attr({z: 9000});
 		this.bind("EnterFrame", this.whenToExplode)
+		.color("transparent")
 		.onHit("Destroyable", this.explosionDestroy);
 	}
 
@@ -28,6 +29,9 @@ Crafty.c("Grenade", {
 			this.x -= 1;
 			this.h += 1;
 			this.y -= 1;
+			this.requires("explosion, SpriteAnimation");
+			this.animate('Explosion',[[0,0],[0,2],[0,3],[0,4],[0,5],[0,6],[0,7],[0,8],[0,9],[0,10],[0,11]]);
+			this.animate('Explosion',25,0);
 		}else if(this.exploding == true && this.w == this.explosionsize && this.h == this.explosionsize){
 			this.exploding = false;
 			this.destroy();
