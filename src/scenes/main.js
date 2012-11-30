@@ -29,8 +29,10 @@ Crafty.scene("main",(function() {
 		,spawnNewEnemy: function(){
 			if(Crafty.math.randomInt(0, this.chancetospawntank) == this.chancetospawntank){
 				Crafty.e("Tank").color("Green");
+				console.log("spawn new tank", Crafty("Tank").length, Crafty("Soldier").length);
 			}else{
 				Crafty.e("Soldier").color("Green");
+				console.log("spawn new soldier", Crafty("Tank").length, Crafty("Soldier").length);
 			}
 		}
 
