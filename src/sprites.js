@@ -79,7 +79,7 @@ Crafty.sprite(10,"resources/images/bullet.png",{
 //this.animate('Bullet',0,0,7);
 });
 
-Crafty.sprite(20,"resources/images/bigbullet.png",{
+Crafty.sprite(20,"resources/images/heavybullet.png",{
 	bullet: [0,0]
 //this.animate('Bullet',0,0,7);
 });
