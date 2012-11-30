@@ -11,8 +11,9 @@ Crafty.c("Player", {
     }
 
     ,RestoreHPHandler: function(healvalue){
+        console.log("player get hp", healvalue);
         if(this.life < this.maxlife){
-            
+
             this.life += healvalue;
         }
     }
