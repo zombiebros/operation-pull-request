@@ -30,13 +30,11 @@ Crafty.c("Progressbar", {
 	}
 
 	,bindToDestroyable: function(destroyable){
-		console.log('bind to destroyable', destroyable);
 		var _self = this;
 		this.current_progress = destroyable.life;
 		_self.redrawInner();
 		
 		destroyable.bind("Damage", function(){
-			console.log("destroyable damaged");
 			if(this.has("Boss")){
 				_self.current_progress = this.life / 3;
       }else{

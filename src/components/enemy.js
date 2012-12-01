@@ -64,7 +64,6 @@ Crafty.c("Enemy", {
     }
 
     if(this.enteredviewport == true && this.has("Tank") && (this.x > Crafty.viewport.width || this.x < 0)){
-      console.log("tank off screen");
       this.destroy();
     }
 
