@@ -12,7 +12,7 @@ Crafty.c("Soldier", {
       ,h: 100
       ,w: 100
     })
-    .collision([0,0],[50,0],[50,100])
+    .collision([30,20],[60,20],[60,100],[30,100])
     .color("transparent")
 
     this.animate('RunningRight',4,0,7);
