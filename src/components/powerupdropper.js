@@ -1,5 +1,5 @@
 Crafty.c("Powerupdropper", {
-	types: ["Heal"]
+	types: ["Heal","Grenades"]
 	,dropChance: 5
 
 	,init: function(){

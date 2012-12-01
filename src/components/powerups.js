@@ -21,3 +21,9 @@ Crafty.c("Heal",{
         this.requires("PowerUp,heal");
     }
 });
+
+Crafty.c("Grenades",{
+    init:function(){
+        this.requires("PowerUp,grenades");
+    }
+});

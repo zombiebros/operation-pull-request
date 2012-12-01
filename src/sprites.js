@@ -14,7 +14,8 @@ Crafty.sprite(50, "resources/images/crossairs.png", {
 });
 
 Crafty.sprite(60, "resources/images/powerups.png", {
-	heal:[0,0]
+	heal:[0,0],
+	grenades: [0,1]
 });
 
 Crafty.sprite(340,170, "resources/images/wall.png",{
