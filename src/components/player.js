@@ -18,7 +18,10 @@ Crafty.c("Player", {
     }
 
     ,grenadeCount: function(count){
-        this.grenades += count;
+        if(this.grenades < this.maxgrenades){
+            this.grenades += count;
+        }
+        Crafty(Crafty("GrenadeCount")[0]).text("Grenades " + this.grenades);
     }
 
     ,RestoreHPHandler: function(healvalue){
