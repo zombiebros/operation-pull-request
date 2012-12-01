@@ -65,12 +65,12 @@ Crafty.sprite(64,"resources/images/explosion2.png",{
 });
 
 Crafty.sprite(120,259,"resources/images/bigexplosion.png",{
-	bigexplosion: [0,0]
+	bigexplosion1: [0,0]
 //this.animate('BigExplosion',0,0,22);
 });
 
 Crafty.sprite(40,60,"resources/images/grenade.png",{
-	grenade: [0,0]
+	grenade1: [0,0]
 //this.animate('Grenade',0,0,6);
 });
 
@@ -85,5 +85,5 @@ Crafty.sprite(20,"resources/images/heavybullet.png",{
 });
 
 Crafty.sprite(70,80,"resources/images/muzzelflash.png",{
-	muzzelflash: [0,0]
+	muzzelflash1: [0,0]
 });

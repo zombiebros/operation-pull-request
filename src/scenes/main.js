@@ -125,7 +125,7 @@ Crafty.scene("main",(function() {
 				y: Crafty.viewport.height - 200,
 				z: 2
 			})
-			.collision([50,0], [150,0], [116,200]);
+			.collision([60,200], [140,200], [110,0], [80,0]);
 
 			this.buildUI();
 
