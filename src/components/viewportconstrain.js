@@ -18,7 +18,7 @@ Crafty.c("ViewportConstrain", {
 			}
 
 
-			if(this.has("Soldier")){
+			if(this.has("Soldier") || this.has("Boss")){
 				this.direction = this.direction * -1;
 			}
 		}
