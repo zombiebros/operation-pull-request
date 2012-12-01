@@ -23,6 +23,8 @@ Crafty.c("Heal",{
 });
 
 Crafty.c("Grenades",{
+    effect: "Grenadecount",
+    value: 1,
     init:function(){
         this.requires("PowerUp,grenades");
     }
