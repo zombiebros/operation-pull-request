@@ -31,6 +31,7 @@ Crafty.scene("main",(function() {
 			}else{
 				Crafty.e("Soldier");
 			}
+			console.log("enemy count", "soldiers:", Crafty(Crafty("Soldier")[0]).length, "tanks:", Crafty(Crafty("Tank")[0]).length);
 		}
 
 		,spawnBoss: function(){
