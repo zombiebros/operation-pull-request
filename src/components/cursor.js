@@ -8,6 +8,8 @@ Crafty.c("Cursor", {
     Crafty.addEvent(this, Crafty.stage.elem, "mousemove", this.position);
     Crafty.addEvent(this, Crafty.stage.elem, "mousedown", this.mouseDownHandler);
     Crafty.addEvent(this, Crafty.stage.elem, "mouseup", this.mouseUpHandler);
+    Crafty.stage.elem.click();
+    Crafty.trigger("mousedown");
     
     this.requires("Collision, MoveByCenter")
     .bind("EnterFrame", this.enterFrameHandler)
