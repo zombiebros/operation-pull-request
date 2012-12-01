@@ -1,5 +1,5 @@
 Crafty.c("Cursor", {
-  firerate: 10
+  firerate: 6
   ,grenadecooling: false
   ,grenadecooltime: 500
 

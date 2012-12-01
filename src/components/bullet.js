@@ -1,5 +1,5 @@
 Crafty.c("Bullet",{
-  speed: 4
+  speed: 8
   ,damage: 10
 
   ,init: function() {

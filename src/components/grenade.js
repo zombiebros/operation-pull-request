@@ -19,7 +19,7 @@ Crafty.c("Grenade", {
 			if (this.exploding == true) {
 				_.each(destroyable, function(target){
 					if(!target.obj.has("Player") && !target.obj.has("PlayerCover")){
-						target.obj.trigger("Damage", 5)
+						target.obj.trigger("Damage", 1)
 					}
 				});
 			};
