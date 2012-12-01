@@ -47,7 +47,7 @@ Crafty.scene("main",(function() {
 				w: 150,
 				life: 400,
 			})
-			.color("Black");
+			//.color("Black");
 			boss.bulletType = boss.bulletType + ",BigBullet";
 
 
