@@ -34,7 +34,7 @@ Crafty.scene("loading", function() {
 		"resources/images/heavybullet.png",
 		"resources/images/muzzelflash.png"
 		], function() {
-		Crafty.scene("main"); //when everything is loaded, run the main scene
+		     Crafty.scene("main"); //when everything is loaded, run the main scene
 	}, function(e){
 		progressBar.updateCount(e.percent);
 	});
