@@ -5,11 +5,11 @@ Crafty.c("Boss", {
   ,speed: 2
 
   ,init: function(){
-    this.requires("2D, Canvas, SpriteAnimation, Color, Collision, ViewportConstrain, MoveByCenter, Destroyable")
+    this.requires("2D, Canvas, SpriteAnimation, Color, Collision, ViewportConstrain, MoveByCenter, Destroyable, WiredHitBox")
 
     this.attr({
-      h: 308
-      ,w: 400
+      h: 200
+      ,w: 200
       ,y: 20
     })
     .collision([30,20],[60,20],[60,100],[30,100])
@@ -17,6 +17,7 @@ Crafty.c("Boss", {
 
     this.bulletType = this.bulletType + ", BigBullet";
     this.requires("Enemy");
+    this.fireRate = 25;
     this.bind("Shoot", this.shootHandler);
     this.bind("EnterFrame", this.movingAnimation);
   }
