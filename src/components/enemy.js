@@ -34,7 +34,7 @@ Crafty.c("Enemy", {
     this.destroy();
       //decrement kill count
     if(typeof this.killcount != 'undefined'){ //if this entity has kill count lower the global strength counter
-      Crafty(Crafty('EnemyHealthBar')[0]).trigger("updateCount", (this.killcount * 5) * -1);
+      Crafty(Crafty('EnemyHealthBar')[0]).trigger("updateCount", (this.killcount * 8) * -1);
     }
   }
 
