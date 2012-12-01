@@ -44,7 +44,7 @@ Crafty.scene("loading", function() {
 		"resources/images/muzzelflash.png",
 		"resources/images/brain.png"
 		], function() {
-
+			//Crafty.scene("main");
 
 			var timeout = window.setTimeout(function(){
 		     Crafty.scene("title"); //when everything is loaded, run the main scene

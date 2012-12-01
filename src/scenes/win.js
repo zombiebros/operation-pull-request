@@ -3,6 +3,7 @@ Crafty.scene("win",(function() {
 	var scene = {
 
 		init: function(){
+			Crafty.bosstime = true;
 			var start = Crafty.e("2D, DOM, Text")
 			.text("You win! Thanks for playing. <br /><br /> All events based on a true story.")
 			.css({"font-size": "50px", "font-family": "Arial"})

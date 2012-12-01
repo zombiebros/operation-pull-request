@@ -76,20 +76,24 @@ Crafty.c("Cursor", {
       Crafty.audio.play('mg', -1);
     }
     if(mouseEvent.mouseButton === Crafty.mouseButtons.RIGHT){
+      console.log("grenade click");
       this.launchGrenade();
     }
   }
 
   ,launchGrenade: function(){
+    console.log("launchGrenade");
     var player = Crafty(Crafty("player1")[0]);
-    var cursor = Crafty(Crafty("Cursor")[0]);
+    var cursor = Crafty(Crafty("Cursor")[0]);   
 
     if(player.grenades > 0 && this.grenadecooling == false){
-      this.grenadecooling = true;
+      this.grenadecooling == true; 
       Crafty.e("Grenade")
       .setTarget(cursor.centerX(), cursor.centerY())
       .setOrigin(player.centerX(), player.centerY());
+      //console.log("launchingGrenade", player.grenades);
       player.grenades -= 1;
+      //console.log("after grenadelaunch", player.grenades);
       Crafty(Crafty("GrenadeCount")[0]).text("Grenades " + player.grenades);
       this.timeout(function(){
         this.grenadecooling = false;
