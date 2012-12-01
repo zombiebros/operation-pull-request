@@ -119,7 +119,7 @@ Crafty.scene("main",(function() {
 
 			this.buildUI();
 
-			var cover = Crafty.e("building1, 2D, Canvas, Cover, EnemyCover, Spawner, Destroyable, SpriteAnimation")
+			var cover = Crafty.e("building1, 2D, Canvas, Cover, EnemyCover, Spawner, Destroyable, SpriteAnimation, Collision")
 			.attr({
 				h: 187,
 				w: 286,
@@ -129,6 +129,7 @@ Crafty.scene("main",(function() {
 			}).addComponent("Horizonable").bind("Dead", function(){
 				this.destroy();
 			})
+			.collision([30,10], [200,10], [286,187])
 			.bind("Damage",function(){
 				if(this.life == 9){
 					this.animate('Building1Damage',0,1,0);
