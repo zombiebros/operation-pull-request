@@ -39,7 +39,7 @@ Crafty.c("Enemy", {
   ,enterFrameHandler: function(frame){
     if(this.dying == true || this.dead == true){return true;}
 
-    if(this.enteredviewport == true && (this.x >= (Crafty.viewport.width+this.w)  || this.x <= (0-this.w))){ //way out of bounds
+    if(this.enteredviewport == true && (this.x >= (Crafty.viewport.width+this.w) * 2  || this.x <= (0-this.w) * 2)){ //way out of bounds
       this.destroy();
     }
 
