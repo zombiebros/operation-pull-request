@@ -1,5 +1,5 @@
 Crafty.c("Tank", {
-  life: 20
+  life: 35
   ,direction: 1
   ,killcount : 2
   ,speed: 1
