@@ -1,8 +1,8 @@
 Crafty.c("Player", {
     life: 100
     ,maxlife: 100
-    ,grenades: 999
-    ,maxgrenades: 999
+    ,grenades: 3
+    ,maxgrenades: 5
 	
 	,init: function(){
      this.requires("2D, Canvas, player1, ViewportConstrain, MoveByCenter, Destroyable, PlayerControls, SpriteAnimation");

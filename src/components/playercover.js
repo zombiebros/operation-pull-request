@@ -1,5 +1,5 @@
 Crafty.c("PlayerCover", {
-	life: 10
+	life: 40
 	
 	,init: function(){
     	this.requires("2D, Canvas, Destroyable");

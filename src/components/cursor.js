@@ -1,5 +1,8 @@
 Crafty.c("Cursor", {
   firerate: 10
+  ,grenadecooling: false
+  ,grenadecooltime: 500
+
 
   ,init: function(){
     Crafty.addEvent(this, Crafty.stage.elem, "mousemove", this.position);
@@ -61,11 +64,15 @@ Crafty.c("Cursor", {
     var player = Crafty(Crafty("player1")[0]);
     var cursor = Crafty(Crafty("Cursor")[0]);
 
-    if(player.grenades > 0){
+    if(player.grenades > 0 && this.grenadecooling == false){
+      this.grenadecooling = true;
       Crafty.e("Grenade")
       .setTarget(cursor.centerX(), cursor.centerY())
       .setOrigin(player.centerX(), player.centerY());
       player.grenades -= 1;
+      this.timeout(function(){
+        this.grenadecooling = false;
+      }, this.grenadecooltime);
     }
   }
 
