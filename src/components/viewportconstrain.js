@@ -10,12 +10,10 @@ Crafty.c("ViewportConstrain", {
 		//most enemies will spawn off screen. we don't want them blocked by the bounds of the view port until fully on.
 		//console.log("checking for spawn", this.enteredviewport, this.x);
 		if(this.enteredviewport == false && this.x > 0+this.w && this.x < Crafty.viewport.width-this.w){
-			console.log("enemy entered viewport");
 			this.enteredviewport = true;
 		}
 
-		if(this.enteredviewport == true && limit >= Crafty.viewport.width || limit < 0){
-			this.attr({x:from.x,y:from.y});
+		if(this.enteredviewport === true && (limit >= Crafty.viewport.width || limit < 0)){
 			
 			if(this.has("Soldier")){
 				this.direction = this.direction * -1;
@@ -23,3 +21,5 @@ Crafty.c("ViewportConstrain", {
 		}
 	}
 });
+
+
