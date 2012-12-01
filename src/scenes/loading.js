@@ -25,6 +25,7 @@ Crafty.scene("loading", function() {
 		"resources/images/RLsoldier-sprites.png",
 		"resources/images/building.png",
 		"resources/images/title.png",
+		"resources/images/field.png",
 		"resources/images/explosion.png",
 		"resources/images/explosion2.png",
 		"resources/images/bigexplosion.png",

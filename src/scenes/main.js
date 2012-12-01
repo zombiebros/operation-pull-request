@@ -4,7 +4,6 @@ Crafty.scene("main",(function() {
 
 	Crafty.viewport.horizonx = Crafty.viewport.height / 4;
 
-
 	var scene = {
 		level: 1
 		,enemyspawnrate: 200
@@ -102,7 +101,8 @@ Crafty.scene("main",(function() {
 			Crafty.gameover = false;
 			if(Crafty.isPaused()){Crafty.pause();}
 
-			Crafty.background("#444");
+			Crafty.background('url("resources/images/field.png")');
+
 
 			Crafty.bind("EnterFrame", $.proxy(this.enterFrameHandler, this));
 
