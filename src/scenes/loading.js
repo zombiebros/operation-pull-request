@@ -44,7 +44,7 @@ Crafty.scene("loading", function() {
 		"resources/images/muzzelflash.png"
 		], function() {
 			window.setTimeout(function(){
-		     Crafty.scene("win"); //when everything is loaded, run the main scene
+		     Crafty.scene("title"); //when everything is loaded, run the main scene
 		   }, 3000);
 	}, function(e){
 		progressBar.updateCount(e.percent);

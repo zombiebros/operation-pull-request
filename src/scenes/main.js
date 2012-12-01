@@ -41,14 +41,25 @@ Crafty.scene("main",(function() {
 
 			var boss = Crafty.e("Soldier, Boss")
 			.attr({
-				y: 150,
+				x: 200,
+				y: 20,
 				h:300,
 				w: 150,
 				life: 400,
 			})
 			.color("Black");
 			boss.bulletType = boss.bulletType + ",BigBullet";
-			//boss.bind("Dead", Crafty.scene("win"));
+
+
+			Crafty(Crafty("EnemyBarLabel")[0])
+			.text("Boss Health");
+
+			Crafty(Crafty("EnemyHealthBar")[0])
+			.bindToDestroyable(boss);
+
+			boss.bind("Dead", function(){
+				Crafty.scene("win");
+			});
 		}
 
 		,buildUI: function(){
@@ -82,7 +93,7 @@ Crafty.scene("main",(function() {
 				Crafty.trigger("SPAWNBOSS");
 			});
 
-			var enemyBarLabel = Crafty.e("2D, DOM, Text").attr({
+			var enemyBarLabel = Crafty.e("2D, DOM, Text, EnemyBarLabel").attr({
 				x: 400,
 				y: -3,
 				w: 300

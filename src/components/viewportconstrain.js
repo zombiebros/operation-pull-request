@@ -13,7 +13,11 @@ Crafty.c("ViewportConstrain", {
 		}
 
 		if(this.enteredviewport === true && (limit >= Crafty.viewport.width || limit < 0)){
-			
+			if(this.has("Player")){
+				this.attr({x:from.x,y:from.y});
+			}
+
+
 			if(this.has("Soldier")){
 				this.direction = this.direction * -1;
 			}

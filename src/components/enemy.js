@@ -22,8 +22,13 @@ Crafty.c("Enemy", {
       //create the entity off screen and let it run in using this.enteredviewport as a flag to start limiting its bounds.
       this.enteredviewport = false;
       this.requires("Horizonable"); //add Horizonable first because it adjusts the entites height and width which is need for the x
-      this.x = Crafty.math.randomElementOfArray([0-this.w, Crafty.viewport.width+this.w]);
-      this.direction = (this.x < Crafty.viewport.width / 2) ? 1 : -1;
+      // if(this.has("Boss")){
+      //   this.x = 20;
+      //   this.direction = 1;
+      // }else{
+        this.x = Crafty.math.randomElementOfArray([0-this.w, Crafty.viewport.width+this.w]);
+        this.direction = (this.x < Crafty.viewport.width / 2) ? 1 : -1;
+      //}
     }
 
   }
@@ -40,7 +45,11 @@ Crafty.c("Enemy", {
     if(this.dying == true || this.dead == true){return true;}
 
     if(this.enteredviewport == true && (this.x >= (Crafty.viewport.width+this.w) * 2  || this.x <= (0-this.w) * 2)){ //way out of bounds
-      this.destroy();
+      if(this.has("Boss")){
+        this.x = 20
+      }else{
+        this.destroy();
+      }
     }
 
     if(this.hit("EnemyCover") != false){
