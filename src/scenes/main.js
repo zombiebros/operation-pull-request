@@ -39,22 +39,7 @@ Crafty.scene("main",(function() {
 			Crafty.bosstime = true;
 			Crafty.audio.play("title");
 
-			var boss = Crafty.e("Soldier, Boss")
-			.attr({
-				y: 150,
-				h:308,
-				w: 400,
-				life: 400,
-			})
-			.bind("Moved",function(){
-				if(this.direction == 1){
-					this.requires('boss1right');
-				}else{
-					this.requires('boss1left');
-				}
-			});
-			boss.bulletType = boss.bulletType + ",BigBullet";
-
+			var boss = Crafty.e("Boss");
 
 			Crafty(Crafty("EnemyBarLabel")[0])
 			.text("Boss Health");
@@ -122,8 +107,8 @@ Crafty.scene("main",(function() {
 			.attr({
 				w:114,
 				h:61,
-				y: Crafty.viewport.height - 50,
-				x: 400
+				y: Crafty.viewport.height - 60,
+				x: Crafty.viewport.width - 150
 			});
 
 		}
