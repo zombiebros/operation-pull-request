@@ -11,6 +11,7 @@ Crafty.c("Boss", {
       h: 154
       ,w: 200
       ,y: 80
+      ,z: 9999
     })
     .collision([0,0],[200,0],[200,154],[0,154])
     .color("transparent")
