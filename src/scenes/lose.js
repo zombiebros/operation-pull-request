@@ -3,6 +3,7 @@ Crafty.scene("win",(function() {
 	var scene = {
 
 		init: function(){
+			Crafty.audio.stop();
 			var start = Crafty.e("2D, DOM, Text")
 			.text("You Died! The future refused to change.")
 			.css({"font-size": "25px", "font-family": "Arial"})

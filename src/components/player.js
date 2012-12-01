@@ -34,6 +34,7 @@ Crafty.c("Player", {
     }
 
     ,dieHandler2: function(){
+        Crafty.scene("lose");
         if(Crafty.gameover != true){
           Crafty.gameover = true;
           Crafty.trigger("GAMEOVER");
