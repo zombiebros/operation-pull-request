@@ -114,7 +114,6 @@ Crafty.scene("main",(function() {
 		}
 
 		,init: function(){
-			Crafty.bosstime = false;
 			Crafty.audio.stop('title');
 			Crafty.gameover = false;
 			if(Crafty.isPaused()){Crafty.pause();}

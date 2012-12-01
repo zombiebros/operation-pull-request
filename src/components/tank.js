@@ -18,12 +18,17 @@ Crafty.c("Tank", {
     this.requires("Enemy");
     this.fireRate = 80;
     this.bulletType = this.bulletType + ", BigBullet";
+    this.bind("Shoot", this.shootHandler);
     this.bind("Moved", this.movingAnimation);
     // this.bind("Moved", function(previous){
     //   if(this.enteredviewport == true && (this.x + this.w) > Crafty.viewport.width || (this.x-this.w) < 0){
     //     this.destroy(); //destroy tanks once they've moved off screen
     //   }
     // })
+  }
+
+  ,shootHandler: function(){
+    Crafty.audio.play('tank',1);
   }
 
   ,movingAnimation: function(movedata){

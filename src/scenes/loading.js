@@ -98,6 +98,11 @@ Crafty.scene("loading", function() {
 		"resources/sounds/titlesong.mp3",
 		"resources/sounds/titlesong.wav",
 		"resources/sounds/titlesong.ogg"
+		],
+		tank: [
+		"resources/sounds/tank.mp3",
+		"resources/sounds/tank.wav",
+		"resources/sounds/tank.ogg"
 		]
 	});
 
