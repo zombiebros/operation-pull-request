@@ -35,14 +35,11 @@ Crafty.c("Player", {
     }
 
     ,dieHandler2: function(){
-        this.lives -= 1;
+        if(Crafty.gameover != true){
+          Crafty.gameover = true;
+          Crafty.trigger("GAMEOVER");
+      }
 
-        if(this.lives <= 0){
-            if(Crafty.gameover != true){
-              Crafty.gameover = true;
-              Crafty.trigger("GAMEOVER");
-          }
-        }
     }
 
 });

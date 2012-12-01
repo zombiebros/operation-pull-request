@@ -70,6 +70,7 @@ Crafty.c("Cursor", {
       .setTarget(cursor.centerX(), cursor.centerY())
       .setOrigin(player.centerX(), player.centerY());
       player.grenades -= 1;
+      Crafty(Crafty("GrenadeCount")[0]).text("Grenades " + player.grenades);
       this.timeout(function(){
         this.grenadecooling = false;
       }, this.grenadecooltime);
