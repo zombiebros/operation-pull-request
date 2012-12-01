@@ -12,7 +12,7 @@ Crafty.c("Boss", {
       ,w: 200
       ,y: 20
     })
-    .collision([30,20],[60,20],[60,100],[30,100])
+    .collision([0,0],[400,0],[400,308],[0,308])
     .color("transparent")
 
     this.bulletType = this.bulletType + ", BigBullet";
