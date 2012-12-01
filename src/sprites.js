@@ -22,7 +22,7 @@ Crafty.sprite(340,170, "resources/images/wall.png",{
 	playerwall:[0,0]
 });
 
-Crafty.sprite(200,"resources/images/MGsoldier-sprites.png",{
+Crafty.sprite(200,"resources/images/mgsoldiersprites.png",{
 	mgsoldier1: [16,0]
 //this.animate('RunningRight',4,0,7);
 //this.animate('RunningLeft',11,0,8);

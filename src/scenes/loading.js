@@ -30,7 +30,7 @@ Crafty.scene("loading", function() {
 		"resources/images/crossairs.png",
 		"resources/images/character.png",
 		"resources/images/wall.png",
-		"resources/images/MGsoldier-sprites.png",
+		"resources/images/mgsoldiersprites.png",
 		"resources/images/building.png",
 		"resources/images/title.png",
 		"resources/images/field.png",
@@ -71,9 +71,9 @@ Crafty.scene("loading", function() {
 		"resources/sounds/cg1.ogg"
 		],
 		mg: [
-		"resources/sounds/Machine Gun.wav",
-		"resources/sounds/Machine Gun.mp3",
-		"resources/sounds/Machine Gun.ogg"
+		"resources/sounds/mg.wav",
+		"resources/sounds/mg.mp3",
+		"resources/sounds/mg.ogg"
 		],
 		pain: [
 		"resources/sounds/pain.wav",
