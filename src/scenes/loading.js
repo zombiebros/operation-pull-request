@@ -35,7 +35,6 @@ Crafty.scene("loading", function() {
 		], function() {
 		Crafty.scene("main"); //when everything is loaded, run the main scene
 	}, function(e){
-		console.log("progress", e);
 		progressBar.updateCount(e.percent);
 	});
 

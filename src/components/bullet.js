@@ -1,5 +1,6 @@
 Crafty.c("Bullet",{
   speed: 4
+  ,damage: 10
 
   ,init: function() {
     this.requires("bullet1, SpriteAnimation, MoveByCenter, 2D, Canvas");
@@ -10,7 +11,6 @@ Crafty.c("Bullet",{
     var targetx = player.centerX(),
     targety = player.centerY();
   }catch(ex){
-    console.log("wtf player", player);
     throw ex;
   }
 
@@ -73,8 +73,7 @@ Crafty.c("Bullet",{
     //only damage players
     if(!this.has("Grenade") && (destroyable.__c["Player"] || destroyable.__c["PlayerCover"])){
       this.destroy();
-      console.log("triggering damage", destroyable, this.has("Grenade"));
-      destroyable.trigger("Damage");
+      destroyable.trigger("Damage", this.damage);
     }
   }
 
@@ -102,7 +101,8 @@ Crafty.c("BigBullet", {
     this.attr({
       w: 20,
       h: 20,
-      life: 2
+      life: 2,
+      damage: 20
     });
     this.requires("Destroyable, bullet2");
     this.bind("Dead", function(){this.destroy();});

@@ -33,7 +33,6 @@ Crafty.c("Soldier", {
   }
 
   ,movingAnimation: function(movedata){
-    console.log("soldier is moving");
     if(this.direction == 1){
       this.animate('RunningRight',25,-1);
     }else{
