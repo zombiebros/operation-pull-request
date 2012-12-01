@@ -42,11 +42,17 @@ Crafty.scene("main",(function() {
 			var boss = Crafty.e("Soldier, Boss")
 			.attr({
 				y: 150,
-				h:300,
-				w: 150,
+				h:308,
+				w: 400,
 				life: 400,
 			})
-			.color("Black");
+			.bind("Moved",function(){
+				if(this.direction == 1){
+					this.requires('boss1right');
+				}else{
+					this.requires('boss1left');
+				}
+			});
 			boss.bulletType = boss.bulletType + ",BigBullet";
 			//boss.bind("Dead", Crafty.scene("win"));
 		}

@@ -41,7 +41,8 @@ Crafty.scene("loading", function() {
 		"resources/images/grenade.png",
 		"resources/images/bullet.png",
 		"resources/images/heavybullet.png",
-		"resources/images/muzzelflash.png"
+		"resources/images/muzzelflash.png",
+		"resources/images/brain.png"
 		], function() {
 			window.setTimeout(function(){
 		     Crafty.scene("win"); //when everything is loaded, run the main scene
