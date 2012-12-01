@@ -15,8 +15,6 @@ Crafty.c("Soldier", {
     .collision([0,0],[50,0],[50,100])
     .color("transparent")
 
-
-
     this.animate('RunningRight',4,0,7);
     this.animate('RunningLeft',11,0,8);
     this.animate('Shooting',17,0,18);
@@ -30,12 +28,17 @@ Crafty.c("Soldier", {
   }
 
   ,shootHandler: function(){
-    //Crafty.audio.play('shoot',1);
+    this.animate("Shooting",25, 3);
+    Crafty.audio.play('shoot',1);
   }
 
-  ,movingAnimation: function(){
+  ,movingAnimation: function(movedata){
     console.log("soldier is moving");
-    this.animate('RunningRight',25,-1);
+    if(this.direction == 1){
+      this.animate('RunningRight',25,-1);
+    }else{
+      this.animate("RunningLeft", 25,-1);
+    }
   }
 
 });
