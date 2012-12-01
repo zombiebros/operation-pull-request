@@ -113,7 +113,13 @@ Crafty.scene("main",(function() {
 			})
 			.textFont({size: "20px", family: "Arial"});
 
-
+			var controls = Crafty.e("2D,Canvas,controls")
+			.attr({
+				w:114,
+				h:61,
+				y: Crafty.viewport.height - 50,
+				x: 400
+			});
 
 		}
 
