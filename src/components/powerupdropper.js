@@ -8,7 +8,7 @@ Crafty.c("Powerupdropper", {
 	}
 
 	,dropPowerup: function(){
-		if(Crafty.math.randomInt(0, 100) > 10){
+		if(Crafty.math.randomInt(0, 10) > 5){
 
     	var powerUp = this.types[Crafty.math.randomInt(0, this.types.length-1)];
 

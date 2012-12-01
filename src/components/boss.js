@@ -8,11 +8,11 @@ Crafty.c("Boss", {
     this.requires("2D, Canvas, SpriteAnimation, Color, Collision, ViewportConstrain, MoveByCenter, Destroyable")
 
     this.attr({
-      h: 200
+      h: 154
       ,w: 200
-      ,y: 20
+      ,y: 80
     })
-    .collision([0,0],[400,0],[400,308],[0,308])
+    .collision([0,0],[200,0],[200,154],[0,154])
     .color("transparent")
 
     this.bulletType = this.bulletType + ", BigBullet";
