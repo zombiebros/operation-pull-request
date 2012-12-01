@@ -5,7 +5,7 @@ Crafty.c("Tank", {
   ,speed: 1
 
   ,init: function(){
-    this.requires("2D, Canvas, tankleft, Color, Collision, ViewportConstrain, MoveByCenter, Destroyable");
+    this.requires("2D, Canvas, Color, Collision, ViewportConstrain, MoveByCenter, Destroyable, SpriteAnimation");
 
     this.attr({
       y: Crafty.math.randomInt(Crafty.viewport.horizonx, Crafty.viewport.height-400)
@@ -17,7 +17,7 @@ Crafty.c("Tank", {
 
     this.requires("Enemy");
     this.bulletType = this.bulletType + ", BigBullet";
-    
+    this.bind("Moved", this.movingAnimation);
     // this.bind("Moved", function(previous){
     //   if(this.enteredviewport == true && (this.x + this.w) > Crafty.viewport.width || (this.x-this.w) < 0){
     //     this.destroy(); //destroy tanks once they've moved off screen
@@ -27,9 +27,13 @@ Crafty.c("Tank", {
 
   ,movingAnimation: function(movedata){
     if(this.direction == 1){
-      this.animate('MovingRight',25,-1);
+      this.requires('tankright');
+      this.animate('MovingRight',[[0,2],[0,3]]);
+      this.animate('MovingRight', 25,-1);
     }else{
-      this.animate('MovingLeft', 25,-1);
+      this.requires('tankleft');
+      this.animate('MovingLeft',[[0,0],[0,1]]);
+      this.animate('MovingLeft',25,-1);
     }
   }
   

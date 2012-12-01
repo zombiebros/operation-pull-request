@@ -45,7 +45,7 @@ Crafty.sprite(286,186,"resources/images/building.png",{
 	building1: [0,0]
 });
 
-Crafty.sprite(332,70,"resources/images/tankroll.png",{
+Crafty.sprite(332,72,"resources/images/tankroll.png",{
 	tankleft: [0,0],
 	tankright: [0,2]
 });
@@ -76,14 +76,12 @@ Crafty.sprite(40,60,"resources/images/grenade.png",{
 
 Crafty.sprite(10,"resources/images/bullet.png",{
 	bullet1: [0,0]
-//this.animate('Bullet',0,0,7);
 });
 
 Crafty.sprite(20,"resources/images/heavybullet.png",{
 	bullet2: [0,0]
-//this.animate('Bullet',0,0,7);
 });
 
 Crafty.sprite(70,80,"resources/images/muzzelflash.png",{
-	muzzelflash1: [0,0]
+	muzzleflash1: [0,0]
 });

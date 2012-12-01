@@ -7,7 +7,7 @@ Crafty.c("Player", {
 	,init: function(){
      this.requires("2D, Canvas, player1, ViewportConstrain, MoveByCenter, Destroyable, PlayerControls, SpriteAnimation");
 
-     var muzzleflash = Crafty.e("2D, Canvas, muzzleflash, SpriteAnimation")
+     var muzzleflash = Crafty.e("2D, Canvas, muzzleflash1, SpriteAnimation")
      .attr({
         x: this.centerX(),
         y: this.centerY(),
