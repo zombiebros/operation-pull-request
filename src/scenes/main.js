@@ -50,7 +50,7 @@ Crafty.scene("main",(function() {
 			})
 			.color("Black");
 			boss.bulletType = boss.bulletType + ",BigBullet";
-			boss.bind("Dead", Crafty.scene("win"));
+			//boss.bind("Dead", Crafty.scene("win"));
 		}
 
 		,buildUI: function(){

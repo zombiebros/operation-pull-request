@@ -15,6 +15,15 @@ Crafty.c("Soldier", {
     .collision([0,0],[50,0],[50,100])
     .color("transparent")
 
+
+
+    this.animate('RunningRight',4,0,7);
+    this.animate('RunningLeft',11,0,8);
+    this.animate('Shooting',17,0,18);
+    this.animate('DeathWhileShooting',19,0,21);
+    this.animate('DeathWhileRunningRight',27,0,25);
+    this.animate('DeathWhileRunningLeft',22,0,24);
+
     this.requires("Enemy");
     this.bind("Shoot", this.shootHandler);
     this.bind("Moved", this.movingAnimation);
@@ -25,7 +34,8 @@ Crafty.c("Soldier", {
   }
 
   ,movingAnimation: function(){
-    this.animate('RunningRight',4,0,7);
+    console.log("soldier is moving");
+    this.animate('RunningRight',25,-1);
   }
 
 });
