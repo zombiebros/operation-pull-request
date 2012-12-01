@@ -1,5 +1,5 @@
 Crafty.c("Soldier", {
-  life: 5
+  life: 10
   ,direction: 1 
   ,killcount : 1
   ,speed: 2
@@ -23,6 +23,7 @@ Crafty.c("Soldier", {
     this.animate('DeathWhileRunningLeft',22,0,24);
 
     this.requires("Enemy");
+    this.fireRate = 60;
     this.bind("Shoot", this.shootHandler);
     this.bind("Moved", this.movingAnimation);
   }

@@ -143,30 +143,30 @@ Crafty.scene("main",(function() {
 				w: 286,
 				y: 80,
 				x: 200,
-				life: 10
+				life: 50
 			}).addComponent("Horizonable")
 			.bind("Dead", function(){
 				this.destroy();
 			})
 			.collision([30,10], [280,10], [280,200], [30,200])
 			.bind("Damage",function(){
-				if(this.life == 9){
+				if(this.life == 49){
 					this.animate('Building1Damage',0,1,0);
 					this.animate('Building1Damage',15,0);
 				}
-				else if(this.life <=8 && this.life >6){
+				else if(this.life <=38 && this.life > 29){
 					this.animate('Building2Damage',0,2,0);
 					this.animate('Building2Damage',15,0);
 				}
-				else if(this.life <=6 && this.life >4){
+				else if(this.life <=28 && this.life > 19){
 					this.animate('Building3Damage',0,3,0);
 					this.animate('Building3Damage',15,0);
 				}
-				else if(this.life <=4 && this.life >1){
+				else if(this.life <=18 && this.life > 9){
 					this.animate('Building3Damage',0,4,0);
 					this.animate('Building3Damage',15,0);
 				}
-				else if(this.life == 1){
+				else if(this.life <=8 && this.life > 0){
 					this.animate('Building3Damage',0,5,0);
 					this.animate('Building3Damage',15,0);
 				}
@@ -183,15 +183,15 @@ Crafty.scene("main",(function() {
 				x: 0
 			})
 			.bind("Damage", function(){
-				if(this.life <=8 && this.life >6){
+				if(this.life <=299 && this.life >199){
 					this.animate('Wall1Damage',0,1,0);
 					this.animate('Wall1Damage',15,0);
 				}
-				else if(this.life <=6 && this.life >3){
+				else if(this.life <=198 && this.life >99){
 					this.animate('Wall2Damage',0,2,0);
 					this.animate('Wall2Damage',15,0);
 				}
-				else if(this.life <=3 && this.life >0){
+				else if(this.life <=99 && this.life >0){
 					this.animate('Wall3Damage',0,3,0);
 					this.animate('Wall3Damage',15,0);
 				}
@@ -208,15 +208,15 @@ Crafty.scene("main",(function() {
 				x: Crafty.viewport.width-338
 			})
 			.bind("Damage",function(){
-				if(this.life <=8 && this.life >6){
+				if(this.life <=299 && this.life >199){
 					this.animate('Wall1Damage',0,1,0);
 					this.animate('Wall1Damage',15,0);
 				}
-				else if(this.life <=6 && this.life >3){
+				else if(this.life <=198 && this.life >99){
 					this.animate('Wall2Damage',0,2,0);
 					this.animate('Wall2Damage',15,0);
 				}
-				else if(this.life <=3 && this.life >0){
+				else if(this.life <=99 && this.life >0){
 					this.animate('Wall3Damage',0,3,0);
 					this.animate('Wall3Damage',15,0);
 				}
