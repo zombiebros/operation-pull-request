@@ -39,7 +39,7 @@ Crafty.scene("main",(function() {
 			Crafty.bosstime = true;
 			Crafty.audio.play("title");
 
-			var boss = Crafty.e("Boss");
+			var boss = Crafty.e("Boss")
 
 			Crafty(Crafty("EnemyBarLabel")[0])
 			.text("Boss Health");
@@ -107,7 +107,7 @@ Crafty.scene("main",(function() {
 			.attr({
 				w:114,
 				h:61,
-				y: Crafty.viewport.height - 60,
+				y: 500,
 				x: Crafty.viewport.width - 150
 			});
 

@@ -3,8 +3,8 @@ Crafty.scene("loading", function() {
 
 		var start = Crafty.e("2D, DOM, Text, Button")
 			.text("Pull Request Noun: <br />(1) An act of submitting new code for merge in a git repository \n\
-			 <br /> <br /> (2) A covert United States military action that took place Oct 1983, soley lead by Cpt Jackman S Branches.\
-			 Against a undisclosed foreign nation experimenting with illegal military cloning applications")
+			 <br /> <br /> (2) A covert United States military action that took place in October 1983, soley led by Cpt. Jackman S Branches\
+			 against an undisclosed foreign nation experimenting with illegal military cloning applications.")
 			.css({"font-size": "25px", "font-family": "Arial"})
 			.attr({x: 40, y: 40, h: Crafty.viewport.height-100, w: Crafty.viewport.width-100})
 			.textColor("#FFFFFF");
