@@ -39,7 +39,7 @@ Crafty.c("Enemy", {
   ,enterFrameHandler: function(frame){
     if(this.dying == true || this.dead == true){return true;}
 
-    if(this.x >= ((Crafty.viewport.width + this.w) * 2) || (this.x <= 0 - (this.w*2))){ //way out of bounds
+    if(this.enteredviewport == true && (this.x >= (Crafty.viewport.width+this.w)  || this.x <= (0-this.w))){ //way out of bounds
       this.destroy();
     }
 
@@ -57,11 +57,12 @@ Crafty.c("Enemy", {
 
     }
 
-    if(this.enteredframe == true && this.has("Tank") && (this.x > Crafty.viewport.width || this.x < 0)){
+    if(this.enteredviewport == true && this.has("Tank") && (this.x > Crafty.viewport.width || this.x < 0)){
       console.log("tank off screen");
+      this.destroy();
     }
 
-    if(Crafty.math.randomInt(0, 200) == 200 && 
+    if((this.x > 0 && this.x < Crafty.viewport.width) && Crafty.math.randomInt(0, 200) == 200 && 
       (this.hit("EnemyCover") == false || 
         (this.hit("EnemyCover") != false && this.z >= _.max(this.hit("EnemyCover"), function(collision){ return collision.obj.z;}).obj.z ))){
       this.shoot();
