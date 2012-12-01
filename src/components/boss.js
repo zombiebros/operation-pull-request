@@ -16,10 +16,12 @@ Crafty.c("Boss", {
     .color("transparent")
 
     this.bulletType = this.bulletType + ", BigBullet";
-    this.requires("Enemy");
+    this.requires("Enemy, boss1");
+    this.animate('Movingleft',0,0,0);
+    this.animate('Movingright',1,0,1);
     this.fireRate = 25;
     this.bind("Shoot", this.shootHandler);
-    this.bind("EnterFrame", this.movingAnimation);
+    this.bind("Moved", this.movingAnimation);
   }
 
   ,shootHandler: function(){
@@ -28,10 +30,10 @@ Crafty.c("Boss", {
 
   ,movingAnimation: function(movedata){
     if(this.direction == 1){
-      this.requires('boss1right');
-    }else{
-      this.requires('boss1left');
-    }
+      this.animate('Movingright',25,0);
+  }else{
+      this.animate('Movingleft',25,0);
+      }
   }
 
 });

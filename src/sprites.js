@@ -92,6 +92,5 @@ Crafty.sprite(70,80,"resources/images/muzzelflash.png",{
 });
 
 Crafty.sprite(400,308,"resources/images/brain.png",{
-	boss1left: [0,0],
-	boss1right: [1,0]
+	boss1: [0,0]
 });
