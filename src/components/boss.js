@@ -1,5 +1,5 @@
 Crafty.c("Boss", {
-  life: 400
+  life: 300
   ,direction: 1 
   ,killcount : 1
   ,speed: 2
@@ -19,7 +19,7 @@ Crafty.c("Boss", {
     this.requires("Enemy, boss1");
     this.animate('Movingleft',0,0,0);
     this.animate('Movingright',1,0,1);
-    this.fireRate = 25;
+    this.fireRate = 20;
     this.bind("Shoot", this.shootHandler);
     this.bind("Moved", this.movingAnimation);
   }

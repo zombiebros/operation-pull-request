@@ -3,8 +3,8 @@ Crafty.scene("loading", function() {
 
 		var start = Crafty.e("2D, DOM, Text, Button")
 			.text("Pull Request Noun: <br />(1) An act of submitting new code for merge in a git repository \n\
-			 <br /> <br /> (2) A covert United States military action that took place Oct 1983, soley lead by Cpt Jackman S Branches.\
-			 Against a undisclosed foreign nation experimenting with illegal military cloning applications")
+			 <br /> <br /> (2) A covert United States military action that took place in October 1983, soley led by Cpt. Jackman S Branches\
+			 against an undisclosed foreign nation experimenting with illegal military cloning applications.")
 			.css({"font-size": "25px", "font-family": "Arial"})
 			.attr({x: 40, y: 40, h: Crafty.viewport.height-100, w: Crafty.viewport.width-100})
 			.textColor("#FFFFFF");
@@ -44,9 +44,27 @@ Crafty.scene("loading", function() {
 		"resources/images/muzzelflash.png",
 		"resources/images/brain.png"
 		], function() {
-			window.setTimeout(function(){
+
+
+			var timeout = window.setTimeout(function(){
 		     Crafty.scene("title"); //when everything is loaded, run the main scene
-		   }, 3000);
+		   }, 4000);
+
+			Crafty.e("2D, Canvas, Color, Mouse")
+			.attr({
+				x: 0,
+				y: 0,
+				h: Crafty.viewport.height,
+				w: Crafty.viewport.width,
+				z: 9000
+			}).color("transparent")
+			.bind("Click", function(){
+				console.log("click");
+				window.clearTimeout(timeout);
+				Crafty.scene("title");
+			})
+
+
 	}, function(e){
 		progressBar.updateCount(e.percent);
 	});
