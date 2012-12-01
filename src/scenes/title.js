@@ -11,6 +11,7 @@ Crafty.scene("title",(function() {
 			.textFont({size: "100px", family: "Arial"})
 			.attr({x: 340, y: 560, h: 20, w: 100})
 			.requires("Collision, Destroyable")
+			.collision([0,-50], [200,-50], [200,20], [0,20])
 			.textColor("#FFFFFF")
 			.bind("EnterFrame", function(){
 				if(this.hit("Cursor")){
