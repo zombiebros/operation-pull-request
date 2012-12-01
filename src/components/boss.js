@@ -5,7 +5,7 @@ Crafty.c("Boss", {
   ,speed: 2
 
   ,init: function(){
-    this.requires("2D, Canvas, SpriteAnimation, Color, Collision, ViewportConstrain, MoveByCenter, Destroyable, WiredHitBox")
+    this.requires("2D, Canvas, SpriteAnimation, Color, Collision, ViewportConstrain, MoveByCenter, Destroyable")
 
     this.attr({
       h: 200
