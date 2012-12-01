@@ -2,6 +2,7 @@ Crafty.c("Enemy", {
   moving: true
   ,enteredviewport: false
   ,bulletType: "Bullet"
+  ,fireRate: 200
 
   ,init: function(){
     this.bind("EnterFrame", this.enterFrameHandler);
@@ -71,14 +72,17 @@ Crafty.c("Enemy", {
       this.destroy();
     }
 
-    if((this.x > 0 && this.x < Crafty.viewport.width) && Crafty.math.randomInt(0, 200) == 200 && 
+    if((this.x > 0 && this.x < Crafty.viewport.width) && Crafty.math.randomInt(0, this.fireRate) == this.fireRate && 
       (this.hit("EnemyCover") == false || 
         (this.hit("EnemyCover") != false && this.z >= _.max(this.hit("EnemyCover"), function(collision){ return collision.obj.z;}).obj.z ))){
       this.shoot();
-    this.moving = false;
-    this.timeout(function(){
-      this.moving = true;
-    }, 500);
+
+    if(!this.has("Boss")){
+      this.moving = false;
+      this.timeout(function(){
+        this.moving = true;
+      }, 500);
+    }
   }
 
   if(this.moving == true){
