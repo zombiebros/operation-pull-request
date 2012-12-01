@@ -117,7 +117,7 @@ Crafty.scene("main",(function() {
 
 			this.buildUI();
 
-			var cover = Crafty.e("building1, 2D, Canvas, Cover, EnemyCover, Spawner, Destroyable, SpriteAnimation, Collision, WiredHitBox")
+			var cover = Crafty.e("building1, 2D, Canvas, Cover, EnemyCover, Spawner, Destroyable, SpriteAnimation, Collision")
 			.attr({
 				h: 187,
 				w: 286,
