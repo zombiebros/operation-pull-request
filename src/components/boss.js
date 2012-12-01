@@ -8,10 +8,9 @@ Crafty.c("Boss", {
     this.requires("2D, Canvas, SpriteAnimation, Color, Collision, ViewportConstrain, MoveByCenter, Destroyable")
 
     this.attr({
-      y: Crafty.math.randomInt(Crafty.viewport.horizonx, Crafty.viewport.height-400)
-      ,h: 308
+      h: 308
       ,w: 400
-      ,y: 150
+      ,y: 20
     })
     .collision([0,0],[400,0],[400,308],[0,308])
     .color("transparent")
@@ -19,7 +18,7 @@ Crafty.c("Boss", {
     this.bulletType = this.bulletType + ", BigBullet";
     this.requires("Enemy");
     this.bind("Shoot", this.shootHandler);
-    this.bind("Moved", this.movingAnimation);
+    this.bind("EnterFrame", this.movingAnimation);
   }
 
   ,shootHandler: function(){
