@@ -81,6 +81,17 @@ Crafty.scene("main",(function() {
 				Crafty.trigger("SPAWNBOSS");
 			});
 
+			var enemyBarLabel = Crafty.e("2D, DOM, Text").attr({
+				x: 400,
+				y: -3,
+				w: 300
+			}).text("Enemy Health")
+			.css({
+				"font-size": "10px"
+			})
+			.textFont({size: "10px", family: "Arial"})
+
+
 			var doodsLabel = Crafty.e("2D, DOM, Text").attr({
 				x: healthBar.w+120,
 				y: Crafty.viewport.height - 45,
