@@ -28,10 +28,8 @@ Crafty.scene("main",(function() {
 		,spawnNewEnemy: function(){
 			if(Crafty.math.randomInt(0, this.chancetospawntank) == this.chancetospawntank){
 				Crafty.e("Tank");
-				console.log("spawn new tank", Crafty("Tank").length, Crafty("Soldier").length);
 			}else{
 				Crafty.e("Soldier");
-				console.log("spawn new soldier", Crafty("Tank").length, Crafty("Soldier").length);
 			}
 		}
 
@@ -42,7 +40,7 @@ Crafty.scene("main",(function() {
 
 			var boss = Crafty.e("Soldier, Boss")
 			.attr({
-				y: 200,
+				y: 150,
 				h:300,
 				w: 150,
 				life: 400,
@@ -82,6 +80,17 @@ Crafty.scene("main",(function() {
 			.bind("Empty", function(){				
 				Crafty.trigger("SPAWNBOSS");
 			});
+
+			var enemyBarLabel = Crafty.e("2D, DOM, Text").attr({
+				x: 400,
+				y: -3,
+				w: 300
+			}).text("Enemy Health")
+			.css({
+				"font-size": "10px"
+			})
+			.textFont({size: "10px", family: "Arial"})
+
 
 			var doodsLabel = Crafty.e("2D, DOM, Text").attr({
 				x: healthBar.w+120,
@@ -126,7 +135,8 @@ Crafty.scene("main",(function() {
 				y: 80,
 				x: 200,
 				life: 10
-			}).addComponent("Horizonable").bind("Dead", function(){
+			}).addComponent("Horizonable")
+			.bind("Dead", function(){
 				this.destroy();
 			})
 			.collision([30,10], [280,10], [280,200], [30,200])

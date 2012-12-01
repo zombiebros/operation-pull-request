@@ -15,7 +15,6 @@ Crafty.c("Player", {
         h: 80,
         z: 9000
      })
-     
 
 
      this.bind("Damage",function(damage){
