@@ -19,8 +19,12 @@ Crafty.c("Destroyable", {
       this.life -= 1;
     }else{
       if(damageamount < 0 && typeof this.maxlife != "undefined"){
-
+        if((damageamount * -1) > this.maxlife - this.life){ //don't heal over max
+          this.life = this.maxlife;
+          return;
+        }
       } //healing
+
       this.life -= damageamount;
     }
 

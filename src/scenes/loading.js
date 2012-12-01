@@ -1,11 +1,12 @@
 //the loading screen that will display while our assets load
 Crafty.scene("loading", function() {
-	console.log("loadin");
 
-		var start = Crafty.e("2D, Canvas, Text, Button")
-			.text("Pull Request \n Noun: An act of submitting new code for merge in a git repository")
-			.textFont({size: "40px", family: "Arial"})
-			.attr({x: 40, y: 40, h: 20, w: 100})
+		var start = Crafty.e("2D, DOM, Text, Button")
+			.text("Pull Request Noun: <br />(1) An act of submitting new code for merge in a git repository \n\
+			 <br /> <br /> (2) A covert United States military action that took place Oct 1983, soley lead by Cpt Jackman S Branches.\
+			 Against a undisclosed foreign nation experimenting with illegal military cloning applications")
+			.css({"font-size": "25px", "font-family": "Arial"})
+			.attr({x: 40, y: 40, h: Crafty.viewport.height-100, w: Crafty.viewport.width-100})
 			.textColor("#FFFFFF");
 
 			var progressBar = Crafty.e("UI,Progressbar").attr({
@@ -16,6 +17,14 @@ Crafty.scene("loading", function() {
 				current_progress: 0
 			})
 			.trigger("Redraw");
+
+			var enemyBarLabel = Crafty.e("2D, DOM, Text").attr({
+				x: 400,
+				y: -3,
+				w: 300
+			}).text("Loading...")
+			.css({"font-size": "20px", "font-family": "Arial"})
+			//.textFont({size: "10px", family: "Arial"})
 
   Crafty.load([
 		"resources/images/crossairs.png",
@@ -34,7 +43,9 @@ Crafty.scene("loading", function() {
 		"resources/images/heavybullet.png",
 		"resources/images/muzzelflash.png"
 		], function() {
-		     Crafty.scene("main"); //when everything is loaded, run the main scene
+			window.setTimeout(function(){
+		     Crafty.scene("win"); //when everything is loaded, run the main scene
+		   }, 3000);
 	}, function(e){
 		progressBar.updateCount(e.percent);
 	});

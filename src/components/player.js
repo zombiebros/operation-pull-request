@@ -14,6 +14,14 @@ Crafty.c("Player", {
      });
      this.bind("Dead", this.dieHandler2);
      this.bind("RestoreHP", this.RestoreHPHandler);
+     this.bind("Grenadecount", this.grenadeCount);
+    }
+
+    ,grenadeCount: function(count){
+        if(this.grenades < this.maxgrenades){
+            this.grenades += count;
+        }
+        Crafty(Crafty("GrenadeCount")[0]).text("Grenades " + this.grenades);
     }
 
     ,RestoreHPHandler: function(healvalue){

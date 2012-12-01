@@ -86,7 +86,7 @@ Crafty.scene("main",(function() {
 				x: 400,
 				y: -3,
 				w: 300
-			}).text("Enemy Health")
+			}).text("Clones Remaining")
 			.css({
 				"font-size": "10px"
 			})
