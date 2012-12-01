@@ -93,7 +93,7 @@ Crafty.scene("main",(function() {
 			.textFont({size: "10px", family: "Arial"})
 
 
-			var doodsLabel = Crafty.e("2D, DOM, Text").attr({
+			var doodsLabel = Crafty.e("2D, DOM, Text, GrenadeCount").attr({
 				x: healthBar.w+120,
 				y: Crafty.viewport.height - 45,
 			}).text(function(){
