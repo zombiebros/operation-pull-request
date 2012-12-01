@@ -16,6 +16,7 @@ Crafty.c("Tank", {
     .color("transparent")
 
     this.requires("Enemy");
+    this.fireRate = 80;
     this.bulletType = this.bulletType + ", BigBullet";
     this.bind("Moved", this.movingAnimation);
     // this.bind("Moved", function(previous){
