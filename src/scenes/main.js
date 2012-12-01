@@ -107,8 +107,8 @@ Crafty.scene("main",(function() {
 			.attr({
 				w:114,
 				h:61,
-				y: 500,
-				x: Crafty.viewport.width - 150
+				y: Crafty.viewport.height - 61,
+				x: 500
 			});
 
 		}
