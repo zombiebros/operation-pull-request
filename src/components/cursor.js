@@ -92,7 +92,7 @@ Crafty.c("Cursor", {
       .setTarget(cursor.centerX(), cursor.centerY())
       .setOrigin(player.centerX(), player.centerY());
       //console.log("launchingGrenade", player.grenades);
-      player.grenades -= 1;
+      player.grenades -= 0.5;
       //console.log("after grenadelaunch", player.grenades);
       Crafty(Crafty("GrenadeCount")[0]).text("Grenades " + player.grenades);
       this.timeout(function(){
