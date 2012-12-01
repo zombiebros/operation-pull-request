@@ -26,7 +26,6 @@ Crafty.c("Player", {
     }
 
     ,RestoreHPHandler: function(healvalue){
-        console.log("player get hp", healvalue);
         if(this.life < this.maxlife){
 
             this.life += healvalue;
@@ -35,10 +34,10 @@ Crafty.c("Player", {
 
     ,dieHandler2: function(){
         Crafty.scene("lose");
-        if(Crafty.gameover != true){
-          Crafty.gameover = true;
-          Crafty.trigger("GAMEOVER");
-      }
+      //   if(Crafty.gameover != true){
+      //     Crafty.gameover = true;
+      //     Crafty.trigger("GAMEOVER");
+      // }
 
     }
 
