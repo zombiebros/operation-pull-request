@@ -14,6 +14,20 @@ Crafty.c("Cursor", {
     .onHit("Destroyable", this.attackTimeout)
     ;
 
+    var player = Crafty(Crafty("player1")[0]);
+    var muzzleflash = Crafty.e("2D, Canvas, muzzleflash1, SpriteAnimation")
+     .attr({
+        x: player.x+75,
+        y: player.y,
+        w: 70,
+        h: 80,
+        z: player.z - 1
+     }).animate('MuzzleFlash',0,0,1);
+
+     this.muzzleflash = muzzleflash;
+     player.attach(this.muzzleflash);
+
+
   }
 
   ,position: function(e){
@@ -53,6 +67,8 @@ Crafty.c("Cursor", {
       this.animate('Shooting',0,0,1)
       .animate('Shooting', 5 , -1);
 
+      this.muzzleflash.animate("MuzzleFlash", 5, -1);
+
       Crafty.audio.play('mg', -1);
     }
     if(mouseEvent.mouseButton === Crafty.mouseButtons.RIGHT){
@@ -79,6 +95,7 @@ Crafty.c("Cursor", {
 
   ,mouseUpHandler: function() {
     this.shooting = false;
+    this.muzzleflash.reset();
     if(this.isPlaying('Shooting')){
       this.reset();
       Crafty.audio.stop('mg');
