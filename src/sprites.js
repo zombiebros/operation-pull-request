@@ -90,3 +90,8 @@ Crafty.sprite(20,"resources/images/heavybullet.png",{
 Crafty.sprite(70,80,"resources/images/muzzelflash.png",{
 	muzzleflash1: [0,0]
 });
+
+Crafty.sprite(400,308,"resources/images/brain.png",{
+	boss1left: [0,0],
+	boss1right: [1,0]
+});
