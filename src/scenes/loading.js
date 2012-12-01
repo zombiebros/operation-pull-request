@@ -1,6 +1,21 @@
 //the loading screen that will display while our assets load
 Crafty.scene("loading", function() {
-console.log("loadin");
+	console.log("loadin");
+
+		var start = Crafty.e("2D, Canvas, Text, Button")
+			.text("Pull Request \n Noun: An act of submitting new code for merge in a git repository")
+			.textFont({size: "40px", family: "Arial"})
+			.attr({x: 40, y: 40, h: 20, w: 100})
+			.textColor("#FFFFFF");
+
+			var progressBar = Crafty.e("UI,Progressbar").attr({
+				x: 0,
+				y: 0,
+				w: Crafty.viewport.width,
+				h: 20,
+				current_progress: 0
+			})
+			.trigger("Redraw");
 
   Crafty.load([
 		"resources/images/crossairs.png",
@@ -18,7 +33,10 @@ console.log("loadin");
 		"resources/images/heavybullet.png"
 		], function() {
 		Crafty.scene("main"); //when everything is loaded, run the main scene
-  });
+	}, function(e){
+		console.log("progress", e);
+		progressBar.updateCount(e.percent);
+	});
 
   Crafty.audio.add({
 		shoot: [
