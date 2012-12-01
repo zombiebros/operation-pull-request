@@ -19,6 +19,7 @@ Crafty.c("Enemy", {
         this.direction = Crafty.math.randomElementOfArray([-1, 1]);
     }else{
       console.log("regular spawn for enemy");
+      console.log("enemy count", "soldiers:", Crafty(Crafty("Soldier")[0]).length, "tanks:", Crafty(Crafty("Tank")[0]).length);
       //create the entity off screen and let it run in using this.enteredviewport as a flag to start limiting its bounds.
       this.enteredviewport = false;
       this.requires("Horizonable"); //add Horizonable first because it adjusts the entites height and width which is need for the x
@@ -37,11 +38,29 @@ Crafty.c("Enemy", {
   }
 
   ,enterFrameHandler: function(frame){
+    if(this.hit("EnemyCover") != false){
+      
+      var maxz = _.max(this.hit("EnemyCover"), function(coverhit){
+        return coverhit.obj._z;
+      });
+
+      if((this.y + this.h) <= (maxz.obj.y + maxz.obj.h)){
+        this.z = maxz.obj.z - 5;
+      }else{
+        this.z = maxz.obj.z + 5;
+      }
+
+
+    }
+
+    if(this.enteredframe == true && this.has("Tank") && (this.x > Crafty.viewport.width || this.x < 0)){
+      console.log("tank off screen");
+    }
     if(this.dying == true || this.dead == true){return true;}
 
     if(Crafty.math.randomInt(0, 200) == 200 && 
       (this.hit("EnemyCover") == false || 
-        (this.hit("EnemyCover") == true && this.z >= _.max(this.hit("EnemyCover"), function(collision){ return collision.obj.z;}) ))){
+        (this.hit("EnemyCover") != false && this.z >= _.max(this.hit("EnemyCover"), function(collision){ return collision.obj.z;}).obj.z ))){
       this.shoot();
     this.moving = false;
     this.timeout(function(){
