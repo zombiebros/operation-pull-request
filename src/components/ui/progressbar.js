@@ -38,7 +38,7 @@ Crafty.c("Progressbar", {
 		destroyable.bind("Damage", function(){
 			console.log("destroyable damaged");
 			if(this.has("Boss")){
-				_self.current_progress = this.life / 4;
+				_self.current_progress = this.life / 3;
       }else{
       	_self.current_progress = this.life;
       }

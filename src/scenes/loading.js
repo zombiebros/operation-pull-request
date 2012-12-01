@@ -44,9 +44,27 @@ Crafty.scene("loading", function() {
 		"resources/images/muzzelflash.png",
 		"resources/images/brain.png"
 		], function() {
-			window.setTimeout(function(){
+
+
+			var timeout = window.setTimeout(function(){
 		     Crafty.scene("title"); //when everything is loaded, run the main scene
-		   }, 3000);
+		   }, 4000);
+
+			Crafty.e("2D, Canvas, Color, Mouse")
+			.attr({
+				x: 0,
+				y: 0,
+				h: Crafty.viewport.height,
+				w: Crafty.viewport.width,
+				z: 9000
+			}).color("transparent")
+			.bind("Click", function(){
+				console.log("click");
+				window.clearTimeout(timeout);
+				Crafty.scene("title");
+			})
+
+
 	}, function(e){
 		progressBar.updateCount(e.percent);
 	});
