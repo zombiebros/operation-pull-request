@@ -6,7 +6,7 @@ Crafty.scene("loading", function() {
 			 <br /> <br /> (2) A covert United States military action that took place Oct 1983, soley lead by Cpt Jackman S Branches.\
 			 Against a undisclosed foreign nation experimenting with illegal military cloning applications")
 			.css({"font-size": "25px", "font-family": "Arial"})
-			.attr({x: 40, y: 40, h: Crafty.viewport.height, w: Crafty.viewport.width})
+			.attr({x: 40, y: 40, h: Crafty.viewport.height-100, w: Crafty.viewport.width-100})
 			.textColor("#FFFFFF");
 
 			var progressBar = Crafty.e("UI,Progressbar").attr({
