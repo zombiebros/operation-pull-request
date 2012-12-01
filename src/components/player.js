@@ -15,6 +15,7 @@ Crafty.c("Player", {
      this.bind("Dead", this.dieHandler2);
      this.bind("RestoreHP", this.RestoreHPHandler);
      this.bind("Grenadecount", this.grenadeCount);
+     this.enteredviewport = true;
     }
 
     ,grenadeCount: function(count){
