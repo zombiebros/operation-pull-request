@@ -83,3 +83,7 @@ Crafty.sprite(20,"resources/images/heavybullet.png",{
 	bullet2: [0,0]
 //this.animate('Bullet',0,0,7);
 });
+
+Crafty.sprite(70,80,"resources/images/muzzelflash.png",{
+	muzzelflash: [0,0]
+});
