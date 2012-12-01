@@ -115,7 +115,7 @@ Crafty.scene("main",(function() {
 				y: Crafty.viewport.height - 200,
 				z: 2
 			})
-			.collision([50,0], [150,0], [116,200]);
+			.collision([60,200], [140,200], [110,0], [80,0]);
 
 			this.buildUI();
 
@@ -129,7 +129,7 @@ Crafty.scene("main",(function() {
 			}).addComponent("Horizonable").bind("Dead", function(){
 				this.destroy();
 			})
-			.collision([30,10], [200,10], [286,187])
+			.collision([30,10], [280,10], [280,200], [30,200])
 			.bind("Damage",function(){
 				if(this.life == 9){
 					this.animate('Building1Damage',0,1,0);
