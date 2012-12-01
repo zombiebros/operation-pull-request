@@ -23,7 +23,7 @@ Crafty.scene("loading", function() {
 				y: -3,
 				w: 300
 			}).text("Loading...")
-			.css({"font-size": "20px", "font-family": "Arial"})
+			.css({"font-size": "20px", "font-family": "Arial", color: "#FFF"})
 			//.textFont({size: "10px", family: "Arial"})
 
   Crafty.load([
