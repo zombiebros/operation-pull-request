@@ -1,9 +1,8 @@
-Crafty.scene("win",(function() { 
-    mixpanel.track("Win");
-	
+Crafty.scene("win",(function() { 	
 	var scene = {
 
 		init: function(){
+            mixpanel.track("Win");
 			Crafty.bosstime = true;
 			var start = Crafty.e("2D, DOM, Text")
 			.text("You win! Thanks for playing. <br /><br /> All events based on a true story.")

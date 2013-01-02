@@ -1,9 +1,9 @@
 Crafty.scene("lose",(function() { 
-    mixpanel.track("Lose");
 	
 	var scene = {
 
 		init: function(){
+            mixpanel.track("Lose");
 			Crafty.audio.stop();
 			Crafty.background('#000000');
 			var start = Crafty.e("2D, DOM, Text")

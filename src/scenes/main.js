@@ -1,5 +1,4 @@
 Crafty.scene("main",(function() { 
-    mixpanel.track("New Game");
 	//Crafty.scene only takes a function parameter. I've wrapped an object for our scene in a closure.
 	//This gives us more state to work with. Returns an init function at the bottom.
 
@@ -114,6 +113,7 @@ Crafty.scene("main",(function() {
 		}
 
 		,init: function(){
+            mixpanel.track("New Game");
 			Crafty.audio.stop('title');
 			Crafty.bosstime = false;
 			Crafty.gameover = false;
