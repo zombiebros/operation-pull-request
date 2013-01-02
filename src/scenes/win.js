@@ -1,4 +1,5 @@
 Crafty.scene("win",(function() { 
+    mixpanel.track("Win");
 	
 	var scene = {
 

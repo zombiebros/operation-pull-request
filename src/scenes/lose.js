@@ -1,4 +1,5 @@
 Crafty.scene("lose",(function() { 
+    mixpanel.track("Lose");
 	
 	var scene = {
 
