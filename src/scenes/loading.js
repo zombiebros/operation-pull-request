@@ -41,7 +41,7 @@ Crafty.scene("loading", function() {
 		"resources/images/brain.png"
 		], function() {
 
-
+            
 			var timeout = window.setTimeout(function(){
 		     Crafty.scene("title"); //when everything is loaded, run the main scene
 		   }, 4000);

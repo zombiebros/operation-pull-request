@@ -33,6 +33,7 @@ Crafty.c("Player", {
     }
 
     ,dieHandler2: function(){
+        mixpanel.track("Player Dead");
         Crafty.scene("lose");
       //   if(Crafty.gameover != true){
       //     Crafty.gameover = true;
