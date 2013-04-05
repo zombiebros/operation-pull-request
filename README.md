@@ -6,7 +6,7 @@ A 2D 3rd person shooter homage to arcade games of the past.
 
 [Play it here](http://zombiebros.github.com/game-off-2012/)
 
-[<img src="http://zombiebros.github.com/game-off-2012/resources/images/gameplay.png" />](http://zombiebros.github.com/game-off-2012/)
+[<img src="http://zombiebros.github.com/game-off-2012/resources/images/gameplay.png" />](http://zombiebros.github.io/operation-pull-request/)
 
 [Play it here](http://zombiebros.github.com/game-off-2012/)
 ....
