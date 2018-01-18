@@ -1,4 +1,4 @@
-Crafty.scene("main",(function() { 
+Crafty.scene("main",(function() {
 	//Crafty.scene only takes a function parameter. I've wrapped an object for our scene in a closure.
 	//This gives us more state to work with. Returns an init function at the bottom.
 
@@ -54,7 +54,7 @@ Crafty.scene("main",(function() {
 
 			var healthBarLabel = Crafty.e("2D, DOM, Text").attr({
 				x: 20,
-				y: Crafty.viewport.height - 45				
+				y: Crafty.viewport.height - 45
 			}).text("Player Health")
 			.css({
 				"font-size": "20px"
@@ -63,7 +63,7 @@ Crafty.scene("main",(function() {
 
 			var healthBar = Crafty.e("UI,Progressbar, PlayerHealthBar").attr({
 				x: 100,
-				y: Crafty.viewport.height - 50, 
+				y: Crafty.viewport.height - 50,
 				w: 200,
 				h: 50,
 			})
@@ -77,15 +77,15 @@ Crafty.scene("main",(function() {
 				current_progress: 100
 			})
 			.trigger("Redraw")
-			.bind("Empty", function(){				
+			.bind("Empty", function(){
 				Crafty.trigger("SPAWNBOSS");
 			});
 
 			var enemyBarLabel = Crafty.e("2D, DOM, Text, EnemyBarLabel").attr({
-				x: 400,
-				y: -3,
-				w: 300
-			}).text("Clones Remaining")
+			  x: 400,
+			  y: -3,
+			  w: 300
+			}).text("Enemies Remaining")
 			.css({
 				"font-size": "10px"
 			})
