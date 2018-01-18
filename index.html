@@ -1,55 +1,60 @@
 <!DOCTYPE html>
 <html>
-	<head>
-	  <meta charset=utf-8 />
-	  <title>ZombieBros</title>
-          <style type="text/css">
-            html, body{margin: 0; padding: 0; background: #000;}
-            #cr-stage {cursor: none !important; margin: 0 auto; margin-top: 5%; border: 1px solid grey; padding: 0px;}
-          </style>
-	</head>
-	<body>
+  <head>
+    <meta charset=utf-8 />
+    <title>ZombieBros</title>
+    <style type="text/css">
+     html, body{margin: 0; padding: 0; background: #000;}
+     #cr-stage {cursor: none !important; margin: 0 auto; margin-top: 5%; border: 1px solid grey; padding: 0px;}
+     .start-btn{
+       font-size: 100px;
+       color: "red";
+       font-family: arial;
+       margin: 0 auto;
+       position: absolute;
+       bottom: 0px;
+       width: 100%;
+       text-align: center;
+     }
+    </style>
+  </head>
+  <body>
 
 
 
-	  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-
-	  <script type="text/javascript" src="src/lib/crafty.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script type="text/javascript" src="src/lib/crafty.js"></script>
     <script type="text/javascript" src="src/lib/map_loader.js"></script>
     <script type="text/javascript" src="src/lib/underscore-min.js"></script>
+    <script type="text/javascript" src="src/sprites.js"></script>
+    <script type="text/javascript" src="src/components/player.js"></script>
+    <script type="text/javascript" src="src/components/playercontrols.js"></script>
+    <script type="text/javascript" src="src/components/slide.js"></script>
+    <script type="text/javascript" src="src/components/ai.js"></script>
+    <script type="text/javascript" src="src/components/camera.js"></script>
+    <script type="text/javascript" src="src/components/down_stairs.js"></script>
+    <script type="text/javascript" src="src/components/solid.js"></script>
+    <script type="text/javascript" src="src/components/cursor.js"></script>
+    <script type="text/javascript" src="src/components/bullet.js"></script>
+    <script type="text/javascript" src="src/components/enemy.js"></script>
+    <script type="text/javascript" src="src/components/soldier.js"></script>
+    <script type="text/javascript" src="src/components/tank.js"></script>
+    <script type="text/javascript" src="src/components/boss.js"></script>
+    <script type="text/javascript" src="src/components/viewportconstrain.js"></script>
+    <script type="text/javascript" src="src/components/movebycenter.js"></script>
+    <script type="text/javascript" src="src/components/destroyable.js"></script>
+    <script type="text/javascript" src="src/components/playercover.js"></script>
+    <script type="text/javascript" src="src/components/horizonable.js"></script>
+    <script type="text/javascript" src="src/components/powerups.js"></script>
+    <script type="text/javascript" src="src/components/powerupdropper.js"></script>
+    <script type="text/javascript" src="src/components/grenade.js"></script>
+    <script type="text/javascript" src="src/components/ui/progressbar.js"></script>
+    <script type="text/javascript" src="src/scenes/loading.js"></script>
+    <script type="text/javascript" src="src/scenes/main.js"></script>
+    <script type="text/javascript" src="src/scenes/title.js"></script>
+    <script type="text/javascript" src="src/scenes/win.js"></script>
+    <script type="text/javascript" src="src/scenes/lose.js"></script>
 
-	  <script type="text/javascript" src="src/sprites.js"></script>
-	  <script type="text/javascript" src="src/components/player.js"></script>
-	  <script type="text/javascript" src="src/components/playercontrols.js"></script>
-	  <script type="text/javascript" src="src/components/slide.js"></script>
-	  <script type="text/javascript" src="src/components/ai.js"></script>
-	  <script type="text/javascript" src="src/components/camera.js"></script>
-	  <script type="text/javascript" src="src/components/down_stairs.js"></script>
-	  <script type="text/javascript" src="src/components/solid.js"></script>
-	  <script type="text/javascript" src="src/components/cursor.js"></script>
-	  <script type="text/javascript" src="src/components/bullet.js"></script>
-	  <script type="text/javascript" src="src/components/enemy.js"></script>
-	  <script type="text/javascript" src="src/components/soldier.js"></script>
-	  <script type="text/javascript" src="src/components/tank.js"></script>
-	  <script type="text/javascript" src="src/components/boss.js"></script>	  
-	  <script type="text/javascript" src="src/components/viewportconstrain.js"></script>
-	  <script type="text/javascript" src="src/components/movebycenter.js"></script>
-	  <script type="text/javascript" src="src/components/destroyable.js"></script>
-	  <script type="text/javascript" src="src/components/playercover.js"></script>
-	  <script type="text/javascript" src="src/components/horizonable.js"></script>
-	  <script type="text/javascript" src="src/components/powerups.js"></script>
-	  <script type="text/javascript" src="src/components/powerupdropper.js"></script>
-	  <script type="text/javascript" src="src/components/grenade.js"></script>
-
-	  <script type="text/javascript" src="src/components/ui/progressbar.js"></script>
-
-	  <script type="text/javascript" src="src/scenes/loading.js"></script>
-	  <script type="text/javascript" src="src/scenes/main.js"></script>
-	  <script type="text/javascript" src="src/scenes/title.js"></script>
-	  <script type="text/javascript" src="src/scenes/win.js"></script>
-	  <script type="text/javascript" src="src/scenes/lose.js"></script>
-
-
-	  <script type="text/javascript" src="src/game.js"></script>
-	</body>
+    <script type="text/javascript" src="src/game.js"></script>
+  </body>
 </html>
