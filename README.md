@@ -12,7 +12,8 @@ A 2D 3rd person shooter homage to arcade games of the past.
 ....
 
 
-#Credits
+# Credits
 
+* Collaboration between @kevzettler and @bryanzettler
 * Made with [CraftyJs](http://craftyjs.com/)
 * All Art and Sound are remixes of classic shooters and garage bands
